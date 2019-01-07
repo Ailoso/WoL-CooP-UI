@@ -5,6 +5,10 @@ Development files for Wings of Liberty Coop UI by LordDz
 
 # WoL UI
 
+## UI Commands
+- VicQ
+    - Starts victory sequence and displays victory UI
+
 ## Working Features
 - Summary Panel 
     - Intro animations

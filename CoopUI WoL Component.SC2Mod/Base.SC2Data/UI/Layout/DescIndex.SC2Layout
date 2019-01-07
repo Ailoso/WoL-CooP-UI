@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Desc>
-    <Include path="UI/Layout/WoL_Coop_StandardTemplate.SC2Layout"/>
-    <Include path="UI/Layout/WoL_Coop_ScoreScreen.SC2Layout"/>
-</Desc>

@@ -1,0 +1,533 @@
+include "TriggerLibs/NativeLib"
+include "Lib956128B8"
+
+include "LibAB61AAA6_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: WoL Coop (UI)
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libAB61AAA6_InitLibraries () {
+    libNtve_InitVariables();
+    lib956128B8_InitVariables();
+}
+
+// Variable Initialization
+bool libAB61AAA6_InitVariables_completed = false;
+
+void libAB61AAA6_InitVariables () {
+    int init_i;
+    int init_i1;
+
+    if (libAB61AAA6_InitVariables_completed) {
+        return;
+    }
+
+    libAB61AAA6_InitVariables_completed = true;
+
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_globalValues[init_i].lv_mapKey = "";
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_SharedPanel[init_i].lv_dialog = c_invalidDialogId;
+        libAB61AAA6_gv_kL_SharedPanel[init_i].lv_sharedPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_SharedPanel[init_i].lv_missionTimeLabel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_SharedPanel[init_i].lv_quitButton = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_summaryPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_missionReportImage = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_rewardLabel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_missionLabel = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_playerButtons[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_playerLabel[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_rewardPanels[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_rewardIcons[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_rewardTitles[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_rewardDescriptions[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_rewardScore[init_i1] = c_invalidDialogControlId;
+        }
+        libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_statBackground = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 9; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_statContainers[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 9; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_statTitle[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 9; init_i1 += 1) {
+            libAB61AAA6_gv_kL_SummaryPanel[init_i].lv_statValue[init_i1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_armoryPanel = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 6; init_i1 += 1) {
+            libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_groupTabs[init_i1] = c_invalidDialogControlId;
+        }
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_baseBunkerPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_baseTurretPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_baseSCVPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_baseCCPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_infantryMarinePanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_infantryMedicPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_infantryFirebatPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_infantryMarauderPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_infantryReaperPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_vehiclesHellionPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_vehiclesVulturePanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_vehiclesGoliathPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_vehiclesDiamondBackPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_vehiclesSiegeTankPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_starshipsMedivacPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_starshipsWraithPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_starshipsVikingPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_starshipsBansheePanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_starshipsBattlecruiserPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_title = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_effects = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_description = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_credits = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_costBackground = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_cost = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryPanel[init_i].lv_purchaseButton = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_projectileAccelerator = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_neosteelBunker = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_titaniumHousing = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_hellstormBatteries = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_advancedConstruction = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_dualFusionWelders = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_fireSupressionSystem = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_orbitalCommand = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_stimpack = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_combatShield = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_medicUpgd1 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_medicUpgd2 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_firebatUpgd1 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_firebatUpgd2 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_marauderUpgd1 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_marauderUpgd2 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_reaperUpgd1 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_reaperUpgd2 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_hellionUpgd1 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_hellionUpgd2 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_vultureUpgd1 = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_vultureUpgd2 = c_invalidDialogControlId;
+    }
+}
+
+// Presets
+// Functions
+void libAB61AAA6_gf_LoadBankDataforPlayer (int lp_player) {
+    // Automatic Variable Declarations
+    int auto562B9C66_val;
+
+    // Implementation
+    auto562B9C66_val = lp_player;
+    if (auto562B9C66_val == 1) {
+        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP1;
+    }
+    else if (auto562B9C66_val == 2) {
+        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP2;
+    }
+    else if (auto562B9C66_val == 3) {
+        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP3;
+    }
+    else {
+    }
+    libAB61AAA6_gv_globalValues[lp_player].lv_mapKey = lib956128B8_gf_GetMissionBankKey(lib956128B8_gf_GetCoopMissionNr(lib956128B8_gv_coop_CurrentMap));
+    libAB61AAA6_gv_globalValues[lp_player].lv_cash = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "cash");
+    libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "protoss");
+    libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "zerg");
+    libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
+    libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
+}
+
+void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player) {
+    // Variable Declarations
+    int lv_missionCashReward;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_missionCashReward = lib956128B8_gf_GetCashForMission(lib956128B8_gv_coop_CurrentMap);
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_missionTimeLabel, TextTimeFormat(StringToText("<min2/>:<sec2/>"), FixedToInt(GameGetMissionTime())), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_missionLabel, StringToText(UserDataGetString("MissionData", lp_mission, "Mission Name", 1)), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardLabel, (IntToText(lv_missionCashReward) + StringExternal("Param/Value/lib_AB61AAA6_0DA7B3BB")), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statBackground, UserDataGetImagePath("MissionData", lp_mission, "MissionLoadScreen", 1), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_playerLabel[1], PlayerName(1), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_playerLabel[2], PlayerName(2), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_playerLabel[3], PlayerName(3), PlayerGroupSingle(lp_player));
+}
+
+void libAB61AAA6_gf_UpdateAchievementData (string lp_achievement, int lp_player, int lp_slot) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lp_slot], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lp_slot], UserDataGetImagePath("Achievements", lp_achievement, "Icon", 1), PlayerGroupAll());
+}
+
+void libAB61AAA6_gf_AddStatPanel (int lp_player, string lp_title, string lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libAB61AAA6_gv_kL_StatPanelsInUse += 1;
+    if ((lp_title == null)) {
+        libAB61AAA6_gv_kL_StatPanelActive[libAB61AAA6_gv_kL_StatPanelsInUse] = false;
+        return ;
+    }
+    else {
+        libAB61AAA6_gv_kL_StatPanelActive[libAB61AAA6_gv_kL_StatPanelsInUse] = true;
+    }
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statTitle[libAB61AAA6_gv_kL_StatPanelsInUse], StringToText(lp_title), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statValue[libAB61AAA6_gv_kL_StatPanelsInUse], StringToText(lp_value), PlayerGroupAll());
+}
+
+void libAB61AAA6_gf_PlayStatBirth (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto9A69BF4D_ae;
+    const int auto9A69BF4D_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto9A69BF4D_ae = libAB61AAA6_gv_kL_StatPanelsInUse;
+    lv_index = 1;
+    for ( ; ( (auto9A69BF4D_ai >= 0 && lv_index <= auto9A69BF4D_ae) || (auto9A69BF4D_ai < 0 && lv_index >= auto9A69BF4D_ae) ) ; lv_index += auto9A69BF4D_ai ) {
+        if ((libAB61AAA6_gv_kL_StatPanelActive[lv_index] == true)) {
+            DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index], PlayerGroupAll(), "Birth");
+        }
+
+        Wait(0.2, c_timeGame);
+    }
+}
+
+void libAB61AAA6_gf_KL_UpdateArmory (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libAB61AAA6_gf_KL_DisplayAllowedUnits(lp_player);
+    libAB61AAA6_gf_KL_UpdateArmoryCash(lp_player);
+    if ((libAB61AAA6_gv_kL_AllowedInfantryUnits > 0)) {
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_groupTabs[2], PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((libAB61AAA6_gv_kL_AllowedVehicleUnits > 0)) {
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_groupTabs[3], PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((libAB61AAA6_gv_kL_AllowedStarshipUnits > 0)) {
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_groupTabs[4], PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((libAB61AAA6_gv_globalValues[lp_player].lv_cash == 0)) {
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, StringExternal("Param/Value/lib_AB61AAA6_0413DAB1"), PlayerGroupAll());
+    }
+    else {
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, (IntToText(libAB61AAA6_gv_globalValues[lp_player].lv_cash) + StringExternal("Param/Value/lib_AB61AAA6_FD5966F1")), PlayerGroupAll());
+    }
+}
+
+void libAB61AAA6_gf_KL_UpdateArmoryCash (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libAB61AAA6_gv_globalValues[lp_player].lv_cash == 0)) {
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, StringExternal("Param/Value/lib_AB61AAA6_2374A9E3"), PlayerGroupAll());
+    }
+    else {
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, (IntToText(libAB61AAA6_gv_globalValues[lp_player].lv_cash) + StringExternal("Param/Value/lib_AB61AAA6_A5ADBC0B")), PlayerGroupAll());
+    }
+}
+
+void libAB61AAA6_gf_KL_DisplayAllowedUnits (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((TechTreeUnitIsAllowed(lp_player, "Marine") == true)) {
+        libAB61AAA6_gv_kL_AllowedInfantryUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Medic") == true)) {
+        libAB61AAA6_gv_kL_AllowedInfantryUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMedicPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Firebat") == true)) {
+        libAB61AAA6_gv_kL_AllowedInfantryUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryFirebatPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Marauder") == true)) {
+        libAB61AAA6_gv_kL_AllowedInfantryUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarauderPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Reaper") == true)) {
+        libAB61AAA6_gv_kL_AllowedInfantryUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryReaperPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Hellion") == true)) {
+        libAB61AAA6_gv_kL_AllowedVehicleUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesHellionPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Vulture") == true)) {
+        libAB61AAA6_gv_kL_AllowedVehicleUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesVulturePanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Goliath") == true)) {
+        libAB61AAA6_gv_kL_AllowedVehicleUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesGoliathPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "Diamondback") == true)) {
+        libAB61AAA6_gv_kL_AllowedVehicleUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesDiamondBackPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+    if ((TechTreeUnitIsAllowed(lp_player, "SiegeTankSkinPreview") == true)) {
+        libAB61AAA6_gv_kL_AllowedVehicleUnits += 1;
+        DialogControlSetVisible(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesSiegeTankPanel, PlayerGroupSingle(lp_player), true);
+    }
+
+}
+
+void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    const int auto7947C7A4_ae = 3;
+    const int auto7947C7A4_ai = 1;
+    const int autoFD63EFDD_ae = 3;
+    const int autoFD63EFDD_ai = 1;
+    const int auto5DA40D5F_ae = 9;
+    const int auto5DA40D5F_ai = 1;
+    const int auto8D8F8200_ae = 6;
+    const int auto8D8F8200_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    DialogCreate(500, 400, c_anchorCenter, 0, 0, true);
+    DialogSetFullscreen(DialogLastCreated(), true);
+    DialogSetImageVisible(DialogLastCreated(), false);
+    libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_dialog = DialogLastCreated();
+    DialogControlCreateFromTemplate(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_dialog, c_triggerControlTypePanel, "WoL_Coop_BattleReportSharedPanel/SharedPanel");
+    libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_sharedPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/MissionTimeValue"));
+    libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_missionTimeLabel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("NavFrameRight/NavButton"));
+    libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_quitButton = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/SummaryPanel"));
+    libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("MoviePanel/MissionReportImage"));
+    libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_missionReportImage = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("MoviePanel/MissionReportRewardLabel"));
+    libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardLabel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("MoviePanel/MissionReportMissionLabel"));
+    libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_missionLabel = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto7947C7A4_ai >= 0 && lv_index <= auto7947C7A4_ae) || (auto7947C7A4_ai < 0 && lv_index >= auto7947C7A4_ae) ) ; lv_index += auto7947C7A4_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("TeamPanel/Player" + IntToString(lv_index) + "Button")));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_playerButtons[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_playerButtons[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Label"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_playerLabel[lv_index] = DialogControlLastCreated();
+    }
+    lv_index = 1;
+    for ( ; ( (autoFD63EFDD_ai >= 0 && lv_index <= autoFD63EFDD_ae) || (autoFD63EFDD_ai < 0 && lv_index >= autoFD63EFDD_ae) ) ; lv_index += autoFD63EFDD_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("RewardPanel/RewardPanel" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("Icon"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Title"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Description"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Score"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lv_index] = DialogControlLastCreated();
+    }
+    DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("StatsPanel/StatsBackground"));
+    libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statBackground = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto5DA40D5F_ai >= 0 && lv_index <= auto5DA40D5F_ae) || (auto5DA40D5F_ai < 0 && lv_index >= auto5DA40D5F_ae) ) ; lv_index += auto5DA40D5F_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("StatsPanel/StatPanel" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Title"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statTitle[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("StatValue"));
+        libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_statValue[lv_index] = DialogControlLastCreated();
+    }
+    DialogControlHookup(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/ArmoryPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto8D8F8200_ai >= 0 && lv_index <= auto8D8F8200_ae) || (auto8D8F8200_ai < 0 && lv_index >= auto8D8F8200_ae) ) ; lv_index += auto8D8F8200_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("ArmoryTab" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_groupTabs[lv_index] = DialogControlLastCreated();
+    }
+    libAB61AAA6_gf_KL_HookupArmoryPanels(lp_player);
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("TechDescriptionPanel/Title"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_title = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("TechDescriptionPanel/Effect"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_effects = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("TechDescriptionPanel/Description"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_description = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/CreditsBackground/Credits"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/CostBackground"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_costBackground = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/CostBackground/Cost"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_cost = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/PurchaseButton"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_purchaseButton = DialogControlLastCreated();
+}
+
+void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/BunkerPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseBunkerPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseBunkerPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_projectileAccelerator = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseBunkerPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_neosteelBunker = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/MissileTurretPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseTurretPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseTurretPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_titaniumHousing = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseTurretPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_titaniumHousing = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/SCVPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseSCVPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseSCVPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_advancedConstruction = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseSCVPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_dualFusionWelders = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/CommandCenterPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseCCPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseCCPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_fireSupressionSystem = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_baseCCPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_orbitalCommand = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/MarinePanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_combatShield = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_stimpack = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/MedicPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMedicPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/FirebatPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryFirebatPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/MarauderPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarauderPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/ReaperPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryReaperPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/VehicleGroup/HellionPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesHellionPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/VehicleGroup/VulturePanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesVulturePanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/VehicleGroup/GoliathPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesGoliathPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/VehicleGroup/DiamondbackPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesDiamondBackPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/VehicleGroup/SiegeTankPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_vehiclesSiegeTankPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/StarshipsGroup/MedivacPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsMedivacPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/StarshipsGroup/WraithPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsWraithPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/StarshipsGroup/VikingPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsVikingPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/StarshipsGroup/BansheePanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsBansheePanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/StarshipsGroup/BattlecruiserPanel"));
+    libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsBattlecruiserPanel = DialogControlLastCreated();
+}
+
+void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    CameraLockInput(lp_player, true);
+    libAB61AAA6_gf_LoadBankDataforPlayer(lp_player);
+    if ((libAB61AAA6_gv_uIIntizialized[lp_player] != true)) {
+        libAB61AAA6_gf_KL_HookupPanelsForPlayer(lp_player);
+    }
+
+    libNtve_gf_SetAllSoundChannelVolumes(libNtve_ge_VolumeChannelMode_Victory, PlayerGroupAll(), 0.0);
+    DialogSetVisible(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_dialog, PlayerGroupAll(), true);
+    libAB61AAA6_gf_UpdateMissionData(lp_mission, lp_player);
+    libAB61AAA6_gf_KL_UpdateArmory(lp_player);
+    libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Objectives", 1, 1);
+    libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Normal", 1, 2);
+    libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Hard", 1, 3);
+    Wait(1.5, c_timeGame);
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Fanfare
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugFanfare_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlCreateFromTemplate(libAB61AAA6_gv_kL_SharedPanel[1].lv_dialog, c_triggerControlTypePanel, "WoL_Coop_StandardTemplate/TechpurchaseFanfare");
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupSingle(1), c_anchorCenter, libAB61AAA6_gv_kL_ArmoryTechButtons[1].lv_combatShield, c_anchorCenter, 0, 0);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugFanfare_Init () {
+    libAB61AAA6_gt_DebugFanfare = TriggerCreate("libAB61AAA6_gt_DebugFanfare_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugFanfare, c_playerAny, "fanfare", true);
+}
+
+void libAB61AAA6_InitTriggers () {
+    libAB61AAA6_gt_DebugFanfare_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_InitLib_completed = false;
+
+void libAB61AAA6_InitLib () {
+    if (libAB61AAA6_InitLib_completed) {
+        return;
+    }
+
+    libAB61AAA6_InitLib_completed = true;
+
+    libAB61AAA6_InitLibraries();
+    libAB61AAA6_InitVariables();
+    libAB61AAA6_InitTriggers();
+}
+

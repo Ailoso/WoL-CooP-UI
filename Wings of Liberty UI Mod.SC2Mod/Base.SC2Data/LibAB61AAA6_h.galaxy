@@ -1,0 +1,141 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: WoL Coop (UI)
+//--------------------------------------------------------------------------------------------------
+// Preset Declarations
+const int libAB61AAA6_ge_KL_UnitCategory_Base = 0;
+const int libAB61AAA6_ge_KL_UnitCategory_Infantry = 1;
+const int libAB61AAA6_ge_KL_UnitCategory_Vehicles = 2;
+const int libAB61AAA6_ge_KL_UnitCategory_Starships = 3;
+const int libAB61AAA6_ge_KL_UnitType_Marine = 0x00000001;
+const int libAB61AAA6_ge_KL_UnitType_Medic = 0x00000002;
+const int libAB61AAA6_ge_KL_UnitType_Marauder = 0x00000004;
+const int libAB61AAA6_ge_KL_UnitType_Firebat = 0x00000008;
+const int libAB61AAA6_ge_KL_UnitType_Reaper = 0x00000010;
+
+// Structures
+struct libAB61AAA6_gs_GlobalValues {
+    bank lv_playerBank;
+    string lv_mapKey;
+    int lv_cash;
+    int lv_protossResearch;
+    int lv_zergResearch;
+    bool lv_missionPlayedPreviously;
+};
+
+struct libAB61AAA6_gs_KL_SharedPanel {
+    int lv_dialog;
+    int lv_sharedPanel;
+    int lv_missionTimeLabel;
+    int lv_quitButton;
+};
+
+struct libAB61AAA6_gs_KL_SummaryPanel {
+    int lv_summaryPanel;
+    int lv_missionReportImage;
+    int lv_rewardLabel;
+    int lv_missionLabel;
+    int[4] lv_playerButtons;
+    int[4] lv_playerLabel;
+    int[4] lv_rewardPanels;
+    int[4] lv_rewardIcons;
+    int[4] lv_rewardTitles;
+    int[4] lv_rewardDescriptions;
+    int[4] lv_rewardScore;
+    int lv_statBackground;
+    int[10] lv_statContainers;
+    int[10] lv_statTitle;
+    int[10] lv_statValue;
+};
+
+struct libAB61AAA6_gs_KL_ArmoryPanel {
+    int lv_armoryPanel;
+    int[7] lv_groupTabs;
+    int lv_baseBunkerPanel;
+    int lv_baseTurretPanel;
+    int lv_baseSCVPanel;
+    int lv_baseCCPanel;
+    int lv_infantryMarinePanel;
+    int lv_infantryMedicPanel;
+    int lv_infantryFirebatPanel;
+    int lv_infantryMarauderPanel;
+    int lv_infantryReaperPanel;
+    int lv_vehiclesHellionPanel;
+    int lv_vehiclesVulturePanel;
+    int lv_vehiclesGoliathPanel;
+    int lv_vehiclesDiamondBackPanel;
+    int lv_vehiclesSiegeTankPanel;
+    int lv_starshipsMedivacPanel;
+    int lv_starshipsWraithPanel;
+    int lv_starshipsVikingPanel;
+    int lv_starshipsBansheePanel;
+    int lv_starshipsBattlecruiserPanel;
+    int lv_title;
+    int lv_effects;
+    int lv_description;
+    int lv_credits;
+    int lv_costBackground;
+    int lv_cost;
+    int lv_purchaseButton;
+};
+
+struct libAB61AAA6_gs_KL_ArmoryTechButtons {
+    int lv_projectileAccelerator;
+    int lv_neosteelBunker;
+    int lv_titaniumHousing;
+    int lv_hellstormBatteries;
+    int lv_advancedConstruction;
+    int lv_dualFusionWelders;
+    int lv_fireSupressionSystem;
+    int lv_orbitalCommand;
+    int lv_stimpack;
+    int lv_combatShield;
+    int lv_medicUpgd1;
+    int lv_medicUpgd2;
+    int lv_firebatUpgd1;
+    int lv_firebatUpgd2;
+    int lv_marauderUpgd1;
+    int lv_marauderUpgd2;
+    int lv_reaperUpgd1;
+    int lv_reaperUpgd2;
+    int lv_hellionUpgd1;
+    int lv_hellionUpgd2;
+    int lv_vultureUpgd1;
+    int lv_vultureUpgd2;
+};
+
+// Variable Declarations
+libAB61AAA6_gs_GlobalValues[4] libAB61AAA6_gv_globalValues;
+int libAB61AAA6_gv_kL_StatPanelsInUse;
+bool[11] libAB61AAA6_gv_kL_StatPanelActive;
+bool libAB61AAA6_gv_kL_ArmoryUpdated;
+int libAB61AAA6_gv_kL_AllowedBaseUnits;
+int libAB61AAA6_gv_kL_AllowedInfantryUnits;
+int libAB61AAA6_gv_kL_AllowedVehicleUnits;
+int libAB61AAA6_gv_kL_AllowedStarshipUnits;
+bool[4] libAB61AAA6_gv_uIIntizialized;
+libAB61AAA6_gs_KL_SharedPanel[4] libAB61AAA6_gv_kL_SharedPanel;
+libAB61AAA6_gs_KL_SummaryPanel[4] libAB61AAA6_gv_kL_SummaryPanel;
+libAB61AAA6_gs_KL_ArmoryPanel[4] libAB61AAA6_gv_kL_ArmoryPanel;
+libAB61AAA6_gs_KL_ArmoryTechButtons[4] libAB61AAA6_gv_kL_ArmoryTechButtons;
+
+// Function Declarations
+void libAB61AAA6_gf_LoadBankDataforPlayer (int lp_player);
+void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player);
+void libAB61AAA6_gf_UpdateAchievementData (string lp_achievement, int lp_player, int lp_slot);
+void libAB61AAA6_gf_AddStatPanel (int lp_player, string lp_title, string lp_value);
+void libAB61AAA6_gf_PlayStatBirth (int lp_player);
+void libAB61AAA6_gf_KL_UpdateArmory (int lp_player);
+void libAB61AAA6_gf_KL_UpdateArmoryCash (int lp_player);
+void libAB61AAA6_gf_KL_DisplayAllowedUnits (int lp_player);
+void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player);
+void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player);
+void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_player);
+
+// Trigger Declarations
+trigger libAB61AAA6_gt_DebugFanfare;
+
+// Library Initialization
+void libAB61AAA6_InitVariables ();
+
