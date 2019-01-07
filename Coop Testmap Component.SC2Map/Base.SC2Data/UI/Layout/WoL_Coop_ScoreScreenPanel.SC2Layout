@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Frame" name="SummaryPanelTemplate">
+        <Anchor relative="$parent"/>
+		
+		<Animation name="StartSummaryShow">
+			<Event event="BirthSequence" action="Reset,Play"/>
+			
+			<Controller type="Event" end="Stop" frame="$this/MoviePanel/MissionReportCapRight">
+				<Key type="Event" time="0" event="Birth"/>
+			</Controller>
+		</Animation>
+
+        <Frame type="Frame" name="MoviePanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="330"/>
+
+            <Frame type="Image" name="MissionReportImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+				<Texture val="Assets/Textures/ui_scorescreen_splash_traynor01_DZ.dds"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionReportScanlines">
+                <Anchor relative="$parent/MissionReportImage"/>
+                <Texture val="Assets\Textures\ui_battle_frame_moviescanlines.dds"/>
+                <Alpha val="210"/>
+                <Tiled val="true"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionReportBorder">
+                <Anchor relative="$parent"/>
+                <Texture val="Assets\Textures\ui_battle_frame_missioncompletedbox.dds"/>
+                <TextureType val="Border"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionReportRewardBg">
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
+                <Anchor side="Left" relative="$parent/MissionReportCapLeft" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/MissionReportCapRight" pos="Max" offset="0"/>
+                <LayerColor val="98,172,234"/>
+                <ScaleWidthToTexture val="true"/>
+                <Alpha val="90"/>
+                <Height val="50"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionReportCapLeft">
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <LayerColor val="98,172,234"/>
+                <ScaleWidthToTexture val="true"/>
+                <Alpha val="150"/>
+                <Height val="50"/>
+                <Width val="4"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionReportCapRight">
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-1470"/>
+                <LayerColor val="98,172,234"/>
+                <ScaleWidthToTexture val="true"/>
+                <Alpha val="150"/>
+                <Height val="50"/>
+                <Width val="4"/>
+                <Visible val="True"/>
+
+                <Animation name="Birth">
+                    <Event event="Birth" action="Reset,Play"/>
+                     
+                    <Controller type="Anchor" end="Pause" side="Right" relative="False">
+                        <Key type="Curve" time="0" value="-1500" out="Linear"/>
+                        <Key type="Curve" time="1.2" value="0" in="Linear"/>
+                    </Controller>
+
+                    <Controller type="Fade" end="Pause" frame="$parent/MissionReportMissionLabel">
+                        <Key type="Curve" time="0" value="0" out="Fast"/>
+                        <Key type="Curve" time=".8" value="0" out="Fast"/>
+                        <Key type="Curve" time="1" value="255" in="Slow"/>
+                    </Controller>
+
+                    <Controller type="Fade" end="Pause" frame="$parent/MissionReportMissionTitleLabel">
+                        <Key type="Curve" time="0" value="0" out="Fast"/>
+                        <Key type="Curve" time=".8" value="0" out="Fast"/>
+                        <Key type="Curve" time="1" value="255" in="Slow"/>
+                    </Controller>
+
+                    <Controller type="Fade" end="Pause" frame="$parent/MissionReportRewardLabel">
+                        <Key type="Curve" time="0" value="0" out="Fast"/>
+                        <Key type="Curve" time="1.2" value="0" out="Fast"/>
+                        <Key type="Curve" time="1.4" value="255" in="Slow"/>
+                    </Controller>
+
+                    <Controller type="Fade" end="Pause" frame="$parent/MissionReportRewardTitleLabel">
+                        <Key type="Curve" time="0" value="0" out="Fast"/>
+                        <Key type="Curve" time="1.2" value="0" out="Fast"/>
+                        <Key type="Curve" time="1.4" value="255" in="Slow"/>
+                    </Controller>
+                </Animation>
+            </Frame>
+
+            <Frame type="Label" name="MissionReportRewardLabel">
+                <Anchor side="Top" relative="$parent/MissionReportRewardBg" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MissionReportRewardBg" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/MissionReportRewardBg" pos="Max" offset="-30"/>
+                <Style val="WolCoopMissionReward"/>
+                <Alpha val="0"/>
+            </Frame>
+
+            <Frame type="Label" name="MissionReportRewardTitleLabel">
+                <Anchor side="Bottom" relative="$parent/MissionReportRewardBg" pos="Min" offset="-5"/>
+                <Anchor side="Right" relative="$parent/MissionReportRewardLabel" pos="Max" offset="0"/>
+                <Text val="Mission Reward:"/>
+                <Style val="WolCoopMissionRewardTitle"/>
+                <Alpha val="0"/>
+            </Frame>
+
+            <Frame type="Label" name="MissionReportMissionLabel">
+                <Anchor side="Top" relative="$parent/MissionReportRewardBg" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MissionReportRewardBg" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/MissionReportRewardBg" pos="Min" offset="30"/>
+                <Style val="WolCoopMissionName"/>
+                <Alpha val="0"/>
+            </Frame>
+
+            <Frame type="Label" name="MissionReportMissionTitleLabel">
+                <Anchor side="Bottom" relative="$parent/MissionReportRewardBg" pos="Min" offset="-5"/>
+                <Anchor side="Left" relative="$parent/MissionReportMissionLabel" pos="Min" offset="0"/>
+                <Text val="Mission:"/>
+                <Style val="WolCoopMissionRewardTitle"/>
+                <Alpha val="0"/>
+            </Frame>
+
+            <Frame type="Label" name="MissionVictoryLabel">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
+                <Text val="Victory!"/>
+                <Style val="WolCoopMissionVictory"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="TeamPanel">
+            <Anchor side="Top" relative="$parent/MoviePanel" pos="Max" offset="-7"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="8"/>
+            <Height val="55"/>
+
+            <Frame type="Image" name="PanelBorder">
+                <Anchor relative="$parent"/>
+                <Texture val="Assets\Textures\ui_battle_frame_movietitlebox.dds"/>
+                <TextureType val="Border"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="87,231,231"/>
+            </Frame>
+
+            <Frame type="Button" name="Player1Button" template="WoL_Coop_StandardTemplate/TeammateButtonTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="5"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="-10"/>
+				<Width val="350"/>
+                <Height val="30"/>
+
+                <Frame type="Label" name="Label">
+                    <Anchor relative="$parent"/>
+                    <Style val="WolCoopNavLabel"/>
+					<Text val="Slot 1"/>
+                </Frame>
+            </Frame>
+			
+            <Frame type="Button" name="Player2Button" template="WoL_Coop_StandardTemplate/TeammateButtonTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="5"/>
+                <Anchor side="Right" relative="$parent/Player1Button" pos="Min" offset="-10"/>
+				<Width val="350"/>
+                <Height val="30"/>
+				<Visible val="False"/>
+
+                <Frame type="Label" name="Label">
+                    <Anchor relative="$parent"/>
+                    <Style val="WolCoopNavLabel"/>
+					<Text val="Slot 2"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="Player3Button" template="WoL_Coop_StandardTemplate/TeammateButtonTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="5"/>
+                <Anchor side="Left" relative="$parent/Player1Button" pos="Max" offset="10"/>
+				<Width val="350"/>
+                <Height val="30"/>
+				<Visible val="False"/>
+
+                <Frame type="Label" name="Label">
+                    <Anchor relative="$parent"/>
+                    <Style val="WolCoopNavLabel"/>
+					<Text val="Slot 3"/>
+                </Frame>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="StatsPanel">
+            <Anchor side="Top" relative="$parent/TeamPanel" pos="Max" offset="-4"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="-75"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
+
+            <Frame type="Image" name="StatsBackground">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Texture val="Assets\Textures\ui_loading_coop_pnp.dds"/>
+            </Frame>
+
+            <Frame type="Image" name="StatsBorder">
+                <Anchor relative="$parent"/>
+                <Texture val="Assets\Textures\ui_battle_frame_summary_metal_terran.dds"/>
+                <TextureType val="HorizontalBorder"/>
+            </Frame>
+
+            <Frame type="Image" name="StatsInnerFrame">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="29"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-29"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="29"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-29"/>
+                <Texture val="Assets\Textures\ui_battle_frame_summary_terran.dds"/>
+                <TextureType val="HorizontalBorder"/>
+            </Frame>
+
+            <Frame type="Label" name="StatsTitle">
+                <Anchor side="Top" relative="$parent/StatsInnerFrame" pos="Min" offset="7"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="0"/>
+                <Style val="WolCoopMissionTabTitle"/>
+                <Text val="Summary"/>
+            </Frame>
+				
+			<Frame type="Frame" name="StatPanel1" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatsInnerFrame" pos="Min" offset="75"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel2" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel1" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel3" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel2" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel4" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel3" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel5" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel4" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel6" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel5" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel7" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel6" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel8" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel7" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+			
+			<Frame type="Frame" name="StatPanel9" template="WoL_Coop_StandardTemplate/StatContainerTemplate">
+                <Anchor side="Top" relative="$parent/StatPanel8" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/StatsInnerFrame" pos="Min" offset="25"/>
+                <Anchor side="Right" relative="$parent/StatsInnerFrame" pos="Max" offset="-25"/>
+			</Frame>
+        </Frame>
+
+        <Frame type="Frame" name="RewardPanel">
+            <Anchor side="Top" relative="$parent/TeamPanel" pos="Max" offset="-4"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-4"/>
+            <Anchor side="Right" relative="$parent/StatsPanel" pos="Min" offset="8"/>
+
+            <Frame type="Image" name="RewardBackground">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Texture val="Assets\Textures\ui_battle_terranicon.dds"/>
+            </Frame>
+
+            <Frame type="Image" name="RewardBorder">
+                <Anchor relative="$parent"/>
+                <Texture val="Assets\Textures\ui_battle_frame_summary_metal_terran.dds"/>
+                <TextureType val="HorizontalBorder"/>
+            </Frame>
+
+            <Frame type="Image" name="RewardInnerFrame">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="29"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-29"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="29"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-29"/>
+                <Texture val="Assets\Textures\ui_battle_frame_summary_terran.dds"/>
+                <TextureType val="HorizontalBorder"/>
+            </Frame>
+
+            <Frame type="Label" name="RewardsTitle">
+                <Anchor side="Top" relative="$parent/RewardInnerFrame" pos="Min" offset="7"/>
+                <Anchor side="Left" relative="$parent/RewardInnerFrame" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/RewardInnerFrame" pos="Max" offset="0"/>
+                <Style val="WolCoopMissionTabTitle"/>
+                <Text val="Achievements"/>
+            </Frame>
+
+            <Frame type="Frame" name="RewardPanel1" template="WoL_Coop_StandardTemplate/MetalTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="23"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+                <Height val="140"/>
+            </Frame>
+
+            <Frame type="Frame" name="RewardPanel2" template="WoL_Coop_StandardTemplate/MetalTemplate">
+                <Anchor side="Top" relative="$parent/RewardPanel1" pos="Max" offset="-24"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="23"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+                <Height val="140"/>
+            </Frame>
+
+            <Frame type="Frame" name="RewardPanel3" template="WoL_Coop_StandardTemplate/MetalTemplate">
+                <Anchor side="Top" relative="$parent/RewardPanel2" pos="Max" offset="-24"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="23"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+                <Height val="140"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

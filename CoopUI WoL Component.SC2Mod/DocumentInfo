@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocInfo>
+    <Dependencies>
+        <Value>bnet:Nova Covert Ops (Art Mod)/0.0/999,file:Mods/NovaStoryAssets.SC2Mod</Value>
+        <Value>bnet:Void (Campaign)/0.0/999,file:Campaigns/Void.SC2Campaign</Value>
+        <Value>file:Mods\WoLCoop\dz_coop_Data.SC2Mod</Value>
+    </Dependencies>
+</DocInfo>

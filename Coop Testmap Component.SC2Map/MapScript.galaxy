@@ -1,0 +1,493 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   Just Another StarCraft II Map
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library: WoL Coop (UI)
+//--------------------------------------------------------------------------------------------------
+// Structures
+struct lib1_gs_KL_SharedPanel {
+    int lv_dialog;
+    int lv_sharedPanel;
+    int lv_missionTimeLabel;
+    int lv_quitButton;
+};
+
+struct lib1_gs_KL_SummaryPanel {
+    int lv_summaryPanel;
+    int lv_missionReportImage;
+    int lv_rewardLabel;
+    int lv_missionLabel;
+    int[4] lv_playerButtons;
+    int[4] lv_playerLabel;
+    int[4] lv_rewardPanels;
+    int[4] lv_rewardIcons;
+    int[4] lv_rewardTitles;
+    int[4] lv_rewardDescriptions;
+    int[4] lv_rewardScore;
+    int[10] lv_statContainers;
+    int[10] lv_statTitle;
+    int[10] lv_statValue;
+};
+
+struct lib1_gs_KL_ArmoryPanel {
+    int lv_armoryPanel;
+    int[7] lv_groupTabs;
+    int lv_baseBunkerPanel;
+    int lv_baseTurretPanel;
+    int lv_baseSCVPanel;
+    int lv_baseCCPanel;
+    int lv_infantryMarinePanel;
+    int lv_infantryMedicPanel;
+    int lv_infantryFirebatPanel;
+    int lv_infantryMarauderPanel;
+    int lv_infantryReaperPanel;
+    int lv_vehiclesHellionPanel;
+    int lv_vehiclesVulturePanel;
+    int lv_vehiclesGoliathPanel;
+    int lv_vehiclesDiamondBackPanel;
+    int lv_vehiclesSiegeTankPanel;
+    int lv_starshipsMedivacPanel;
+    int lv_starshipsWraithPanel;
+    int lv_starshipsVikingPanel;
+    int lv_starshipsBansheePanel;
+    int lv_starshipsBattlecruiserPanel;
+    int lv_title;
+    int lv_effects;
+    int lv_description;
+};
+
+struct lib1_gs_KL_ArmoryTechButtons {
+    int lv_projectileAccelerator;
+    int lv_neosteelBunker;
+    int lv_titaniumHousing;
+    int lv_hellstormBatteries;
+    int lv_advancedConstruction;
+    int lv_dualFusionWelders;
+    int lv_fireSupressionSystem;
+    int lv_orbitalCommand;
+    int lv_stimpack;
+    int lv_combatSheild;
+    int lv_medicUpgd1;
+    int lv_medicUpgd2;
+    int lv_firebatUpgd1;
+    int lv_firebatUpgd2;
+    int lv_marauderUpgd1;
+    int lv_marauderUpgd2;
+    int lv_reaperUpgd1;
+    int lv_reaperUpgd2;
+    int lv_hellionUpgd1;
+    int lv_hellionUpgd2;
+    int lv_vultureUpgd1;
+    int lv_vultureUpgd2;
+};
+
+// Variable Declarations
+int lib1_gv_kL_StatPanelsInUse;
+bool[11] lib1_gv_kL_StatPanelActive;
+bool[4] lib1_gv_uIIntizialized;
+lib1_gs_KL_SharedPanel[4] lib1_gv_kL_SharedPanel;
+lib1_gs_KL_SummaryPanel[4] lib1_gv_kL_SummaryPanel;
+lib1_gs_KL_ArmoryPanel[4] lib1_gv_kL_ArmoryPanel;
+lib1_gs_KL_ArmoryTechButtons[4] lib1_gv_kL_ArmoryTechButtons;
+
+// Function Declarations
+void lib1_gf_UpdateAchievementData (int lp_player, int lp_slot);
+void lib1_gf_UpdateAchievementData2 (int lp_player, int lp_slot);
+void lib1_gf_UpdateMissionData (int lp_player);
+void lib1_gf_AddStatPanel (int lp_player, string lp_title, string lp_value);
+void lib1_gf_PlayStatBirth (int lp_player);
+void lib1_gf_KL_HookupPanelsForPlayer (int lp_player);
+void lib1_gf_DisplaySharedPanelForPlayer (int lp_player);
+
+// Library Initialization
+void lib1_InitVariables ();
+
+//--------------------------------------------------------------------------------------------------
+// Library: WoL Coop (UI)
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void lib1_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Variable Initialization
+bool lib1_InitVariables_completed = false;
+
+void lib1_InitVariables () {
+    int init_i;
+    int init_i1;
+
+    if (lib1_InitVariables_completed) {
+        return;
+    }
+
+    lib1_InitVariables_completed = true;
+
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        lib1_gv_kL_SharedPanel[init_i].lv_dialog = c_invalidDialogId;
+        lib1_gv_kL_SharedPanel[init_i].lv_sharedPanel = c_invalidDialogControlId;
+        lib1_gv_kL_SharedPanel[init_i].lv_missionTimeLabel = c_invalidDialogControlId;
+        lib1_gv_kL_SharedPanel[init_i].lv_quitButton = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        lib1_gv_kL_SummaryPanel[init_i].lv_summaryPanel = c_invalidDialogControlId;
+        lib1_gv_kL_SummaryPanel[init_i].lv_missionReportImage = c_invalidDialogControlId;
+        lib1_gv_kL_SummaryPanel[init_i].lv_rewardLabel = c_invalidDialogControlId;
+        lib1_gv_kL_SummaryPanel[init_i].lv_missionLabel = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_playerButtons[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_playerLabel[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_rewardPanels[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_rewardIcons[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_rewardTitles[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_rewardDescriptions[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_rewardScore[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 9; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_statContainers[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 9; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_statTitle[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 9; init_i1 += 1) {
+            lib1_gv_kL_SummaryPanel[init_i].lv_statValue[init_i1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        lib1_gv_kL_ArmoryPanel[init_i].lv_armoryPanel = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 6; init_i1 += 1) {
+            lib1_gv_kL_ArmoryPanel[init_i].lv_groupTabs[init_i1] = c_invalidDialogControlId;
+        }
+        lib1_gv_kL_ArmoryPanel[init_i].lv_baseBunkerPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_baseTurretPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_baseSCVPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_baseCCPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_infantryMarinePanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_infantryMedicPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_infantryFirebatPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_infantryMarauderPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_infantryReaperPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_vehiclesHellionPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_vehiclesVulturePanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_vehiclesGoliathPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_vehiclesDiamondBackPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_vehiclesSiegeTankPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_starshipsMedivacPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_starshipsWraithPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_starshipsVikingPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_starshipsBansheePanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_starshipsBattlecruiserPanel = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_title = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_effects = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryPanel[init_i].lv_description = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_projectileAccelerator = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_neosteelBunker = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_titaniumHousing = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_hellstormBatteries = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_advancedConstruction = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_dualFusionWelders = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_fireSupressionSystem = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_orbitalCommand = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_stimpack = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_combatSheild = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_medicUpgd1 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_medicUpgd2 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_firebatUpgd1 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_firebatUpgd2 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_marauderUpgd1 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_marauderUpgd2 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_reaperUpgd1 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_reaperUpgd2 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_hellionUpgd1 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_hellionUpgd2 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_vultureUpgd1 = c_invalidDialogControlId;
+        lib1_gv_kL_ArmoryTechButtons[init_i].lv_vultureUpgd2 = c_invalidDialogControlId;
+    }
+}
+
+// Functions
+void lib1_gf_UpdateAchievementData (int lp_player, int lp_slot) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lp_slot], StringExternal("Param/Value/lib_1_71701523"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lp_slot], StringExternal("Param/Value/lib_1_5D29DF17"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lp_slot], StringExternal("Param/Value/lib_1_31973686"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lp_slot], "Assets\\Textures\\btn-ability-hornerhan-hellbat-dot.dds", PlayerGroupAll());
+}
+
+void lib1_gf_UpdateAchievementData2 (int lp_player, int lp_slot) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lp_slot], StringExternal("Param/Value/lib_1_20243BDF"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lp_slot], StringExternal("Param/Value/lib_1_6E11ED96"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lp_slot], StringExternal("Param/Value/lib_1_FE2AD3DC"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lp_slot], "Assets\\Textures\\btn-ability-hornerhan-hellbat-dot.dds", PlayerGroupAll());
+}
+
+void lib1_gf_UpdateMissionData (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SharedPanel[lp_player].lv_missionTimeLabel, TextTimeFormat(StringToText("<min2/>:<sec2/>"), FixedToInt(GameGetMissionTime())), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_missionLabel, StringExternal("Param/Value/lib_1_5A87E038"), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardLabel, StringExternal("Param/Value/lib_1_A2918FB6"), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_playerLabel[1], PlayerName(1), PlayerGroupSingle(lp_player));
+}
+
+void lib1_gf_AddStatPanel (int lp_player, string lp_title, string lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gv_kL_StatPanelsInUse += 1;
+    if ((lp_title == null)) {
+        lib1_gv_kL_StatPanelActive[lib1_gv_kL_StatPanelsInUse] = false;
+        return ;
+    }
+    else {
+        lib1_gv_kL_StatPanelActive[lib1_gv_kL_StatPanelsInUse] = true;
+    }
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_statTitle[lib1_gv_kL_StatPanelsInUse], StringToText(lp_title), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(lib1_gv_kL_SummaryPanel[lp_player].lv_statValue[lib1_gv_kL_StatPanelsInUse], StringToText(lp_value), PlayerGroupAll());
+}
+
+void lib1_gf_PlayStatBirth (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto9A69BF4D_ae;
+    const int auto9A69BF4D_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto9A69BF4D_ae = lib1_gv_kL_StatPanelsInUse;
+    lv_index = 1;
+    for ( ; ( (auto9A69BF4D_ai >= 0 && lv_index <= auto9A69BF4D_ae) || (auto9A69BF4D_ai < 0 && lv_index >= auto9A69BF4D_ae) ) ; lv_index += auto9A69BF4D_ai ) {
+        if ((lib1_gv_kL_StatPanelActive[lv_index] == true)) {
+            DialogControlSendAnimationEvent(lib1_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index], PlayerGroupAll(), "Birth");
+        }
+
+        Wait(0.2, c_timeGame);
+    }
+}
+
+void lib1_gf_KL_HookupPanelsForPlayer (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    const int auto7947C7A4_ae = 3;
+    const int auto7947C7A4_ai = 1;
+    const int autoFD63EFDD_ae = 3;
+    const int autoFD63EFDD_ai = 1;
+    const int auto5DA40D5F_ae = 9;
+    const int auto5DA40D5F_ai = 1;
+    const int auto8D8F8200_ae = 6;
+    const int auto8D8F8200_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    DialogCreate(500, 400, c_anchorCenter, 0, 0, true);
+    DialogSetFullscreen(DialogLastCreated(), true);
+    DialogSetImageVisible(DialogLastCreated(), false);
+    lib1_gv_kL_SharedPanel[lp_player].lv_dialog = DialogLastCreated();
+    DialogControlCreateFromTemplate(lib1_gv_kL_SharedPanel[lp_player].lv_dialog, c_triggerControlTypePanel, "WoL_Coop_BattleReportSharedPanel/SharedPanel");
+    lib1_gv_kL_SharedPanel[lp_player].lv_sharedPanel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/MissionTimeValue"));
+    lib1_gv_kL_SharedPanel[lp_player].lv_missionTimeLabel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("NavFrameRight/NavButton"));
+    lib1_gv_kL_SharedPanel[lp_player].lv_quitButton = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/SummaryPanel"));
+    lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("MoviePanel/MissionReportImage"));
+    lib1_gv_kL_SummaryPanel[lp_player].lv_missionReportImage = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("MoviePanel/MissionReportRewardLabel"));
+    lib1_gv_kL_SummaryPanel[lp_player].lv_rewardLabel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("MoviePanel/MissionReportMissionLabel"));
+    lib1_gv_kL_SummaryPanel[lp_player].lv_missionLabel = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto7947C7A4_ai >= 0 && lv_index <= auto7947C7A4_ae) || (auto7947C7A4_ai < 0 && lv_index >= auto7947C7A4_ae) ) ; lv_index += auto7947C7A4_ai ) {
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("TeamPanel/Player" + IntToString(lv_index) + "Button")));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_playerButtons[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_playerButtons[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Label"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_playerLabel[lv_index] = DialogControlLastCreated();
+    }
+    lv_index = 1;
+    for ( ; ( (autoFD63EFDD_ai >= 0 && lv_index <= autoFD63EFDD_ae) || (autoFD63EFDD_ai < 0 && lv_index >= autoFD63EFDD_ae) ) ; lv_index += autoFD63EFDD_ai ) {
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("RewardPanel/RewardPanel" + IntToString(lv_index))));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("Icon"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Title"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Description"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Score"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lv_index] = DialogControlLastCreated();
+    }
+    lv_index = 1;
+    for ( ; ( (auto5DA40D5F_ai >= 0 && lv_index <= auto5DA40D5F_ae) || (auto5DA40D5F_ai < 0 && lv_index >= auto5DA40D5F_ae) ) ; lv_index += auto5DA40D5F_ai ) {
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_summaryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("StatsPanel/StatPanel" + IntToString(lv_index))));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Title"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_statTitle[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lib1_gv_kL_SummaryPanel[lp_player].lv_statContainers[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("StatValue"));
+        lib1_gv_kL_SummaryPanel[lp_player].lv_statValue[lv_index] = DialogControlLastCreated();
+    }
+    DialogControlHookup(lib1_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/ArmoryPanel"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto8D8F8200_ai >= 0 && lv_index <= auto8D8F8200_ae) || (auto8D8F8200_ai < 0 && lv_index >= auto8D8F8200_ae) ) ; lv_index += auto8D8F8200_ai ) {
+        DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("ArmoryTab" + IntToString(lv_index))));
+        lib1_gv_kL_ArmoryPanel[lp_player].lv_groupTabs[lv_index] = DialogControlLastCreated();
+    }
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/BunkerPanel"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_baseBunkerPanel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseBunkerPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_projectileAccelerator = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseBunkerPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_neosteelBunker = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/MissileTurretPanel"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_baseTurretPanel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseTurretPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_titaniumHousing = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseTurretPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_titaniumHousing = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/SCVPanel"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_baseSCVPanel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseSCVPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_advancedConstruction = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseSCVPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_dualFusionWelders = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/BaseGroup/CommandCenterPanel"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_baseCCPanel = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseCCPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_fireSupressionSystem = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_baseCCPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    lib1_gv_kL_ArmoryTechButtons[lp_player].lv_orbitalCommand = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("TechDescriptionPanel/Title"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_title = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("TechDescriptionPanel/Effect"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_effects = DialogControlLastCreated();
+    DialogControlHookup(lib1_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("TechDescriptionPanel/Description"));
+    lib1_gv_kL_ArmoryPanel[lp_player].lv_description = DialogControlLastCreated();
+}
+
+void lib1_gf_DisplaySharedPanelForPlayer (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lib1_gv_uIIntizialized[lp_player] != true)) {
+        lib1_gf_KL_HookupPanelsForPlayer(lp_player);
+    }
+
+    libNtve_gf_SetAllSoundChannelVolumes(libNtve_ge_VolumeChannelMode_Victory, PlayerGroupAll(), 0.0);
+    DialogSetVisible(lib1_gv_kL_SharedPanel[lp_player].lv_dialog, PlayerGroupAll(), true);
+    lib1_gf_UpdateMissionData(lp_player);
+    lib1_gf_UpdateAchievementData(1, 1);
+    lib1_gf_UpdateAchievementData(1, 2);
+    lib1_gf_UpdateAchievementData(1, 3);
+    Wait(1.0, c_timeGame);
+    lib1_gf_AddStatPanel(lp_player, "Is This a Stat?", "Yeah");
+    lib1_gf_AddStatPanel(lp_player, "How they work?", "IDK");
+    lib1_gf_AddStatPanel(lp_player, "Magic Used", "10");
+    lib1_gf_AddStatPanel(lp_player, "Soul Sacrifices", "2");
+    lib1_gf_AddStatPanel(lp_player, null, null);
+    lib1_gf_AddStatPanel(lp_player, "Getting Nice UI", "Priceless");
+    lib1_gf_PlayStatBirth(lp_player);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool lib1_InitLib_completed = false;
+
+void lib1_InitLib () {
+    if (lib1_InitLib_completed) {
+        return;
+    }
+
+    lib1_InitLib_completed = true;
+
+    lib1_InitLibraries();
+    lib1_InitVariables();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+    lib1_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_Ini;
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ini
+//--------------------------------------------------------------------------------------------------
+bool gt_Ini_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_dialog;
+    int lv_panel;
+    int lv_button;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_dialog = c_invalidDialogId;
+    lv_panel = c_invalidDialogControlId;
+    lv_button = c_invalidDialogControlId;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_HideGameUI(false, PlayerGroupAll());
+    CameraLockInput(1, true);
+    lib1_gf_DisplaySharedPanelForPlayer(1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Ini_Init () {
+    gt_Ini = TriggerCreate("gt_Ini_Func");
+    TriggerAddEventMapInit(gt_Ini);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_Ini_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitTriggers();
+}

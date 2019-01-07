@@ -1,0 +1,194 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: UI (COOP)
+//--------------------------------------------------------------------------------------------------
+// Preset Declarations
+const int lib3AF56211_ge_ResearchType_Zerg = 0;
+const int lib3AF56211_ge_ResearchType_Protoss = 1;
+const int lib3AF56211_ge_CoopRoomType_Summary = 0;
+const int lib3AF56211_ge_CoopRoomType_Armory = 1;
+const int lib3AF56211_ge_CoopRoomType_Lab = 2;
+const int lib3AF56211_ge_CoopRoomType_Mercenaries = 3;
+const int lib3AF56211_ge_CoopRoomType_Archives = 4;
+
+// Constants
+const int lib3AF56211_gv_coop_MaxPlayers = 3;
+
+// Structures
+struct lib3AF56211_gs_CU_SharedPanel {
+    int lv_sharedPanel;
+    int lv_title;
+    int lv_missionTime;
+    int lv_missionTimeLabel;
+    int lv_glowBg;
+};
+
+struct lib3AF56211_gs_CU_SummaryPanel {
+    int lv_summary;
+    int lv_moviePanel;
+    int lv_moviePanel_Background;
+    int lv_moviePanel_Left;
+    int lv_moviePanel_Right;
+    int lv_moviePanel_RewardLabel;
+    int lv_moviePanel_MissionLabel;
+    int lv_teamPanel;
+    int lv_teamPanel_PlayerBtn1;
+    int lv_teamPanel_PlayerLabel1;
+    int lv_teamPanel_PlayerBtn2;
+    int lv_teamPanel_PlayerLabel2;
+    int lv_teamPanel_PlayerBtn3;
+    int lv_teamPanel_PlayerLabel3;
+    int lv_statsPanel;
+    int[11] lv_statsPanel_Stat;
+    int[11] lv_statsPanel_Value;
+    int[11] lv_statsPanel_Bg;
+    bool[11] lv_statsPanel_Active;
+    int lv_rewardPanel;
+    int[4] lv_rewardPanel_Border;
+    int[4] lv_rewardPanel_Title;
+    int[4] lv_rewardPanel_Description;
+    int[4] lv_rewardPanel_Icon;
+};
+
+struct lib3AF56211_gs_CU_NavigationPanel {
+    int lv_navigationPanel;
+    int lv_button1;
+    int lv_button2;
+    int lv_button3;
+    int lv_button4;
+    int lv_button5;
+    int lv_buttonLabel1;
+    int lv_buttonLabel2;
+    int lv_buttonLabel3;
+    int lv_buttonLabel4;
+    int lv_buttonLabel5;
+    int lv_navLeft;
+    int lv_navRight;
+};
+
+struct lib3AF56211_gs_CU_ArmoryPanel {
+    int lv_armoryPanel;
+    int lv_descPanel;
+    int lv_descBackground;
+    int lv_descTitleLabel;
+    int lv_descEffectsLabel;
+    int lv_descFlavorLabel;
+    int lv_purchasePanel;
+    int lv_creditsPanel;
+    int lv_creditsLabel;
+    int lv_costPanel;
+    int lv_costLabel;
+    int lv_purchaseBtn;
+    int[7] lv_armoryTab;
+    int lv_techGroupPanel;
+    int[6] lv_techBtn;
+    int[6] lv_techTitleLabel;
+    int[6] lv_techIcon;
+    int[6] lv_talent1Btn;
+    int[6] lv_talent1Icon;
+    int[6] lv_talent2Btn;
+    int[6] lv_talent2Icon;
+};
+
+// Variable Declarations
+string[6] lib3AF56211_gv_slotHolder;
+int lib3AF56211_gv_tossUnlockedResearch;
+int lib3AF56211_gv_tossSeenResearch;
+int lib3AF56211_gv_tossSpentResearch;
+int lib3AF56211_gv_zergUnlockedResearch;
+int lib3AF56211_gv_zergSeenResearch;
+int lib3AF56211_gv_zergSpentResearch;
+bool lib3AF56211_gv_researchDismissZerg;
+bool lib3AF56211_gv_researchDismissToss;
+int[lib3AF56211_gv_coop_MaxPlayers + 1] lib3AF56211_gv_coopScore_Dialog;
+lib3AF56211_gs_CU_SharedPanel[lib3AF56211_gv_coop_MaxPlayers + 1] lib3AF56211_gv_cU_SharedPanel;
+lib3AF56211_gs_CU_SummaryPanel[lib3AF56211_gv_coop_MaxPlayers + 1] lib3AF56211_gv_cU_SummaryPanel;
+lib3AF56211_gs_CU_NavigationPanel[lib3AF56211_gv_coop_MaxPlayers + 1] lib3AF56211_gv_navigationPanel;
+lib3AF56211_gs_CU_ArmoryPanel[lib3AF56211_gv_coop_MaxPlayers + 1] lib3AF56211_gv_armoryPanel;
+int lib3AF56211_gv_coopScore_Lab;
+int lib3AF56211_gv_coopScore_Lab_Toss;
+int lib3AF56211_gv_coopScore_Lab_Toss_Counter;
+int[26] lib3AF56211_gv_coopScore_Lab_Toss_Counter_Step;
+int[6] lib3AF56211_gv_coopScore_Lab_Toss_Available;
+int[4] lib3AF56211_gv_coopScore_Lab_Toss_BtnRow1;
+int[4] lib3AF56211_gv_coopScore_Lab_Toss_BtnRow2;
+int[4] lib3AF56211_gv_coopScore_Lab_Toss_BtnRow3;
+int[4] lib3AF56211_gv_coopScore_Lab_Toss_BtnRow4;
+int[4] lib3AF56211_gv_coopScore_Lab_Toss_BtnRow5;
+int lib3AF56211_gv_coopScore_Lab_Zerg;
+int lib3AF56211_gv_coopScore_Lab_Zerg_Counter;
+int[26] lib3AF56211_gv_coopScore_Lab_Zerg_Counter_Step;
+int[6] lib3AF56211_gv_coopScore_Lab_Zerg_Available;
+int[4] lib3AF56211_gv_coopScore_Lab_Zerg_BtnRow1;
+int[4] lib3AF56211_gv_coopScore_Lab_Zerg_BtnRow2;
+int[4] lib3AF56211_gv_coopScore_Lab_Zerg_BtnRow3;
+int[4] lib3AF56211_gv_coopScore_Lab_Zerg_BtnRow4;
+int[4] lib3AF56211_gv_coopScore_Lab_Zerg_BtnRow5;
+int lib3AF56211_gv_coopScore_Merc;
+int lib3AF56211_gv_coopScore_Merc_Panel;
+int lib3AF56211_gv_coopScore_Merc_Panel_Button1;
+int lib3AF56211_gv_coopScore_Merc_Panel_Button1_Portrait;
+int lib3AF56211_gv_coopScore_Archive;
+int lib3AF56211_gv_coopScore_Archive_List;
+int lib3AF56211_gv_coopScore_Archive_Preview;
+int lib3AF56211_gv_coopScore_Archive_Rewards;
+int[4] lib3AF56211_gv_coopScore_Archive_Rewards_Panel;
+int[4] lib3AF56211_gv_coopScore_Archive_Rewards_PanelIcon;
+int[4] lib3AF56211_gv_coopScore_Archive_Rewards_PanelTitle;
+int[4] lib3AF56211_gv_coopScore_Archive_Rewards_PanelDesc;
+int lib3AF56211_gv_coopScore_Archive_Difficulty;
+int lib3AF56211_gv_coop_LastMenu;
+int lib3AF56211_gv_activeStatSlots;
+int lib3AF56211_gv_coopAchievement_Dialog;
+
+// Function Declarations
+bool lib3AF56211_gf_IsUnitAllowedforPlayer (string lp_unitType, int lp_player);
+void lib3AF56211_gf_ArmoryTechAddUnitsBase (int lp_player, string lp_instance, int lp_slot);
+void lib3AF56211_gf_ArmoryTechAddUnitsInfantry (int lp_player, string lp_instance, int lp_slot);
+void lib3AF56211_gf_ArmoryTechAddUnitsVehicles (int lp_player, string lp_instance, int lp_slot);
+void lib3AF56211_gf_ArmoryTechAddUnitsStarships (int lp_player, string lp_instance, int lp_slot);
+void lib3AF56211_gf_ArmoryTechAddUnitsDominion (int lp_player, string lp_instance, int lp_slot);
+void lib3AF56211_gf_TechButtonPressed (int lp_player, int lp_currentSlot, int lp_pressedButton);
+void lib3AF56211_gf_DeselectTechButtons (int lp_player);
+void lib3AF56211_gf_InitArmoryTech ();
+void lib3AF56211_gf_LabPanelInit ();
+void lib3AF56211_gf_SetupResearchUI ();
+void lib3AF56211_gf_ShowNewResearch (int lp_type);
+void lib3AF56211_gf_PlayAvailableAnimation (int lp_type, int lp_slot);
+void lib3AF56211_gf_CoopScorePanelCreate (int lp_player);
+void lib3AF56211_gf_CoopScorePanelVisibility (bool lp_showHide, int lp_player);
+int lib3AF56211_gf_CoopReturnRoomType (int lp_menu);
+void lib3AF56211_gf_SwitchRoom (int lp_nextRoom, int lp_player);
+void lib3AF56211_gf_ShowHideScorePanel (bool lp_showHide, int lp_player);
+void lib3AF56211_gf_SummaryPanelUpdateMissionData (text lp_mapName, text lp_missionReward, int lp_player);
+void lib3AF56211_gf_SummaryPanelAddPlayerStat (int lp_player, text lp_statName, text lp_value);
+void lib3AF56211_gf_CoopScoreSetAchievementData (int lp_slot, string lp_achievement, string lp_icon, bool lp_earnedNotEarned, int lp_player);
+void lib3AF56211_gf_ArmoryPanelSetUpgradeData (int lp_player, string lp_instance);
+string lib3AF56211_gf_UserDataAsGameLink (string lp_type, string lp_instance, string lp_field);
+text lib3AF56211_gf_UserDataAsText (string lp_type, string lp_instance, string lp_field);
+string lib3AF56211_gf_UpgradeDataAsString (string lp_type, string lp_instance, string lp_field);
+int lib3AF56211_gf_UpgradeDataAsInteger (string lp_type, string lp_instance, string lp_field);
+void lib3AF56211_gf_PlayStatsPanelAnimation (int lp_player);
+void lib3AF56211_gf_CreateAnchoringUI ();
+
+// Trigger Declarations
+trigger lib3AF56211_gt_DismissZerg;
+trigger lib3AF56211_gt_DismissToss;
+trigger lib3AF56211_gt_InitArmoryPanel;
+trigger lib3AF56211_gt_BaseBtnPress;
+trigger lib3AF56211_gt_InfantryBtnPress;
+trigger lib3AF56211_gt_VehicleBtnPress;
+trigger lib3AF56211_gt_StarshipBtnPress;
+trigger lib3AF56211_gt_DominionBtnPress;
+trigger lib3AF56211_gt_UnitTalentBtnPress;
+trigger lib3AF56211_gt_ResearchBtnPress;
+trigger lib3AF56211_gt_CoopScore_SummaryBtn;
+trigger lib3AF56211_gt_CoopScore_ArmoryBtn;
+trigger lib3AF56211_gt_CoopScore_LabBtn;
+trigger lib3AF56211_gt_CoopScore_MercBtn;
+trigger lib3AF56211_gt_CoopScore_ArchiveBtn;
+
+// Library Initialization
+void lib3AF56211_InitVariables ();
+

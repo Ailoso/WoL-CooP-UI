@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Button" name="NavigationButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_glue_dropdownbutton_normalpressed_terran.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_glue_dropdownbutton_normaloverpressedover_terran.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="TeammateButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+		<CollapseLayout val="True"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_battle_missionbuttonicon_normalpressed.dds"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="19,136,136"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_battle_missionbuttonicon_normaloverpressedover.dds"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="19,136,136"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="TechPurchaseTab">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+		<Toggleable val="True"/>
+		<Width val="300"/>
+		<Height val="85"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_techpurchase_tabbutton_normalpressed.dds"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_techpurchase_tabbutton_normaloverpressedover.dds"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="11"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-18"/>
+        </Frame>
+		
+		<Frame type="Label" name="Label">
+			<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+			<Style val="WolCoopTechButtonLabel"/>
+		</Frame>
+    </Frame>
+	
+    <Frame type="Button" name="TechButton">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+		<Toggleable val="True"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_techpurchase_techbutton_available_normalpressed.dds"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="73,216,209"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_techpurchase_techbutton_available_normaloverpressedover.dds"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="73,216,209"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+		
+        <StateGroup name="ToggleState">
+            
+            <State name="Normal">
+                <When type="Property" frame="$this" Toggled="false"/>
+            </State>
+
+            <State name="Over">
+                <When type="Property" frame="$this" Toggled="true"/>
+                <Action type="SetProperty" frame="$this/HoverImage" AdjustmentColor="0,255,0"/>
+                <Action type="SetProperty" frame="$this/NormalImage" AdjustmentColor="0,255,0"/>
+            </State>
+        </StateGroup>
+		
+        <StateGroup name="TechPurchaseState">
+            <DefaultState val="Available"/>
+            
+            <State name="Available">
+                <When type="AnimationState" PurchaseState="Available"/>
+                <Action type="SetProperty" frame="$this/HoverImage" AdjustmentColor="0,254,254"/>
+                <Action type="SetProperty" frame="$this/NormalImage" AdjustmentColor="0,254,254"/>
+                <Action type="SetProperty" frame="$this/Icon" AdjustmentColor="0,254,254"/>
+            </State>
+			
+            <State name="Hired">
+                <When type="AnimationState" PurchaseState="Hired"/>
+                <Action type="SetProperty" frame="$this/HoverImage" AdjustmentColor="49,71,70"/>
+                <Action type="SetProperty" frame="$this/NormalImage" AdjustmentColor="49,71,70"/>
+				<Action type="SetProperty" frame="$this/Icon" AdjustmentColor="49,71,70"/>
+            </State>
+			
+            <State name="NoCredit">
+                <When type="AnimationState" PurchaseState="NoCredit"/>
+                <Action type="SetProperty" frame="$this/HoverImage" AdjustmentColor="170,49,49"/>
+                <Action type="SetProperty" frame="$this/NormalImage" AdjustmentColor="170,49,49"/>
+				<Action type="SetProperty" frame="$this/Icon" AdjustmentColor="170,49,49"/>
+            </State>
+        </StateGroup>
+    </Frame>
+
+    <Frame type="Image" name="TechUnitPanel">
+		<Texture val="Assets\Textures\ui_techpurchase_unitbutton_availableselected.dds"/>
+		<TextureType val="Normal"/>
+		<Tiled val="false"/>
+		<StateCount val="2"/>
+		<StateIndex val="0"/>
+		<DesaturateOnDisable val="false"/>
+		<DisabledAlpha val="128"/>
+		<Height val="360"/>
+		<Width val="250"/>
+		<CollapseLayout val="True"/>
+		<ColorAdjustMode val="Colorize"/>
+		
+        <StateGroup name="SelectionState">
+            
+            <State name="Normal">
+                <When type="Property" frame="$this/TechButton1" Toggled="false"/>
+                <When type="Property" frame="$this/TechButton2" Toggled="false"/>
+
+                <Action type="SetProperty" frame="$this" StateIndex="0"/>
+            </State>
+			
+            <State name="Tech1InUse">
+                <When type="Property" frame="$this/TechButton1" Toggled="true"/>
+                <When type="Property" frame="$this/TechButton2" Toggled="false"/>
+
+                <Action type="SetProperty" frame="$this" StateIndex="1"/>
+				<Action type="SetProperty" frame="$this" AdjustmentColor="0,255,0"/>
+				<Action type="SetProperty" frame="$this/UnitLabel" Style="WolCoopTechUnitSelected"/>
+            </State>
+			
+            <State name="Tech2InUse">
+                <When type="Property" frame="$this/TechButton1" Toggled="false"/>
+                <When type="Property" frame="$this/TechButton2" Toggled="true"/>
+
+                <Action type="SetProperty" frame="$this" StateIndex="1"/>
+				<Action type="SetProperty" frame="$this" AdjustmentColor="0,255,0"/>
+				<Action type="SetProperty" frame="$this/UnitLabel" Style="WolCoopTechUnitSelected"/>
+            </State>
+        </StateGroup>
+		
+        <StateGroup name="PurchaseState">
+            <DefaultState val="Available"/>
+            
+            <State name="Available">
+                <When type="AnimationState" PurchaseState="Available"/>
+                <Action type="SetProperty" frame="$this/UnitIcon" Visible="False"/>
+                <Action type="SetProperty" frame="$this/UnitModel" Visible="True"/>
+				<Action type="SetProperty" frame="$this" AdjustmentColor="0,254,254"/>
+            </State>
+			
+            <State name="Hired">
+                <When type="AnimationState" PurchaseState="Hired"/>
+                <Action type="SetProperty" frame="$this/UnitIcon" Visible="True"/>
+                <Action type="SetProperty" frame="$this/UnitModel" Visible="False"/>
+				<Action type="SetProperty" frame="$this" AdjustmentColor="49,71,70"/>
+				<Action type="SetProperty" frame="$this/UnitIcon" AdjustmentColor="49,71,70"/>
+				<Action type="SetProperty" frame="$this/UnitLabel" Style="WolCoopTechUnitPurchased"/>
+            </State>
+			
+            <State name="NoCredit">
+                <When type="AnimationState" PurchaseState="NoCredit"/>
+                <Action type="SetProperty" frame="$this/UnitIcon" Visible="True"/>
+                <Action type="SetProperty" frame="$this/UnitModel" Visible="False"/>
+				<Action type="SetProperty" frame="$this" AdjustmentColor="170,49,49"/>
+				<Action type="SetProperty" frame="$this/UnitIcon" AdjustmentColor="170,49,49"/>
+				<Action type="SetProperty" frame="$this/UnitLabel" Style="WolCoopTechUnitNoCredit"/>
+            </State>
+			
+            <State name="NewTech">
+                <When type="AnimationState" PurchaseState="NewTech"/>
+                <Action type="SetProperty" frame="$this/UnitIcon" Visible="False"/>
+                <Action type="SetProperty" frame="$this/UnitModel" Visible="True"/>
+				<Action type="SetProperty" frame="$this" Texture="Assets\Textures\ui_techpurchase_unitbutton_normaloverpressedover.dds"/>
+				<Action type="SetProperty" frame="$this" AdjustmentColor="0,254,254"/>
+				<Action type="SetProperty" frame="$this/UnitLabel" Style="WolCoopTechUnitNewTech"/>
+            </State>
+        </StateGroup>
+		
+		<Frame type="Label" name="UnitLabel">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="31"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+			<Style val="WolCoopTechUnitAvailable"/>
+		</Frame>
+		
+		<Frame type="Image" name="UnitIcon">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
+			<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+			<Height val="210"/>
+			<Width val="210"/>
+			<ColorAdjustMode val="Colorize"/>
+		</Frame>
+		
+		<Frame type="UnitModelFrame" name="UnitModel">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
+			<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+			<Height val="210"/>
+			<Width val="210"/>
+			<LightLink val="CinematicBaseLighting"/>
+				
+			<TeamColorIndex val="2"/>
+				
+			<Frame type="Model" name="Model">
+				<Anchor relative="$parent"/>
+				<UseAlternateTime val="false"/>
+				<UseAspectScaling val="false"/>
+			</Frame>
+		</Frame>
+		
+		<Frame type="Button" name="TechButton1" template="WoL_Coop_StandardTemplate/TechButton">
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="6"/>
+			<Anchor side="Right" relative="$parent" pos="Mid" offset="2"/>
+			<Height val="95"/>
+			<Width val="95"/>
+
+			<Frame type="Image" name="Icon">
+				<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+				<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+				<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+				<Width val="70"/>
+				<Height val="70"/>
+				<ColorAdjustMode val="Fill"/>
+				<AdjustmentColor val="0,254,254"/>
+			</Frame>
+		</Frame>
+		
+		<Frame type="Button" name="TechButton2" template="WoL_Coop_StandardTemplate/TechButton">
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="6"/>
+			<Anchor side="Left" relative="$parent" pos="Mid" offset="-2"/>
+			<Height val="95"/>
+			<Width val="95"/>
+
+			<Frame type="Image" name="Icon">
+				<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+				<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+				<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+				<Width val="70"/>
+				<Height val="70"/>
+				<ColorAdjustMode val="Fill"/>
+				<AdjustmentColor val="0,254,254"/>
+			</Frame>
+		</Frame>
+    </Frame>
+
+
+    <Frame type="Image" name="TossResearchAvailable">
+        <Texture val="Assets\Textures\ui_research_frame_available_line_protoss.dds"/>
+        <TextureType val="Border"/>
+<!--
+
+        <Texture val="Assets\Textures\ui_research_frame_available_box.dds"/>
+
+        <Frame type="Image" name="Border">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_frame_available_line_protoss.dds"/>
+            <TextureType val="Border"/>
+        </Frame>
+-->
+
+        <Animation name="Show">
+            <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+            <Controller type="Dimension" dimension="Width" relative="False" percentage="False" unclip="False" end="Pause">
+                <Key type="Curve" time="0" value="0" out="Fast"/>
+                <Key type="Curve" time="1.5" value="434" in="Slow"/>
+            </Controller>
+        </Animation>
+
+        <Animation name="Hide">
+            <Event event="Hide" action="Reset,Play" frame="$this"/>
+
+            <Controller type="Fade" end="Pause">
+                <Key type="Curve" time="0" value="255" out="Fast"/>
+                <Key type="Curve" time=".8" value="0" in="Slow"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause">
+                <Key type="Bool" time=".8" value="False"/>
+            </Controller>
+        </Animation>
+    </Frame>
+
+    <Frame type="Image" name="ZergResearchAvailable">
+        <Texture val="Assets\Textures\ui_research_frame_available_line_zerg.dds"/>
+        <TextureType val="Border"/>
+
+        <Animation name="Show">
+            <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+            <Controller type="Dimension" dimension="Width" relative="False" percentage="False" unclip="False" end="Pause">
+                <Key type="Curve" time="0" value="0" out="Fast"/>
+                <Key type="Curve" time="1.5" value="440" in="Slow"/>
+            </Controller>
+        </Animation>
+
+        <Animation name="Hide">
+            <Event event="Hide" action="Reset,Play" frame="$this"/>
+
+            <Controller type="Fade" end="Pause">
+                <Key type="Curve" time="0" value="255" out="Fast"/>
+                <Key type="Curve" time=".8" value="0" in="Slow"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause">
+                <Key type="Bool" time=".8" value="False"/>
+            </Controller>
+        </Animation>
+    </Frame>
+
+    <Frame type="Image" name="FillerAnimationTemplate">
+
+        <Animation name="Birth">
+            <Event event="Birth" action="Reset,Play"/>
+                         
+            <Controller type="Fade" end="Pause">
+                <Key type="Curve" time="0" value="0" out="Slow"/>
+                <Key type="Curve" time=".1" value="255" in="Slow"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause">
+                <Key type="Bool" time="0" value="True"/>
+            </Controller>
+        </Animation>
+    </Frame>
+
+<!--
+    <Frame type="Button" name="TechUnitPanelButton">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_techpurchase_unitbutton_normalpressed.dds"/>
+            <TextureType val="Normal"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_techpurchase_unitbutton_availableselected.dds"/>
+            <TextureType val="Normal"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+    </Frame>
+-->
+
+    <Frame type="Button" name="TechPurchaseButton">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_merc_button_hire_normalpressed.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_merc_button_hire_normaoverlpressedover.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="28"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-28"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="MercUnitButton">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_merc_button_normalpressed.dds"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="73,216,209"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_merc_button_normaloverpressedover.dds"/>
+            <TextureType val="Border"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="73,216,209"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="ResearchZergBtn">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_button_zerg_normalpressed.dds"/>
+            <TextureType val="Normal"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_button_zerg_normaloverpressedover.dds"/>
+            <TextureType val="Normal"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="ResearchProtossBtn">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_button_protoss_normalpressed.dds"/>
+            <TextureType val="Normal"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_button_protoss_normaloverpressedover.dds"/>
+            <TextureType val="Normal"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="MetalTemplate">
+
+        <Frame type="Image" name="Metal">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_achievement_metalframe.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="True"/>
+        </Frame>
+		
+        <StateGroup name="Received">
+            <DefaultState val="Unearned"/>
+            
+            <State name="Unearned">
+                <When type="AnimationState" Received="Unearned"/>
+                <Action type="SetProperty" frame="$this/Metal" Desaturated="True"/>
+                <Action type="SetProperty" frame="$this/Icon" Desaturated="True"/>
+                <Action type="SetProperty" frame="$this/Title" Enabled="False"/>
+                <Action type="SetProperty" frame="$this/Description" Enabled="False"/>
+                <Action type="SetProperty" frame="$this/Score" Enabled="False"/>
+            </State>
+			
+            <State name="Earned">
+                <When type="AnimationState" Received="Earned"/>
+                <Action type="SetProperty" frame="$this/Metal" Desaturated="False"/>
+                <Action type="SetProperty" frame="$this/Icon" Desaturated="False"/>
+                <Action type="SetProperty" frame="$this/Title" Enabled="True"/>
+                <Action type="SetProperty" frame="$this/Description" Enabled="True"/>
+                <Action type="SetProperty" frame="$this/Score" Enabled="True"/>
+            </State>
+        </StateGroup>
+		
+		<Frame type="Image" name="Icon">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="35"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="46"/>
+			<Height val="75"/>
+			<Width val="75"/>
+		</Frame>
+
+		<Frame type="Label" name="Title">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="34"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="140"/>
+			<Style val="WolCoopRewardTitle"/>
+			<Width val="340"/>
+		</Frame>
+
+		<Frame type="Label" name="Description">
+			<Anchor side="Top" relative="$parent/Title" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent/Title" pos="Min" offset="0"/>
+			<Style val="WolCoopRewardDescription"/>
+			<Width val="340"/>
+		</Frame>
+
+		<Frame type="Label" name="Score">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="35"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+			<Height val="75"/>
+			<Width val="75"/>
+			<Style val="WolCoopRewardScore"/>
+		</Frame>
+    </Frame>
+	
+	<Frame type="Frame" name="StatContainerTemplate">
+		<Height val="25"/>
+		
+		<Animation name="BirthStat">
+			<Event event="Birth" action="Reset,Play"/>
+
+			<Controller type="Fade" end="Pause" frame="$this/Title">
+				<Key type="Curve" time="0" value="0" inout="Slow"/>
+				<Key type="Curve" time=".4" value="255" inout="Slow"/>
+			</Controller>
+			
+			<Controller type="Fade" end="Pause" frame="$this/GlowBackground">
+				<Key type="Curve" time="0" value="0" inout="Slow"/>
+				<Key type="Curve" time=".4" value="0" inout="Slow"/>
+				<Key type="Curve" time=".7" value="255" inout="Slow"/>
+				<Key type="Curve" time=".8" value="200" inout="Slow"/>
+			</Controller>
+			
+			<Controller type="Fade" end="Pause" frame="$this/StatValue">
+				<Key type="Curve" time="0" value="0" inout="Slow"/>
+				<Key type="Curve" time=".6" value="0" inout="Slow"/>
+				<Key type="Curve" time=".8" value="255" inout="Slow"/>
+			</Controller>
+		</Animation>
+
+		<Frame type="Label" name="Title">
+			<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Style val="WolCoopStatTitle"/>
+			<Alpha val="0"/>
+		</Frame>
+		
+		<Frame type="Image" name="GlowBackground">
+			<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Texture val="Assets\Textures\ui_battle_glow_4numbers.dds"/>
+			<Alpha val="0"/>
+		</Frame>
+		
+		<Frame type="Label" name="StatValue">
+			<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+			<Anchor side="Left" relative="$parent/GlowBackground" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent/GlowBackground" pos="Mid" offset="0"/>
+			<Style val="WolCoopStatValue"/>
+			<Alpha val="0"/>
+		</Frame>
+	</Frame>
+</Desc>

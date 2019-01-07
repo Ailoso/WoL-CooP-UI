@@ -1,0 +1,15 @@
+﻿DocInfo/DescLong=Completely devoid of any description whatsoever.
+DocInfo/DescShort=Any
+DocInfo/Name=Just Another StarCraft II Map
+MapInfo/Player00/Name=Neutral
+MapInfo/Player01/Name=Player 1
+MapInfo/Player02/Name=Hostile
+Param/Value/lib_1_20243BDF=Just a Title
+Param/Value/lib_1_31973686=69
+Param/Value/lib_1_5A87E038=Liberation Day
+Param/Value/lib_1_5D29DF17=Testing descriptions and formatting. Nothing else.
+Param/Value/lib_1_6E11ED96=Testing descriptions and formatting. Nothing else.
+Param/Value/lib_1_71701523=Just a Title
+Param/Value/lib_1_7AA73F73=Just a Title
+Param/Value/lib_1_A2918FB6=55,000
+Param/Value/lib_1_FE2AD3DC=69

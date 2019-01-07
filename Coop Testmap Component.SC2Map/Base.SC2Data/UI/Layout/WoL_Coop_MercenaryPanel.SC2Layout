@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Frame" name="MercPanelTemplate">
+        <Anchor relative="$parent/BattleReportSharedPanel/ContentAnchor"/>
+        <Visible val="false"/>
+
+        <Frame type="Frame" name="MercGroupPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="465"/>
+
+            <Frame type="Image" name="Background">
+                <Anchor relative="$parent"/>
+                <Texture val="Assets\Textures\ui_merc_frame_outer.dds"/>
+                <TextureType val="HorizontalBorder"/>
+            </Frame>
+
+            <Frame type="Image" name="TitleBackground">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="12"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-12"/>
+                <Texture val="Assets\Textures\ui_merc_frame_topblank.dds"/>
+                <TextureType val="Border"/>
+                <Height val="45"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="112,216,216"/>
+            </Frame>
+
+            <Frame type="Label" name="TitleLabel">
+                <Anchor side="Top" relative="$parent/TitleBackground" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/TitleBackground" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/TitleBackground" pos="Min" offset="22"/>
+                <Text val="Select a Mercenary"/>
+                <Style val="WolCoopTechTitle"/>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton1" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/TitleBackground" pos="Max" offset="-5"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="-1"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+<!-- Portraits disabled until a fix is found
+                
+                <Frame type="Portrait" name="Portrait">
+                    <Anchor side="Top" relative="$parent/UnitButton1" pos="Min" offset="60"/>
+                    <Anchor side="Bottom" relative="$parent/UnitButton1" pos="Max" offset="-16"/>
+                    <Anchor side="Left" relative="$parent/UnitButton1" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent/UnitButton1" pos="Max" offset="-15"/>
+                    <RenderType val="HDR"/>
+                    <AcceptsMouse val="false"/>
+                    <BorderImage val="BorderImage"/>
+                    <BackgroundImage val="BackgroundImage"/>
+                    <UseTransition val="false"/>
+                    <Visible val="true"/>
+
+                    <Frame type="Image" name="BorderImage">
+                        <Visible val="false"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+
+                    <Frame type="Image" name="BackgroundImage">
+                        <Visible val="false"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+                </Frame>
+-->
+
+            <Frame type="Button" name="UnitButton2" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton1" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton1" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton3" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton2" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton2" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton4" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton3" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton3" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton5" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton4" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton4" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton6" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton5" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton5" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton7" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton6" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton6" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton8" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton1" pos="Max" offset="-15"/>
+                <Anchor side="Left" relative="$parent/UnitButton1" pos="Min" offset="0"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton9" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton8" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton8" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton10" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton9" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton9" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton11" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton10" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton10" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton12" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton11" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton11" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton13" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton12" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton12" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="UnitButton14" template="WoL_Coop_StandardTemplate/MercUnitButton">
+                <Anchor side="Top" relative="$parent/UnitButton13" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitButton13" pos="Max" offset="-16"/>
+                <Height val="210"/>
+                <Width val="222"/>
+
+                <Frame type="Image" name="TitleBg">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="24"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="17"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+                    <TextureType val="Border"/>
+                    <StateCount val="2"/>
+                    <Height val="40"/>
+                </Frame>
+
+                <Frame type="Image" name="Portrait">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                </Frame>
+
+                <Frame type="Label" name="MercLabel">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
+                    <Style val="WolCoopTechUnitAvailable"/>
+                </Frame>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="MercDescriptionPanel">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Width val="581"/>
+            <Height val="353"/>
+
+            <Frame type="Image" name="DescriptionBorder">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Texture val="Assets\Textures\ui_merc_frame_description_box.dds"/>
+                <TextureType val="HorizontalBorder"/>
+
+                <Frame type="Label" name="Title">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+                    <Text val="War Pigs"/>
+                    <Style val="WolCoopDescTitle"/>
+                </Frame>
+
+                <Frame type="Label" name="Stats">
+                    <Anchor side="Top" relative="$parent/Title" pos="Max" offset="15"/>
+                    <Anchor side="Left" relative="$parent/Title" pos="Min" offset="0"/>
+                    <Text val="Unit Stats: Go here."/>
+                    <Style val="WolCoopDescEffectAlt"/>
+                </Frame>
+
+                <Frame type="Label" name="Description">
+                    <Anchor side="Top" relative="$parent/Stats" pos="Max" offset="15"/>
+                    <Anchor side="Left" relative="$parent/Title" pos="Min" offset="0"/>
+                    <Text val="Description Goes Here."/>
+                    <Style val="WolCoopDescAlt"/>
+                </Frame>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="PurchasePanel">
+            <Anchor side="Top" relative="$parent/MercDescriptionPanel" pos="Min" offset="68"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="408"/>
+
+            <Frame type="Image" name="CostBackground">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="-12"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="95"/>
+                <Width val="310"/>
+                <Texture val="Assets\Textures\ui_merc_frame_credit.dds"/>
+                <TextureType val="Border"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="112,216,216"/>
+
+                <Frame type="Label" name="CreditsTitle">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="25"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Text val="Credits Available:"/>
+                    <Style val="WolCoopCreditsAvailable"/>
+                </Frame>
+
+                <Frame type="Label" name="Credits">
+                    <Anchor side="Top" relative="$parent/CreditsTitle" pos="Max" offset="-2"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Text val="400,000"/>
+                    <Style val="WolCoopCredits"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Image" name="CreditsBackground">
+                <Anchor side="Top" relative="$parent/CostBackground" pos="Max" offset="-12"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="95"/>
+                <Width val="310"/>
+                <Texture val="Assets\Textures\ui_merc_frame_cost.dds"/>
+                <TextureType val="Border"/>
+                <ColorAdjustMode val="Colorize"/>
+                <AdjustmentColor val="73,216,31"/>
+
+                <Frame type="Label" name="CostTitle">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="25"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Text val="Cost:"/>
+                    <Style val="WolCoopCreditsAvailable"/>
+                </Frame>
+
+                <Frame type="Label" name="Credits">
+                    <Anchor side="Top" relative="$parent/CostTitle" pos="Max" offset="-2"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Text val="40,000"/>
+                    <Style val="WolCoopCost"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="PurchaseButton" template="WoL_Coop_StandardTemplate/TechPurchaseButton">
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="120"/>
+                <Width val="380"/>
+
+                <Frame type="Label" name="Label">
+                    <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Text val="Hire"/>
+                    <Style val="WolCoopPurchase"/>
+                </Frame>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="TechMoviePanel">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val="580"/>
+            <Height val="353"/>
+
+            <Frame type="Image" name="MovieBorder">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Texture val="Assets\Textures\ui_merc_frame_movie_box.dds"/>
+                <TextureType val="HorizontalBorder"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>
