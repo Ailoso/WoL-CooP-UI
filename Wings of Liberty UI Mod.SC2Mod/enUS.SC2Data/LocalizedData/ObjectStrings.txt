@@ -1,4 +1,6 @@
 ﻿User/EditorPrefix/Achievements=WoL -
 User/EditorPrefix/MissionData=WoL -
+User/EditorPrefix/UpgradeData=WoL -
 User/Name/Achievements=Achievements
 User/Name/MissionData=Mission Data
+User/Name/UpgradeData=Upgrade Data

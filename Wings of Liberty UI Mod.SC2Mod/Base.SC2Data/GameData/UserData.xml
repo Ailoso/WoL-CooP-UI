@@ -92,4 +92,130 @@
             </String>
         </Instances>
     </CUser>
+    <CUser id="UpgradeData">
+        <Fields Id="Effects" Type="Text" EditorColumn="2"/>
+        <Fields Id="Flavor Text" Type="Text" EditorColumn="3"/>
+        <Fields Id="Cost" Type="Int" EditorColumn="4"/>
+        <Fields Id="Title" Type="String" EditorColumn="1"/>
+        <Instances Id="[Default]">
+            <Int Int="3">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Projectile Accelerator">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Default]_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Default]_Effects">
+                <Field Id="Effects"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Base-Bunker] Projectile Accelerator">
+            <Int Int="3">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Projectile Accelerator">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Base-Bunker] Projectile Accelerator_Effects">
+                <Field Id="Effects"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Base-Bunker] Neosteel Frame">
+            <String String="Neosteel Frame">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Base-Bunker] Neosteel Frame_Effects">
+                <Field Id="Effects"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Base-Bunker] Neosteel Frame_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Base-Turret] Titanium Housing">
+            <Int Int="2">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Titanium Housing">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Base-Turret] Titanium Housing_Effects">
+                <Field Id="Effects"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Base-Turret] Titanium Housing_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Base-Turret] Hellstorm Batteries">
+            <Int Int="2">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Hellstorm Batteries">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Base-Turret] Hellstorm Batteries_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Base-Turret] Hellstorm Batteries_Effects">
+                <Field Id="Effects"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Base-SCV] Advanced Construction">
+            <Int Int="1">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Advanced Construction">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Base-SCV] Advanced Construction_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Base-SCV] Advanced Construction_Effects">
+                <Field Id="Effects"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Base-SCV] Dual Fusion Welders">
+            <Int Int="1">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Dual Fusion Welders">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Base-SCV] Dual Fusion Welders_Effects">
+                <Field Id="Effects"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Base-SCV] Dual Fusion Welders_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Infantry-Marine] Combat Shield">
+            <Int Int="4">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="Combat Shield">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Infantry-Marine] Combat Shield_Effects">
+                <Field Id="Effects"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Infantry-Marine] Combat Shield_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+        </Instances>
+        <Instances Id="[Infantry-Marine] StimPack">
+            <Int Int="4">
+                <Field Id="Cost"/>
+            </Int>
+            <String String="StimPack">
+                <Field Id="Title"/>
+            </String>
+            <Text Text="UserData/UpgradeData/[Infantry-Marine] StimPack_Effects">
+                <Field Id="Effects"/>
+            </Text>
+            <Text Text="UserData/UpgradeData/[Infantry-Marine] StimPack_Flavor Text">
+                <Field Id="Flavor Text"/>
+            </Text>
+        </Instances>
+    </CUser>
 </Catalog>

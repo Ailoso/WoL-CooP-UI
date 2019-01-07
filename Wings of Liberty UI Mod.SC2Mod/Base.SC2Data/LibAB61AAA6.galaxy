@@ -177,10 +177,10 @@ void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player) {
 void libAB61AAA6_gf_UpdateAchievementData (string lp_achievement, int lp_player, int lp_slot) {
     // Automatic Variable Declarations
     // Implementation
-    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupAll());
-    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupAll());
-    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lp_slot], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupAll());
-    libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lp_slot], UserDataGetImagePath("Achievements", lp_achievement, "Icon", 1), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lp_slot], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardIcons[lp_slot], UserDataGetImagePath("Achievements", lp_achievement, "Icon", 1), PlayerGroupSingle(lp_player));
 }
 
 void libAB61AAA6_gf_AddStatPanel (int lp_player, string lp_title, string lp_value) {
@@ -220,6 +220,15 @@ void libAB61AAA6_gf_PlayStatBirth (int lp_player) {
     }
 }
 
+void libAB61AAA6_gf_KL_UpgradeDataSet (string lp_upgrade, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_title, StringToText(UserDataGetString("UpgradeData", lp_upgrade, "Title", 1)), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_effects, UserDataGetText("UpgradeData", lp_upgrade, "Effects", 1), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_description, UserDataGetText("UpgradeData", lp_upgrade, "Flavor Text", 1), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_cost, (IntToText(UserDataGetInt("UpgradeData", lp_upgrade, "Cost", 1)) + StringExternal("Param/Value/lib_AB61AAA6_A94A5E4D")), PlayerGroupSingle(lp_player));
+}
+
 void libAB61AAA6_gf_KL_UpdateArmory (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
@@ -241,7 +250,7 @@ void libAB61AAA6_gf_KL_UpdateArmory (int lp_player) {
         libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, StringExternal("Param/Value/lib_AB61AAA6_0413DAB1"), PlayerGroupAll());
     }
     else {
-        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, (IntToText(libAB61AAA6_gv_globalValues[lp_player].lv_cash) + StringExternal("Param/Value/lib_AB61AAA6_FD5966F1")), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, (IntToText(libAB61AAA6_gv_globalValues[lp_player].lv_cash) + StringExternal("Param/Value/lib_AB61AAA6_FD5966F1")), PlayerGroupSingle(lp_player));
     }
 }
 
@@ -249,10 +258,10 @@ void libAB61AAA6_gf_KL_UpdateArmoryCash (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
     if ((libAB61AAA6_gv_globalValues[lp_player].lv_cash == 0)) {
-        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, StringExternal("Param/Value/lib_AB61AAA6_2374A9E3"), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, StringExternal("Param/Value/lib_AB61AAA6_2374A9E3"), PlayerGroupSingle(lp_player));
     }
     else {
-        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, (IntToText(libAB61AAA6_gv_globalValues[lp_player].lv_cash) + StringExternal("Param/Value/lib_AB61AAA6_A5ADBC0B")), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits, (IntToText(libAB61AAA6_gv_globalValues[lp_player].lv_cash) + StringExternal("Param/Value/lib_AB61AAA6_A5ADBC0B")), PlayerGroupSingle(lp_player));
     }
 }
 
@@ -395,7 +404,7 @@ void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_credits = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/CostBackground"));
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_costBackground = DialogControlLastCreated();
-    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/CostBackground/Cost"));
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/CostBackground/Cost"));
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_cost = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/PurchaseButton"));
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_purchaseButton = DialogControlLastCreated();
@@ -436,9 +445,9 @@ void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player) {
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/MarinePanel"));
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton1"));
-    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_combatShield = DialogControlLastCreated();
-    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
     libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_stimpack = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMarinePanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("TechButton2"));
+    libAB61AAA6_gv_kL_ArmoryTechButtons[lp_player].lv_combatShield = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/MedicPanel"));
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_infantryMedicPanel = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("TechGroupPanel/InfantryGroup/FirebatPanel"));
@@ -490,6 +499,43 @@ void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_playe
 
 // Triggers
 //--------------------------------------------------------------------------------------------------
+// Trigger: KL_UpgradePressed
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_KL_UpgradePressed_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int auto760D1A59_val;
+
+    // Conditions
+    if (testConds) {
+        if (!(((libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield == EventDialogControl()) || (libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_stimpack == EventDialogControl())))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto760D1A59_val = EventDialogControl();
+    if (auto760D1A59_val == libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield) {
+        libAB61AAA6_gf_KL_UpgradeDataSet("[Infantry-Marine] Combat Shield", EventPlayer());
+    }
+    else if (auto760D1A59_val == libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_stimpack) {
+        libAB61AAA6_gf_KL_UpgradeDataSet("[Infantry-Marine] StimPack", EventPlayer());
+    }
+    else {
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_KL_UpgradePressed_Init () {
+    libAB61AAA6_gt_KL_UpgradePressed = TriggerCreate("libAB61AAA6_gt_KL_UpgradePressed_Func");
+    TriggerAddEventDialogControl(libAB61AAA6_gt_KL_UpgradePressed, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Debug - Fanfare
 //--------------------------------------------------------------------------------------------------
 bool libAB61AAA6_gt_DebugFanfare_Func (bool testConds, bool runActions) {
@@ -511,6 +557,7 @@ void libAB61AAA6_gt_DebugFanfare_Init () {
 }
 
 void libAB61AAA6_InitTriggers () {
+    libAB61AAA6_gt_KL_UpgradePressed_Init();
     libAB61AAA6_gt_DebugFanfare_Init();
 }
 
