@@ -749,7 +749,55 @@
 			<Style val="WolCoopStatValue"/>
 			<Alpha val="0"/>
 		</Frame>
-	</Frame>
+    </Frame>
+    
+    <!-- Tech Fanfare Animations -->
+
+    <Animation name="ShineGrowWidth">
+        <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+        <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
+            <Key type="Curve" time="0.0" value="20"/>
+            <Key type="Curve" time="0.1" value="80"/>
+            <Key type="Curve" time="0.25" value="20"/>
+            <Key type="Curve" time="0.4" value="40"/>
+        </Controller>
+
+        <Controller type="Fade" end="Pause" frame="$this">
+            <Key type="Curve" time="0.0" value="0"/>
+            <Key type="Curve" time="0.1" value="255"/>
+            <Key type="Curve" time="0.25" value="200"/>
+            <Key type="Curve" time="0.35" value="100"/>
+            <Key type="Curve" time="0.4" value="0"/>
+        </Controller>
+
+        <Controller type="Visibility" end="Pause" frame="$this">
+            <Key type="Bool" time="0.4" value="False"/>
+        </Controller>
+    </Animation>
+
+    <Animation name="ShineGrowHeight">
+        <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+        <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="False">
+            <Key type="Curve" time="0.0" value="20"/>
+            <Key type="Curve" time="0.15" value="80"/>
+            <Key type="Curve" time="0.3" value="20"/>
+            <Key type="Curve" time="0.45" value="40"/>
+        </Controller>
+
+        <Controller type="Fade" end="Pause" frame="$this">
+            <Key type="Curve" time="0.0" value="0"/>
+            <Key type="Curve" time="0.15" value="255"/>
+            <Key type="Curve" time="0.3" value="200"/>
+            <Key type="Curve" time="0.4" value="100"/>
+            <Key type="Curve" time="0.45" value="0"/>
+        </Controller>
+
+        <Controller type="Visibility" end="Pause" frame="$this">
+            <Key type="Bool" time="0.45" value="False"/>
+        </Controller>
+    </Animation>
 
     <Frame type="Frame" name="TechpurchaseFanfare">
         <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
@@ -758,61 +806,221 @@
         <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
         <Width val="285"/>
         <Height val="285"/>
+        <Visible val="False"/>
+
+        <Animation name="FanfarePlay">
+            <Event event="OnShown" action="Reset,Play" frame="$this"/>
+            <Event event="OnHidden" action="Reset" frame="$this"/>
+
+            <Controller type="Visibility" end="Pause" frame="$this/Scanlines">
+                <Key type="Bool" time="0.0" value="True"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this/RightFlash">
+                <Key type="Bool" time="0.0" value="True"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this/BottomFlash">
+                <Key type="Bool" time="0.05" value="True"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this/LeftFlash">
+                <Key type="Bool" time="0.1" value="True"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this/TopFlash">
+                <Key type="Bool" time="0.15" value="True"/>
+            </Controller>
+
+            <Controller type="Event" end="Pause" frame="$this/Scanlines">
+                <Key type="Event" time="0.95" event="StopScanlines"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this">
+                <Key type="Bool" time="0.0" value="True"/>
+                <Key type="Bool" time="1.1" value="False"/>
+            </Controller>
+        </Animation>
+
+        <Frame type="Image" name="Scanlines">
+            <Anchor side="Top" relative="$parent/CenterAnchor" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/CenterAnchor" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/CenterAnchor" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/CenterAnchor" pos="Max" offset="0"/>
+            <Visible val="False"/>
+
+            <LayerCount val="2"/>
+            <Alpha val="200"/>
+
+            <Color val="FFFFFF" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+            
+            <Texture val="Assets\Textures\ui_techpurchase_upgradefanfare_upgradefanfare_scanlines.dds" layer="1"/>
+            <TextureCoords top="0" left="1" bottom="1" right="0" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+            <WrapUV val="True" layer="1"/>
+
+            <Animation name="ShimmerAnim">
+                <Event event="OnShown" action="DirectionForward" frame="$this"/>
+                <Event event="OnShown" action="Play" frame="$this"/>
+                <Event event="OnHidden" action="Reset,Stop" frame="$this"/>
+
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.1" value="200"/>
+                </Controller>
+            
+                <Controller type="LayerUV" layer="1" side="Left" relative="False" sidelock="True" end="Loop" >
+                    <Key type="Curve" time="0" value="-1" out="linear"/>
+                    <Key type="Curve" time="0.8" value="1" in="linear"/>
+                </Controller>
+
+                <Controller type="LayerUV" layer="1" side="Bottom" relative="False" sidelock="True" end="Loop" >
+                    <Key type="Curve" time="0" value="-1" out="linear"/>
+                    <Key type="Curve" time="0.8" value="1" in="linear"/>
+                </Controller>
+            </Animation>
+
+            <Animation name="ScanlineStop">
+                <Event event="StopScanlines" action="Play" frame="$this"/>
+
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="200"/>
+                    <Key type="Curve" time="0.1" value="0"/>
+                </Controller>
+
+                <Controller type="Visibility" end="Pause" frame="$this">
+                    <Key type="Bool" time="0.1" value="False"/>
+                </Controller>
+            </Animation>
+        </Frame>
 
         <Frame type="Frame" name="CenterAnchor">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Width val="80"/>
-            <Height val="80"/>
+            <Width val="75"/>
+            <Height val="75"/>
         </Frame>
 
         <Frame type="Image" name="RightFlash">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent/CenterAnchor" pos="Max" offset="0"/>
-            <Width val="10"/>
+            <Width val="40"/>
             <Height val="80"/>
-            <Texture val="Assets/Textures/testscanlines.dds"/>
-			<ColorAdjustMode val="Colorize"/>
-			<AdjustmentColor val="0,255,0"/>
+            <Rotation val="180"/>
+            <Texture val="Assets/Textures/ui_techpurchase_upgradefanfare_left.dds"/>
+            <Visible val="False"/>
+            <Alpha val="200"/>
+
+            <Animation name="ShineGrow">
+                <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+                <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
+                    <Key type="Curve" time="0.0" value="20"/>
+                    <Key type="Curve" time="0.2" value="80"/>
+                    <Key type="Curve" time="0.5" value="20"/>
+                    <Key type="Curve" time="0.8" value="40"/>
+                </Controller>
+        
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="255"/>
+                    <Key type="Curve" time="0.5" value="200"/>
+                    <Key type="Curve" time="0.7" value="100"/>
+                    <Key type="Curve" time="0.8" value="0"/>
+                </Controller>
+            </Animation>
         </Frame>
 
         <Frame type="Image" name="LeftFlash">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CenterAnchor" pos="Min" offset="0"/>
-            <Rotation val="180"/>
-            <Width val="10"/>
+            <Width val="40"/>
             <Height val="80"/>
-            <Texture val="Assets/Textures/testscanlines.dds"/>
-			<ColorAdjustMode val="Colorize"/>
-			<AdjustmentColor val="0,255,0"/>
+            <Texture val="Assets/Textures/ui_techpurchase_upgradefanfare_left.dds"/>
+            <Visible val="False"/>
+
+            <Animation name="ShineGrow">
+                <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+                <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
+                    <Key type="Curve" time="0.0" value="20"/>
+                    <Key type="Curve" time="0.2" value="80"/>
+                    <Key type="Curve" time="0.5" value="20"/>
+                    <Key type="Curve" time="0.8" value="40"/>
+                </Controller>
+        
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="255"/>
+                    <Key type="Curve" time="0.5" value="200"/>
+                    <Key type="Curve" time="0.7" value="100"/>
+                    <Key type="Curve" time="0.8" value="0"/>
+                </Controller>
+            </Animation>
         </Frame>
 		
         <Frame type="Image" name="TopFlash">
             <Anchor side="Bottom" relative="$parent/CenterAnchor" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Rotation val="270"/>
             <Width val="80"/>
-            <Height val="10"/>
-            <Texture val="Assets/Textures/testscanlines.dds"/>
-			<ColorAdjustMode val="Colorize"/>
-			<AdjustmentColor val="0,255,0"/>
+            <Height val="40"/>
+            <Texture val="Assets/Textures/ui_techpurchase_upgradefanfare_top.dds"/>
+            <Visible val="False"/>
+
+            <Animation name="ShineGrow">
+                <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+                <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="False">
+                    <Key type="Curve" time="0.0" value="20"/>
+                    <Key type="Curve" time="0.2" value="80"/>
+                    <Key type="Curve" time="0.5" value="20"/>
+                    <Key type="Curve" time="0.8" value="40"/>
+                </Controller>
+        
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="255"/>
+                    <Key type="Curve" time="0.5" value="200"/>
+                    <Key type="Curve" time="0.7" value="100"/>
+                    <Key type="Curve" time="0.8" value="0"/>
+                </Controller>
+            </Animation>
         </Frame>
 		
         <Frame type="Image" name="BottomFlash">
             <Anchor side="Top" relative="$parent/CenterAnchor" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Rotation val="90"/>
+            <Rotation val="180"/>
             <Width val="80"/>
-            <Height val="10"/>
-            <Texture val="Assets/Textures/testscanlines.dds"/>
-			<ColorAdjustMode val="Colorize"/>
-			<AdjustmentColor val="0,255,0"/>
+            <Height val="40"/>
+            <Texture val="Assets/Textures/ui_techpurchase_upgradefanfare_top.dds"/>
+            <Visible val="False"/>
+
+            <Animation name="ShineGrow">
+                <Event event="OnShown" action="Reset,Play" frame="$this"/>
+    
+                <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="False">
+                    <Key type="Curve" time="0.0" value="20"/>
+                    <Key type="Curve" time="0.2" value="80"/>
+                    <Key type="Curve" time="0.5" value="20"/>
+                    <Key type="Curve" time="0.8" value="40"/>
+                </Controller>
+        
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="255"/>
+                    <Key type="Curve" time="0.5" value="200"/>
+                    <Key type="Curve" time="0.7" value="100"/>
+                    <Key type="Curve" time="0.8" value="0"/>
+                </Controller>
+            </Animation>
         </Frame>
     </Frame>
 </Desc>

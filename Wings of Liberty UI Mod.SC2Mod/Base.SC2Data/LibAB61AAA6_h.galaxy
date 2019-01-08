@@ -130,6 +130,7 @@ void libAB61AAA6_gf_KL_UpgradeDataSet (string lp_upgrade, int lp_player);
 void libAB61AAA6_gf_KL_UpdateArmory (int lp_player);
 void libAB61AAA6_gf_KL_UpdateArmoryCash (int lp_player);
 void libAB61AAA6_gf_KL_DisplayAllowedUnits (int lp_player);
+void libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare (int lp_anchorDialog, int lp_player);
 void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player);
 void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player);
 void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_player);

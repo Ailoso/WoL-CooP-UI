@@ -320,6 +320,24 @@ void libAB61AAA6_gf_KL_DisplayAllowedUnits (int lp_player) {
 
 }
 
+void libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare (int lp_anchorDialog, int lp_player) {
+    // Variable Declarations
+    const fixed lv_animationTime = 1.1;
+    int lv_fanfareFrame;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_fanfareFrame = c_invalidDialogControlId;
+
+    // Implementation
+    DialogControlCreateFromTemplate(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_dialog, c_triggerControlTypePanel, "WoL_Coop_StandardTemplate/TechpurchaseFanfare");
+    lv_fanfareFrame = DialogControlLastCreated();
+    DialogControlSetPositionRelative(lv_fanfareFrame, PlayerGroupSingle(lp_player), c_anchorCenter, lp_anchorDialog, c_anchorCenter, 0, 0);
+    DialogControlSetVisible(lv_fanfareFrame, PlayerGroupSingle(lp_player), true);
+    Wait(lv_animationTime, c_timeGame);
+    DialogControlDestroy(lv_fanfareFrame);
+}
+
 void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
     // Variable Declarations
     int lv_index;
@@ -545,8 +563,7 @@ bool libAB61AAA6_gt_DebugFanfare_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    DialogControlCreateFromTemplate(libAB61AAA6_gv_kL_SharedPanel[1].lv_dialog, c_triggerControlTypePanel, "WoL_Coop_StandardTemplate/TechpurchaseFanfare");
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupSingle(1), c_anchorCenter, libAB61AAA6_gv_kL_ArmoryTechButtons[1].lv_combatShield, c_anchorCenter, 0, 0);
+    libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, EventPlayer());
     return true;
 }
 

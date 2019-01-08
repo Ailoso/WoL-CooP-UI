@@ -2,6 +2,6 @@
 <DocInfo>
     <Dependencies>
         <Value>bnet:Void (Campaign)/0.0/999,file:Campaigns/Void.SC2Campaign</Value>
-        <Value>file:Mods\Wings of Liberty Coop Mod.SC2Mod</Value>
+        <Value>file:Mods\dz_coop_data_v1.SC2Mod</Value>
     </Dependencies>
 </DocInfo>
