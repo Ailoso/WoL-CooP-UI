@@ -366,74 +366,6 @@
 		</Frame>
     </Frame>
 
-
-    <Frame type="Image" name="TossResearchAvailable">
-        <Texture val="Assets\Textures\ui_research_frame_available_line_protoss.dds"/>
-        <TextureType val="Border"/>
-<!--
-
-        <Texture val="Assets\Textures\ui_research_frame_available_box.dds"/>
-
-        <Frame type="Image" name="Border">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="Assets\Textures\ui_research_frame_available_line_protoss.dds"/>
-            <TextureType val="Border"/>
-        </Frame>
--->
-
-        <Animation name="Show">
-            <Event event="OnShown" action="Reset,Play" frame="$this"/>
-
-            <Controller type="Dimension" dimension="Width" relative="False" percentage="False" unclip="False" end="Pause">
-                <Key type="Curve" time="0" value="0" out="Fast"/>
-                <Key type="Curve" time="1.5" value="434" in="Slow"/>
-            </Controller>
-        </Animation>
-
-        <Animation name="Hide">
-            <Event event="Hide" action="Reset,Play" frame="$this"/>
-
-            <Controller type="Fade" end="Pause">
-                <Key type="Curve" time="0" value="255" out="Fast"/>
-                <Key type="Curve" time=".8" value="0" in="Slow"/>
-            </Controller>
-
-            <Controller type="Visibility" end="Pause">
-                <Key type="Bool" time=".8" value="False"/>
-            </Controller>
-        </Animation>
-    </Frame>
-
-    <Frame type="Image" name="ZergResearchAvailable">
-        <Texture val="Assets\Textures\ui_research_frame_available_line_zerg.dds"/>
-        <TextureType val="Border"/>
-
-        <Animation name="Show">
-            <Event event="OnShown" action="Reset,Play" frame="$this"/>
-
-            <Controller type="Dimension" dimension="Width" relative="False" percentage="False" unclip="False" end="Pause">
-                <Key type="Curve" time="0" value="0" out="Fast"/>
-                <Key type="Curve" time="1.5" value="440" in="Slow"/>
-            </Controller>
-        </Animation>
-
-        <Animation name="Hide">
-            <Event event="Hide" action="Reset,Play" frame="$this"/>
-
-            <Controller type="Fade" end="Pause">
-                <Key type="Curve" time="0" value="255" out="Fast"/>
-                <Key type="Curve" time=".8" value="0" in="Slow"/>
-            </Controller>
-
-            <Controller type="Visibility" end="Pause">
-                <Key type="Bool" time=".8" value="False"/>
-            </Controller>
-        </Animation>
-    </Frame>
-
     <Frame type="Image" name="FillerAnimationTemplate">
 
         <Animation name="Birth">
@@ -1021,6 +953,230 @@
                     <Key type="Curve" time="0.8" value="0"/>
                 </Controller>
             </Animation>
+        </Frame>
+    </Frame>
+
+    <!-- Lab Templates -->
+
+    <Frame type="Image" name="ZergDivider">
+        <Texture val="Assets\Textures\ui_research_frame_buttonconnector_left.dds"/>
+        <Height val="75"/>
+        <Width val="60"/>
+        <ColorAdjustMode val="Fill"/>
+        <AdjustmentColor val="ddb879"/>
+    </Frame>
+
+    <Frame type="Image" name="ProtossDivider">
+        <Texture val="Assets\Textures\ui_research_frame_buttonconnector_right.dds"/>
+        <Height val="75"/>
+        <Width val="60"/>
+        <ColorAdjustMode val="Fill"/>
+        <AdjustmentColor val="93dbee"/>
+    </Frame>
+
+    <Frame type="Frame" name="AvailableZergTemplate">
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+
+        <Height val="120"/>
+        <Width val="435"/>
+
+        <Animation name="DisplayAvailable">
+            <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+            <Controller type="Fade" end="Pause" frame="$this">
+                <Key type="Curve" time="0.0" value="0"/>
+                <Key type="Curve" time="0.1" value="255"/>
+            </Controller>
+
+            <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
+                <Key type="Curve" time="0.0" value="10" out="Fast"/>
+                <Key type="Curve" time="0.3" value="435" in="Slow"/>
+            </Controller>
+
+            <Controller type="Fade" end="Pause" frame="$this/Background">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.4" value="255"/>
+                </Controller>
+        </Animation>
+
+        <Frame type="Image" name="Background">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+
+            <Texture val="Assets\Textures\ui_research_frame_available_box.dds"/>
+            <TextureType val="Border"/>
+        </Frame>
+
+        <Frame type="Image" name="Border">
+            <Anchor relative="$parent"/>
+
+            <Texture val="Assets\Textures\ui_research_frame_available_line_zerg.dds"/>
+            <TextureType val="Border"/>
+        </Frame>
+
+        <!-- Shine Animations -->
+
+        <Frame type="Image" name="BorderShine">
+            <Anchor relative="$parent"/>
+            <Alpha val="200"/>
+
+            <LayerCount val="2"/>
+    
+            <Texture val="Assets\Textures\ui_research_frame_available_line_zerg.dds" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+
+            <Texture val="Assets\Textures\ui_void_storyborder_shimmermask_left.dds" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+
+            <Animation name="ShimmerAnim">
+				<Event event="OnShown" action="DirectionForward" frame="$parent"/>
+				<Event event="OnShown" action="Reset,Play" frame="$parent"/>
+					 
+				<Controller type="LayerUV" layer="1" side="Right" relative="False" sidelock="True" end="Pause" >
+					<Key type="Curve" time="0.0" value="0" out="Fast"/>
+					<Key type="Curve" time="0.3" value="2" in="Slow"/>
+				</Controller>
+			</Animation>
+        </Frame>
+
+        <Frame type="Image" name="BackgroundShine">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+            <Alpha val="200"/>
+
+            <LayerCount val="2"/>
+    
+            <Texture val="Assets\Textures\ui_research_frame_available_box.dds" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+
+            <Texture val="Assets\Textures\ui_void_storyborder_shimmermask_left.dds" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+
+            <Animation name="ShimmerAnim">
+				<Event event="OnShown" action="DirectionForward" frame="$parent"/>
+				<Event event="OnShown" action="Reset,Play" frame="$parent"/>
+					 
+				<Controller type="LayerUV" layer="1" side="Right" relative="False" sidelock="True" end="Pause" >
+                    <Key type="Curve" time="0.0" value="0" out="linear"/>
+                    <Key type="Curve" time="0.05" value="0" out="Fast"/>
+					<Key type="Curve" time="0.35" value="2" in="Slow"/>
+				</Controller>
+			</Animation>
+        </Frame>
+
+        <Frame type="Image" name="BorderShimmer">
+            <Anchor relative="$parent"/>
+            <Alpha val="150"/>
+
+            <LayerCount val="2"/>
+    
+            <Texture val="Assets\Textures\ui_research_frame_available_line_zerg.dds" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+
+            <Texture val="Assets\Textures\sc2_ui_newplayerxp_hexagon_shimmermask.dds" layer="1"/>
+            <TextureType val="Normal" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+
+            <Animation name="Shimmer">
+                <Event event="OnShown" action="Play" frame="$this"/>
+
+                <Controller type="Property" property="TextureCoordRotation" curve="True" index="1"  end="Loop" frame="$this">
+                    <Key type="Property" time="0.0" value="0" inOut="Linear"/>
+                    <Key type="Property" time="3.5" value="360" inOut="Linear"/>
+                </Controller>
+            </Animation>
+        </Frame>
+
+        <Frame type="Frame" name="ArrowPointLeft">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-80"/>
+
+            <Width val="85"/>
+            <Height val="75"/>
+
+            <Animation name="ArrowShine">
+                <Event event="OnShown" action="Reset,Play" frame="$this"/>
+
+                <Controller type="Fade" end="Loop" frame="$this/Piece3">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="90"/>
+                    <Key type="Curve" time="0.8" value="0"/>
+                    <Key type="Curve" time="2.0" value="0"/>
+                </Controller>
+
+                <Controller type="Fade" end="Loop" frame="$this/Piece2">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="0"/>
+                    <Key type="Curve" time="0.4" value="170"/>
+                    <Key type="Curve" time="1.0" value="0"/>
+                    <Key type="Curve" time="2.0" value="0"/>
+                </Controller>
+
+                <Controller type="Fade" end="Loop" frame="$this/Piece1">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.4" value="0"/>
+                    <Key type="Curve" time="0.6" value="250"/>
+                    <Key type="Curve" time="1.2" value="0"/>
+                    <Key type="Curve" time="2.0" value="0"/>
+                </Controller>
+            </Animation>
+
+            <Frame type="Image" name="Piece1">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+
+                <Width val="49"/>
+                <Height val="75"/>
+
+                <Texture val="Assets\Textures\ui_research_frame_available_arrowpiece_left.dds"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="b97400"/>
+            </Frame>
+
+            <Frame type="Image" name="Piece2">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+    
+                <Alpha val="170"/>
+                <Width val="49"/>
+                <Height val="75"/>
+                <Texture val="Assets\Textures\ui_research_frame_available_arrowpiece_left.dds"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="b97400"/>
+            </Frame>
+
+            <Frame type="Image" name="Piece3">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
+    
+                <Alpha val="90"/>
+                <Width val="49"/>
+                <Height val="75"/>
+                <Texture val="Assets\Textures\ui_research_frame_available_arrowpiece_left.dds"/>
+                <ColorAdjustMode val="Fill"/>
+                <AdjustmentColor val="b97400"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Label" name="Prompt">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/ArrowPointLeft" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+
+            <Style val="ResearchCategoryCurrentLevel_Zerg"/>
+            <Text val="Select a <n/>Research"/>
         </Frame>
     </Frame>
 </Desc>

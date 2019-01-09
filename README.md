@@ -8,6 +8,8 @@ Development files for Wings of Liberty Coop UI by LordDz
 ## UI Commands
 - VicQ
     - Starts victory sequence and displays victory UI
+- Fanfare
+    - Attaches the fanfare panel to the Combat Shield Button
 
 ## Working Features
 - Summary Panel 
@@ -31,6 +33,13 @@ Development files for Wings of Liberty Coop UI by LordDz
         - Unaffordable
         - New
         - Purchased
+    - Purchase Fanfare Animation
+        - No Sound
+
+- Laboratory Panel
+    - Working Research Steps
+    - Research Available Animation
+        - No Sound
 
 ## Changelog
 - Initial Commit

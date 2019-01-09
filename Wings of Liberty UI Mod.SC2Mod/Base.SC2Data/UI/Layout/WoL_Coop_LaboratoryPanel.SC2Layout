@@ -83,12 +83,9 @@
                     <Width val="110"/>
                 </Frame>
 
-                <Frame type="Image" name="Divider1">
+                <Frame type="Image" name="Divider1" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb1" pos="Min" offset="-38"/>
                     <Anchor side="Right" relative="$parent/HoneyComb1" pos="Max" offset="40"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_right.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row1Btn1" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
@@ -151,12 +148,9 @@
                     <Width val="110"/>
                 </Frame>
 
-                <Frame type="Image" name="Divider2">
+                <Frame type="Image" name="Divider2" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb2" pos="Min" offset="-38"/>
                     <Anchor side="Right" relative="$parent/HoneyComb2" pos="Max" offset="40"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_right.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row2Btn1" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
@@ -219,13 +213,9 @@
                     <Width val="110"/>
                 </Frame>
 
-
-                <Frame type="Image" name="Divider3">
+                <Frame type="Image" name="Divider3" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb3" pos="Min" offset="-38"/>
                     <Anchor side="Right" relative="$parent/HoneyComb3" pos="Max" offset="40"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_right.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row3Btn1" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
@@ -288,13 +278,9 @@
                     <Width val="110"/>
                 </Frame>
 
-
-                <Frame type="Image" name="Divider4">
+                <Frame type="Image" name="Divider4" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb4" pos="Min" offset="-38"/>
                     <Anchor side="Right" relative="$parent/HoneyComb4" pos="Max" offset="40"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_right.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row4Btn1" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
@@ -358,12 +344,9 @@
                 </Frame>
 
 
-                <Frame type="Image" name="Divider5">
+                <Frame type="Image" name="Divider5" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb5" pos="Min" offset="-38"/>
                     <Anchor side="Right" relative="$parent/HoneyComb5" pos="Max" offset="40"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_right.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn1" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
@@ -416,46 +399,6 @@
                         <Width val="70"/>
                         <Height val="70"/>
                     </Frame>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot1" template="WoL_Coop_StandardTemplate/TossResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row1Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row1Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot2" template="WoL_Coop_StandardTemplate/TossResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row2Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row2Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot3" template="WoL_Coop_StandardTemplate/TossResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row3Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row3Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot4" template="WoL_Coop_StandardTemplate/TossResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row4Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row4Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot5" template="WoL_Coop_StandardTemplate/TossResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row5Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row5Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
                 </Frame>
             </Frame>
 
@@ -807,30 +750,73 @@
                 <Height val="320"/>
             </Frame>
 
-            <Frame type="Image" name="DescrpitionTitleBg">
-                <Anchor side="Top" relative="$parent/DescriptionFrame" pos="Min" offset="19"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="12"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-12"/>
-                <Texture val="Assets\Textures\ui_research_frame_descriptiontitlebox.dds"/>
-                <TextureType val="Border"/>
-                <ColorAdjustMode val="Fill"/>
-                <AdjustmentColor val="25,40,45"/>
-                <Height val="50"/>
-            </Frame>
-
-            <Frame type="Image" name="DescriptionFrame">
+            <Frame type="Frame" name="TechDescriptionPanel">
                 <Anchor side="Top" relative="$parent/MovieFrame" pos="Max" offset="-20"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="-5"/>
                 <Anchor side="Right" relative="$parent" pos="Max" offset="5"/>
-                <Texture val="Assets\Textures\ui_research_frame_descrption.dds"/>
-                <TextureType val="Border"/>
-                <ColorAdjustMode val="Fill"/>
-                <AdjustmentColor val="119,170,1751"/>
                 <Height val="400"/>
+
+                <Frame type="Image" name="TitleBackground">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="19"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="12"/>
+                        <Anchor side="Right" relative="$parent" pos="Max" offset="-12"/>
+                        <Texture val="Assets\Textures\ui_research_frame_descriptiontitlebox.dds"/>
+                        <TextureType val="Border"/>
+                        <ColorAdjustMode val="Fill"/>
+                        <AdjustmentColor val="25,40,45"/>
+                        <Height val="50"/>
+                    </Frame>
+
+                <Frame type="Image" name="Background">
+                    <Anchor relative="$parent"/>
+
+                    <Texture val="Assets\Textures\ui_research_frame_descrption.dds"/>
+                    <TextureType val="Border"/>
+                    <ColorAdjustMode val="Fill"/>
+                    <AdjustmentColor val="119,170,175"/>
+                </Frame>
+
+                <Frame type="Label" name="SelectPrompt">
+                    <Anchor side="Top" relative="$parent/TitleBackground" pos="Max" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-18"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="18"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-18"/>
+
+                    <Style val="WolCoopSelectPrompt"/>
+                    <Text val="Select a Research Item"/>
+                </Frame>
+
+                <Frame type="Label" name="Title">
+                    <Anchor side="Top" relative="$parent/TitleBackground" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/TitleBackground" pos="Mid" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+                    <Style val="WolCoopDescTitle"/>
+                    <Text val="Title"/>
+                </Frame>
+
+                <Frame type="Label" name="Effects">
+                        <Anchor side="Top" relative="$parent/TitleBackground" pos="Max" offset="25"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
+                        <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
+
+                        <Style val="WolCoopDescEffectAlt"/>
+                        <Text val="- Effect 1"/>
+                </Frame>
+
+                <Frame type="Label" name="Description">
+                        <Anchor side="Top" relative="$parent/Effects" pos="Max" offset="20"/>
+                        <Anchor side="Left" relative="$parent/Effects" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/Effects" pos="Max" offset="0"/>
+
+                        <Style val="WolCoopDescAlt"/>
+                        <Text val="Test Description"/>
+                </Frame>
             </Frame>
 
             <Frame type="Button" name="PurchaseButton" template="WoL_Coop_StandardTemplate/TechPurchaseButton">
-                <Anchor side="Top" relative="$parent/DescriptionFrame" pos="Max" offset="-25"/>
+                <Anchor side="Top" relative="$parent/TechDescriptionPanel" pos="Max" offset="-25"/>
                 <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
                 <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                 <Height val="120"/>
@@ -926,12 +912,373 @@
                     <Width val="128"/>
                 </Frame>
 
-                <Frame type="Image" name="Divider1">
+                <Frame type="Image" name="DNA2">
+                    <Anchor side="Bottom" relative="$parent/DNA1" pos="Min" offset="10"/>
+                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
+                    <Height val="120"/>
+                    <Width val="128"/>
+                </Frame>
+
+                <Frame type="Image" name="DNA3">
+                    <Anchor side="Bottom" relative="$parent/DNA2" pos="Min" offset="10"/>
+                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
+                    <Height val="120"/>
+                    <Width val="128"/>
+                </Frame>
+
+                <Frame type="Image" name="DNA4">
+                    <Anchor side="Bottom" relative="$parent/DNA3" pos="Min" offset="10"/>
+                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
+                    <Height val="120"/>
+                    <Width val="128"/>
+                </Frame>
+
+                <Frame type="Image" name="DNA5">
+                    <Anchor side="Bottom" relative="$parent/DNA4" pos="Min" offset="10"/>
+                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
+                    <Height val="120"/>
+                    <Width val="128"/>
+                </Frame>
+
+                <Frame type="Frame" name="CounterPanel">
+                    <Anchor side="Top" relative="$parent/DNA5" pos="Min" offset="-30"/>
+                    <Anchor side="Bottom" relative="$parent/DNA1" pos="Max" offset="21"/>
+                    <Anchor side="Left" relative="$parent/DNA1" pos="Min" offset="-30"/>
+                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="30"/>
+
+                    <Frame type="Image" name="Fill1" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-21"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="26"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill2" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill1" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill3" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill2" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill4" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill3" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill5" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill4" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill6" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill5" pos="Min" offset="7"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="26"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill7" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill6" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill8" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill7" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill9" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill8" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill10" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill9" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill11" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill10" pos="Min" offset="7"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="26"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill12" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill11" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill13" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill12" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill14" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill13" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill15" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill14" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill16" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill15" pos="Min" offset="7"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="26"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill17" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill16" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill18" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill17" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill19" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill18" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill20" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill19" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill21" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill20" pos="Min" offset="7"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="26"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill22" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill21" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill23" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill22" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill24" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill23" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill25" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill24" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="23"/>
+                        <Width val="170"/>
+                        <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost1">
+                        <Anchor side="Top" relative="$parent/$parent/Divider1" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider1" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/DNA1" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/DNA1" pos="Max" offset="0"/>
+                        <Text val="5"/>
+                        <Style val="ResearchTierRequiredLevel_Zerg"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost2">
+                        <Anchor side="Top" relative="$parent/$parent/Divider2" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider2" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/DNA2" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/DNA2" pos="Max" offset="0"/>
+                        <Text val="10"/>
+                        <Style val="ResearchTierRequiredLevel_Zerg"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost3">
+                        <Anchor side="Top" relative="$parent/$parent/Divider3" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider3" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/DNA3" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/DNA3" pos="Max" offset="0"/>
+                        <Text val="15"/>
+                        <Style val="ResearchTierRequiredLevel_Zerg"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost4">
+                        <Anchor side="Top" relative="$parent/$parent/Divider4" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider4" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/DNA4" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/DNA4" pos="Max" offset="0"/>
+                        <Text val="20"/>
+                        <Style val="ResearchTierRequiredLevel_Zerg"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost5">
+                        <Anchor side="Top" relative="$parent/$parent/Divider5" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider5" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/DNA5" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/DNA5" pos="Max" offset="0"/>
+                        <Text val="25"/>
+                        <Style val="ResearchTierRequiredLevel_Zerg"/>
+                    </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="AvailablePanel1" template="WoL_Coop_StandardTemplate/AvailableZergTemplate">
+                    <Anchor side="Top" relative="$parent/Divider1" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider1" pos="Mid" offset="0"/>
+                </Frame>
+
+                <Frame type="Image" name="Divider1" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA1" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA1" pos="Min" offset="-28"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_left.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row1Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
@@ -986,20 +1333,9 @@
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="DNA2">
-                    <Anchor side="Bottom" relative="$parent/DNA1" pos="Min" offset="10"/>
-                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
-                    <Height val="120"/>
-                    <Width val="128"/>
-                </Frame>
-
-                <Frame type="Image" name="Divider2">
+                <Frame type="Image" name="Divider2" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA2" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA2" pos="Min" offset="-28"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_left.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row2Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
@@ -1054,20 +1390,9 @@
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="DNA3">
-                    <Anchor side="Bottom" relative="$parent/DNA2" pos="Min" offset="10"/>
-                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
-                    <Height val="120"/>
-                    <Width val="128"/>
-                </Frame>
-
-                <Frame type="Image" name="Divider3">
+                <Frame type="Image" name="Divider3" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA3" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA3" pos="Min" offset="-28"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_left.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row3Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
@@ -1122,20 +1447,9 @@
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="DNA4">
-                    <Anchor side="Bottom" relative="$parent/DNA3" pos="Min" offset="10"/>
-                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
-                    <Height val="120"/>
-                    <Width val="128"/>
-                </Frame>
-
-                <Frame type="Image" name="Divider4">
+                <Frame type="Image" name="Divider4" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA4" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA4" pos="Min" offset="-28"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_left.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row4Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
@@ -1190,20 +1504,9 @@
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="DNA5">
-                    <Anchor side="Bottom" relative="$parent/DNA4" pos="Min" offset="10"/>
-                    <Anchor side="Right" relative="$parent/DNA1" pos="Max" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame.dds"/>
-                    <Height val="120"/>
-                    <Width val="128"/>
-                </Frame>
-
-                <Frame type="Image" name="Divider5">
+                <Frame type="Image" name="Divider5" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA5" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA5" pos="Min" offset="-28"/>
-                    <Texture val="Assets\Textures\ui_research_frame_buttonconnector_left.dds"/>
-                    <Height val="75"/>
-                    <Width val="60"/>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
@@ -1256,373 +1559,6 @@
                         <Width val="70"/>
                         <Height val="70"/>
                     </Frame>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot1" template="WoL_Coop_StandardTemplate/ZergResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row1Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row1Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot2" template="WoL_Coop_StandardTemplate/ZergResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row2Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row2Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot3" template="WoL_Coop_StandardTemplate/ZergResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row3Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row3Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot4" template="WoL_Coop_StandardTemplate/ZergResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row4Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row4Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="AvailableSlot5" template="WoL_Coop_StandardTemplate/ZergResearchAvailable">
-                    <Anchor side="Top" relative="$parent/Row5Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Row5Btn1" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Height val="120"/>
-                    <Visible val="False"/>
-                </Frame>
-            </Frame>
-
-            <Frame type="Frame" name="CounterPanel">
-                <Anchor side="Top" relative="$parent/ContentContainer/DNA5" pos="Min" offset="-30"/>
-                <Anchor side="Bottom" relative="$parent/ContentContainer/DNA1" pos="Max" offset="21"/>
-                <Anchor side="Left" relative="$parent/ContentContainer/DNA1" pos="Min" offset="-30"/>
-                <Anchor side="Right" relative="$parent/ContentContainer/DNA1" pos="Max" offset="30"/>
-
-                <Frame type="Image" name="Fill1" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-21"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="26"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill2" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill1" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill3" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill2" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill4" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill3" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill5" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill4" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill6" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill5" pos="Min" offset="7"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="26"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill7" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill6" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill8" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill7" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill9" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill8" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill10" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill9" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill11" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill10" pos="Min" offset="7"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="26"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill12" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill11" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill13" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill12" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill14" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill13" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill15" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill14" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill16" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill15" pos="Min" offset="7"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="26"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill17" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill16" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill18" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill17" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill19" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill18" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill20" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill19" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill21" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill20" pos="Min" offset="7"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="26"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill22" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill21" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill23" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill22" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill24" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill23" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill25" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill24" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_dna_frame_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="23"/>
-                    <Width val="170"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost1">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/DNA1" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/DNA1" pos="Max" offset="0"/>
-                    <Text val="5"/>
-                    <Style val="ResearchTierRequiredLevel_Zerg"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost2">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider2" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider2" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/DNA2" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/DNA2" pos="Max" offset="0"/>
-                    <Text val="10"/>
-                    <Style val="ResearchTierRequiredLevel_Zerg"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost3">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider3" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider3" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/DNA3" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/DNA3" pos="Max" offset="0"/>
-                    <Text val="15"/>
-                    <Style val="ResearchTierRequiredLevel_Zerg"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost4">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider4" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider4" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/DNA4" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/DNA4" pos="Max" offset="0"/>
-                    <Text val="20"/>
-                    <Style val="ResearchTierRequiredLevel_Zerg"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost5">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider5" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider5" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/DNA5" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/DNA5" pos="Max" offset="0"/>
-                    <Text val="25"/>
-                    <Style val="ResearchTierRequiredLevel_Zerg"/>
                 </Frame>
             </Frame>
         </Frame>
