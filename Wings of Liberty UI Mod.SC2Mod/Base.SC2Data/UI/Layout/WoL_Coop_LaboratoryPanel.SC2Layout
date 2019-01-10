@@ -757,15 +757,15 @@
                 <Height val="400"/>
 
                 <Frame type="Image" name="TitleBackground">
-                        <Anchor side="Top" relative="$parent" pos="Min" offset="19"/>
-                        <Anchor side="Left" relative="$parent" pos="Min" offset="12"/>
-                        <Anchor side="Right" relative="$parent" pos="Max" offset="-12"/>
-                        <Texture val="Assets\Textures\ui_research_frame_descriptiontitlebox.dds"/>
-                        <TextureType val="Border"/>
-                        <ColorAdjustMode val="Fill"/>
-                        <AdjustmentColor val="25,40,45"/>
-                        <Height val="50"/>
-                    </Frame>
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="19"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                    <Texture val="Assets\Textures\ui_research_frame_descriptiontitlebox.dds"/>
+                    <TextureType val="Border"/>
+                    <ColorAdjustMode val="Fill"/>
+                    <AdjustmentColor val="25,40,45"/>
+                    <Height val="50"/>
+                </Frame>
 
                 <Frame type="Image" name="Background">
                     <Anchor relative="$parent"/>
@@ -792,7 +792,7 @@
                     <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
                     <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
 
-                    <Style val="WolCoopDescTitle"/>
+                    <Style val="WolCoopResearchDescTitle"/>
                     <Text val="Title"/>
                 </Frame>
 
@@ -801,7 +801,7 @@
                         <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
                         <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
 
-                        <Style val="WolCoopDescEffectAlt"/>
+                        <Style val="WolCoopResearchEffectToss"/>
                         <Text val="- Effect 1"/>
                 </Frame>
 
@@ -810,26 +810,17 @@
                         <Anchor side="Left" relative="$parent/Effects" pos="Min" offset="0"/>
                         <Anchor side="Right" relative="$parent/Effects" pos="Max" offset="0"/>
 
-                        <Style val="WolCoopDescAlt"/>
+                        <Style val="WolCoopResearchDesc"/>
                         <Text val="Test Description"/>
                 </Frame>
             </Frame>
 
-            <Frame type="Button" name="PurchaseButton" template="WoL_Coop_StandardTemplate/TechPurchaseButton">
+            <Frame type="Button" name="PurchaseButton" template="WoL_Coop_StandardTemplate/ResearchPurchaseButton">
                 <Anchor side="Top" relative="$parent/TechDescriptionPanel" pos="Max" offset="-25"/>
                 <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
                 <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                <Height val="120"/>
-                <Width val="410"/>
-
-                <Frame type="Label" name="Label">
-                    <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Text val="Research"/>
-                    <Style val="WolCoopPurchase"/>
-                </Frame>
+                <Height val="130"/>
+                <Width val="370"/>
             </Frame>
         </Frame>
 
@@ -1271,6 +1262,28 @@
                     </Frame>
                 </Frame>
 
+                <Frame type="TabControl" name="AbilityTabControl">
+                    <Anchor relative="$parent"/>
+
+                    <TabListItem val="$parent/Row1Btn1"/>
+                    <TabListItem val="$parent/Row1Btn2"/>
+                    <TabListItem val="$parent/Row1Btn3"/>
+                    <TabListItem val="$parent/Row2Btn1"/>
+                    <TabListItem val="$parent/Row2Btn2"/>
+                    <TabListItem val="$parent/Row2Btn3"/>
+                    <TabListItem val="$parent/Row3Btn1"/>
+                    <TabListItem val="$parent/Row3Btn2"/>
+                    <TabListItem val="$parent/Row3Btn3"/>
+                    <TabListItem val="$parent/Row4Btn1"/>
+                    <TabListItem val="$parent/Row4Btn2"/>
+                    <TabListItem val="$parent/Row4Btn3"/>
+                    <TabListItem val="$parent/Row5Btn1"/>
+                    <TabListItem val="$parent/Row5Btn2"/>
+                    <TabListItem val="$parent/Row5Btn3"/>
+
+                    <SelectedIndex val="16"/>
+                </Frame>
+
                 <Frame type="Frame" name="AvailablePanel1" template="WoL_Coop_StandardTemplate/AvailableZergTemplate">
                     <Anchor side="Top" relative="$parent/Divider1" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider1" pos="Mid" offset="0"/>
@@ -1289,13 +1302,7 @@
                     <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
@@ -1306,13 +1313,7 @@
                     <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 

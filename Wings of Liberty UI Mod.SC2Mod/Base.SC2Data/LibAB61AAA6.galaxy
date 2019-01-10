@@ -18,6 +18,7 @@ bool libAB61AAA6_InitVariables_completed = false;
 void libAB61AAA6_InitVariables () {
     int init_i;
     int init_i1;
+    int init_j1;
 
     if (libAB61AAA6_InitVariables_completed) {
         return;
@@ -127,6 +128,27 @@ void libAB61AAA6_InitVariables () {
         libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_vultureUpgd1 = c_invalidDialogControlId;
         libAB61AAA6_gv_kL_ArmoryTechButtons[init_i].lv_vultureUpgd2 = c_invalidDialogControlId;
     }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_laboratoryPanel = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchProgress_Toss = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchLevel_Toss = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 5; init_i1 += 1) {
+            for (init_j1 = 0; init_j1 <= 3; init_j1 += 1) {
+                libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchButtons_Toss[init_i1][init_j1] = c_invalidDialogControlId;
+            }
+        }
+        libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchProgress_Zerg = c_invalidDialogControlId;
+        libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchLevel_Zerg = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 5; init_i1 += 1) {
+            for (init_j1 = 0; init_j1 <= 3; init_j1 += 1) {
+                libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchButtons_Zerg[init_i1][init_j1] = c_invalidDialogControlId;
+            }
+        }
+        for (init_i1 = 0; init_i1 <= 5; init_i1 += 1) {
+            libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchAvailablePanel_Zerg[init_i1] = c_invalidDialogControlId;
+        }
+    }
+    libAB61AAA6_gv_dEBUGButtonState = true;
 }
 
 // Presets
@@ -341,6 +363,7 @@ void libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare (int lp_anchorDialog, int lp_pl
 void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
     // Variable Declarations
     int lv_index;
+    int lv_index2;
 
     // Automatic Variable Declarations
     const int auto7947C7A4_ae = 3;
@@ -351,6 +374,14 @@ void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
     const int auto5DA40D5F_ai = 1;
     const int auto8D8F8200_ae = 6;
     const int auto8D8F8200_ai = 1;
+    const int autoCFCFF85A_ae = 5;
+    const int autoCFCFF85A_ai = 1;
+    const int auto43FAB84B_ae = 3;
+    const int auto43FAB84B_ai = 1;
+    const int auto746F523B_ae = 5;
+    const int auto746F523B_ai = 1;
+    const int auto12BBE074_ae = 3;
+    const int auto12BBE074_ai = 1;
 
     // Variable Initialization
 
@@ -426,6 +457,34 @@ void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_cost = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_armoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName("PurchasePanel/PurchaseButton"));
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_purchaseButton = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_sharedPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("MetalBackgroundPanel/LaboratoryPanel"));
+    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("ProtossGroupPanel/TitleBox/Subtitle"));
+    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchProgress_Toss = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("ProtossGroupPanel/ResearchBox/Title"));
+    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchLevel_Toss = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (autoCFCFF85A_ai >= 0 && lv_index <= autoCFCFF85A_ae) || (autoCFCFF85A_ai < 0 && lv_index >= autoCFCFF85A_ae) ) ; lv_index += autoCFCFF85A_ai ) {
+        lv_index2 = 1;
+        for ( ; ( (auto43FAB84B_ai >= 0 && lv_index2 <= auto43FAB84B_ae) || (auto43FAB84B_ai < 0 && lv_index2 >= auto43FAB84B_ae) ) ; lv_index2 += auto43FAB84B_ai ) {
+            DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("ProtossGroupPanel/ContentContainer/Row" + IntToString(lv_index) + "Btn" + IntToString(lv_index2))));
+            libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchButtons_Toss[lv_index][lv_index2] = DialogControlLastCreated();
+        }
+    }
+    DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("ZergGroupPanel/TitleBox/Subtitle"));
+    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchProgress_Zerg = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("ZergGroupPanel/ResearchBox/Title"));
+    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchLevel_Zerg = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto746F523B_ai >= 0 && lv_index <= auto746F523B_ae) || (auto746F523B_ai < 0 && lv_index >= auto746F523B_ae) ) ; lv_index += auto746F523B_ai ) {
+        lv_index2 = 1;
+        for ( ; ( (auto12BBE074_ai >= 0 && lv_index2 <= auto12BBE074_ae) || (auto12BBE074_ai < 0 && lv_index2 >= auto12BBE074_ae) ) ; lv_index2 += auto12BBE074_ai ) {
+            DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeButton, libNtve_gf_ConvertStringToUILayoutFrameName(("ZergGroupPanel/ContentContainer/Row" + IntToString(lv_index) + "Btn" + IntToString(lv_index2))));
+            libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchButtons_Zerg[lv_index][lv_index2] = DialogControlLastCreated();
+        }
+    }
+    DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("ZergGroupPanel/ContentContainer/AvailablePanel1"));
+    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchAvailablePanel_Zerg[1] = DialogControlLastCreated();
 }
 
 void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player) {
@@ -554,9 +613,9 @@ void libAB61AAA6_gt_KL_UpgradePressed_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Fanfare
+// Trigger: Debug - Tech Fanfare
 //--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugFanfare_Func (bool testConds, bool runActions) {
+bool libAB61AAA6_gt_DebugTechFanfare_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Actions
     if (!runActions) {
@@ -568,14 +627,111 @@ bool libAB61AAA6_gt_DebugFanfare_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugFanfare_Init () {
-    libAB61AAA6_gt_DebugFanfare = TriggerCreate("libAB61AAA6_gt_DebugFanfare_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugFanfare, c_playerAny, "fanfare", true);
+void libAB61AAA6_gt_DebugTechFanfare_Init () {
+    libAB61AAA6_gt_DebugTechFanfare = TriggerCreate("libAB61AAA6_gt_DebugTechFanfare_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugTechFanfare, c_playerAny, "fanfare", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Research Fanfare
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugResearchFanfare_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchButtons_Zerg[1][1], PlayerGroupAll(), "ResearchState", "Unresearchable");
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchButtons_Zerg[1][2], PlayerGroupSingle(EventPlayer()), "ResearchStart");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchButtons_Zerg[1][3], PlayerGroupAll(), "ResearchState", "Unresearchable");
+    DialogControlSetVisible(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchAvailablePanel_Zerg[1], PlayerGroupSingle(EventPlayer()), false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugResearchFanfare_Init () {
+    libAB61AAA6_gt_DebugResearchFanfare = TriggerCreate("libAB61AAA6_gt_DebugResearchFanfare_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugResearchFanfare, c_playerAny, "research", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Protoss Research
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugProtossResearch_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugProtossResearch_Init () {
+    libAB61AAA6_gt_DebugProtossResearch = TriggerCreate("libAB61AAA6_gt_DebugProtossResearch_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugProtossResearch, c_playerAny, "Protoss", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Zerg Research
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugZergResearch_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugZergResearch_Init () {
+    libAB61AAA6_gt_DebugZergResearch = TriggerCreate("libAB61AAA6_gt_DebugZergResearch_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugZergResearch, c_playerAny, "Zerg", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Toggle Research Button
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugToggleResearchButton_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    bool autoC0B65348_val;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoC0B65348_val = libAB61AAA6_gv_dEBUGButtonState;
+    if (autoC0B65348_val == true) {
+        libAB61AAA6_gv_dEBUGButtonState = false;
+    }
+    else if (autoC0B65348_val == false) {
+        libAB61AAA6_gv_dEBUGButtonState = true;
+    }
+    else {
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugToggleResearchButton_Init () {
+    libAB61AAA6_gt_DebugToggleResearchButton = TriggerCreate("libAB61AAA6_gt_DebugToggleResearchButton_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugToggleResearchButton, c_playerAny, "Toggle", true);
 }
 
 void libAB61AAA6_InitTriggers () {
     libAB61AAA6_gt_KL_UpgradePressed_Init();
-    libAB61AAA6_gt_DebugFanfare_Init();
+    libAB61AAA6_gt_DebugTechFanfare_Init();
+    libAB61AAA6_gt_DebugResearchFanfare_Init();
+    libAB61AAA6_gt_DebugProtossResearch_Init();
+    libAB61AAA6_gt_DebugZergResearch_Init();
+    libAB61AAA6_gt_DebugToggleResearchButton_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

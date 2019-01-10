@@ -457,12 +457,62 @@
         <HoverImage val="HoverImage"/>
         <HitTestFrame val="HitTestFrame"/>
         <ClickSound val="@UI_ActionButtonSelect"/>
+        <Toggleable val="True"/>
+        <Height val="210"/>
+        <Width val="222"/>
+
+        <Animation name="Hover">
+            <Event event="OnMouseEnter" action="Play" frame="$this"/>
+            <Event event="OnMouseExit" action="Reset" frame="$this"/>
+
+            <Controller type="Property" end="Pause" frame="$this/TitleBg" property="Texture">
+                <Key type="Property" time="0.0" value="Assets\Textures\ui_merc_button_name_normaloverpressedover.dds"/>
+            </Controller>
+        </Animation>
+
+        <StateGroup name="MercState">
+            <DefaultState val="Locked"/>
+        
+            <State name="Locked">
+                <When type="AnimationState" frame="$this" operator="Equal" MercState="Locked"/>
+
+                <Action type="SetProperty" frame="$this/Portrait" Visible="False"/>
+            </State>
+        
+            <State name="Two">
+            </State>
+        </StateGroup>
+
+        <Frame type="Portrait" name="Portrait">
+            <Anchor side="Top" relative="$parent/TitleBg" pos="Max" offset="-8"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+
+            <RenderType val="LDR"/>
+            <AcceptsMouse val="false"/>
+            <BorderImage val="BorderImage"/>
+            <BackgroundImage val="BackgroundImage"/>
+            <UseTransition val="false"/>
+            <ModelLink val="BansheePortrait"/>
+
+            <Frame type="Image" name="BorderImage">
+                <Visible val="false"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="BackgroundImage">
+                <Visible val="false"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
 
         <Frame type="Image" name="NormalImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
             <Texture val="Assets\Textures\ui_merc_button_normalpressed.dds"/>
             <TextureType val="Border"/>
             <Tiled val="false"/>
@@ -478,6 +528,7 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
             <Texture val="Assets\Textures\ui_merc_button_normaloverpressedover.dds"/>
             <TextureType val="Border"/>
             <Tiled val="false"/>
@@ -494,6 +545,37 @@
             <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
         </Frame>
+
+        <Frame type="Image" name="TitleBg">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="23"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-14"/>
+
+            <Texture val="Assets\Textures\ui_merc_button_name_normalpressed.dds"/>
+            <TextureType val="Border"/>
+            <StateCount val="2"/>
+            <StateIndex val="0"/>
+            <Height val="40"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="73,216,209"/>
+        </Frame>
+
+        <Frame type="Label" name="MercLabel">
+            <Anchor side="Top" relative="$parent/TitleBg" pos="Min" offset="3"/>
+            <Anchor side="Left" relative="$parent/TitleBg" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/TitleBg" pos="Mid" offset="0"/>
+            <Style val="WolCoopTechUnitAvailable"/>
+            <Text val="Merc Title"/>
+        </Frame>
+
+        <!--Frame type="Image" name="PortraitStill">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="59"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-17"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+
+            <Alpha val="0"/>
+        </Frame-->
     </Frame>
 
     <Frame type="Button" name="ResearchZergBtn">
@@ -501,6 +583,104 @@
         <HoverImage val="HoverImage"/>
         <HitTestFrame val="HitTestFrame"/>
         <ClickSound val="@UI_ActionButtonSelect"/>
+        <Toggleable val="True"/>
+
+        <Animation name="ResearchAnimation">
+            <Event event="ResearchStart" action="Reset,Play" frame="$this"/>
+
+            <!-- Glow -->
+            <Controller type="Visibility" end="Pause" frame="$this/ResearchGlow">
+                <Key type="Bool" time="0.0" value="True"/>
+            </Controller>
+
+            <Controller type="Fade" end="Pause" frame="$this/ResearchGlow">
+                <Key type="Curve" time="0.0" value="0"/>
+                <Key type="Curve" time="0.2" value="255"/>
+            </Controller>
+
+            <Controller type="Dimension" end="Pause" frame="$this/ResearchGlow" dimension="Width" relative="False">
+                <Key type="Curve" time="0.0" value="210" inout="Fast"/>
+                <Key type="Curve" time="0.7" value="128" inout="Slow"/>
+            </Controller>
+
+            <Controller type="Dimension" end="Pause" frame="$this/ResearchGlow" dimension="Height" relative="False">
+                <Key type="Curve" time="0.0" value="210" inout="Fast"/>
+                <Key type="Curve" time="0.7" value="128" inout="Slow"/>
+            </Controller>
+
+            <!-- Hit -->
+            <Controller type="Visibility" end="Pause" frame="$this/GlowHit">
+                <Key type="Bool" time="0.3" value="True"/>
+            </Controller>
+
+            <Controller type="Fade" end="Pause" frame="$this/GlowHit">
+                <Key type="Curve" time="0.0" value="0"/>
+                <Key type="Curve" time="0.3" value="0"/>
+                <Key type="Curve" time="0.4" value="255"/>
+                <Key type="Curve" time="0.7" value="255"/>
+                <Key type="Curve" time="0.8" value="0"/>
+            </Controller>
+
+            <Controller type="Dimension" end="Pause" frame="$this/GlowHit" dimension="Width" relative="False">
+                <Key type="Curve" time="0.0" value="100" inout="Fast"/>
+                <Key type="Curve" time="0.3" value="100" inout="Fast"/>
+                <Key type="Curve" time="0.8" value="130" inout="Slow"/>
+            </Controller>
+
+            <Controller type="Dimension" end="Pause" frame="$this/GlowHit" dimension="Height" relative="False">
+                <Key type="Curve" time="0.0" value="100" inout="Fast"/>
+                <Key type="Curve" time="0.3" value="100" inout="Fast"/>
+                <Key type="Curve" time="0.8" value="130" inout="Slow"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this/IconShimmer">
+                <Key type="Bool" time="0.3" value="True"/>
+            </Controller>
+        </Animation>
+
+        <StateGroup name="ToggleState">
+            <State name="Toggled">
+                <When type="Property" frame="$this" operator="Equal" Toggled="True"/>
+
+                <Action type="SetProperty" frame="$this/HoverImage" Texture="Assets\Textures\ui_research_button_zerg_normalpressed.dds"/>
+            </State>
+        
+            <State name="Untoggled">
+                <When type="Property" frame="$this" operator="Equal" Toggled="False"/>
+
+                <Action type="SetProperty" frame="$this/HoverImage" Texture="Assets\Textures\ui_research_button_zerg_normaloverpressedover.dds"/>
+            </State>
+        </StateGroup>
+
+        <StateGroup name="ResearchState">
+            <DefaultState val="Unresearched"/>
+        
+            <State name="Unresearched">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Unresearched"/>
+                
+                <Action type="SetProperty" frame="$this/ResearchGlow" Visible="False"/>
+            </State>
+        
+            <State name="Researched">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Researched"/>
+
+                <Action type="SetProperty" frame="$this/ResearchGlow" Visible="True"/>
+            </State>
+
+            <State name="Unresearchable">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Unresearchable"/>
+
+                <Action type="SetProperty" frame="$this/NormalImage" Desaturated="True"/>
+                <Action type="SetProperty" frame="$this/HoverImage" Desaturated="True"/>
+                <Action type="SetProperty" frame="$this/Icon" Desaturated="True"/>
+                <Action type="SetProperty" frame="$this/ResearchGlow" Visible="False"/>
+            </State>
+        </StateGroup>
+
+        <!--
+            Assets\Textures\ui_battlenet_glue_tournament_ghosttrophyglow.dds //hit overlay
+            Assets\Textures\ui_battlenet_glue_coop_selecttile_backgroundglow.dds //hit glow
+        -->
 
         <Frame type="Image" name="NormalImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -524,11 +704,82 @@
             <StateCount val="2"/>
         </Frame>
 
+        <Frame type="Image" name="ResearchGlow">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="-2"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Width val="128"/>
+            <Height val="128"/>
+            <Unclipped val="True"/>
+            <Texture val="Assets\Textures\ui_research_button_zerg_researched.dds"/>
+        </Frame>
+
+        <Frame type="Image" name="GlowHit">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Visible val="False"/>
+            <Width val="100"/>
+            <Height val="100"/>
+            <Unclipped val="True"/>
+            <Texture val="Assets\Textures\ui_battlenet_glue_coop_selecttile_backgroundglow.dds"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="b97400"/>
+        </Frame>
+
         <Frame type="Frame" name="HitTestFrame">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Image" name="Icon">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
+            <Width val="70"/>
+            <Height val="70"/>
+        </Frame>
+
+        <Frame type="Image" name="IconShimmer">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="70"/>
+            <Height val="70"/>
+            <LayerCount val="2"/>
+            <Visible val="False"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="b97400"/>
+
+            <Texture val="Assets\Textures\btn-research-zerg-predator.dds" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+
+            <Texture val="Assets/Textures/ui_research_frame_fanfare_iconshimmer.dds" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+
+            <Animation name="ShimmerAnim">
+				<Event event="OnShown" action="DirectionForward" frame="$this"/>
+                <Event event="OnShown" action="Play" frame="$this"/>
+                
+                <Controller type="Visibility" end="Pause" frame="$this">
+                    <Key type="Bool" time="0.0" value="True"/>
+                    <Key type="Bool" time="1.7" value="False"/>
+                </Controller>
+					 
+				<Controller type="LayerUV" layer="1" side="Top" relative="False" sidelock="True" end="Pause" >
+					<Key type="Curve" time="0" value="1" out="Fast"/>
+					<Key type="Curve" time="1.7" value="-1" in="Slow"/>
+				</Controller>
+			</Animation>
         </Frame>
     </Frame>
 
@@ -565,6 +816,51 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Image" name="Icon">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
+            <Width val="70"/>
+            <Height val="70"/>
+        </Frame>
+
+        <Frame type="Image" name="IconShimmer">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="70"/>
+            <Height val="70"/>
+            <LayerCount val="2"/>
+            <Visible val="False"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="b97400"/>
+            <Alpha val="200"/>
+
+            <Texture val="Assets\Textures\btn-research-zerg-predator.dds" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+
+            <Texture val="Assets/Textures/ui_research_frame_fanfare_iconshimmer" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+
+            <Animation name="ShimmerAnim">
+				<Event event="OnShown" action="DirectionForward" frame="$this"/>
+                <Event event="OnShown" action="Play" frame="$this"/>
+                
+                <Controller type="Visibility" end="Pause" frame="$this">
+                    <Key type="Bool" time="0.0" value="True"/>
+                    <Key type="Bool" time="0.6" value="False"/>
+                </Controller>
+					 
+				<Controller type="LayerUV" layer="1" side="Top" relative="False" sidelock="True" end="Loop" >
+					<Key type="Curve" time="0" value="0" out="Fast"/>
+					<Key type="Curve" time="0.6" value="1" in="Slow"/>
+					</Controller>
+				</Animation>
         </Frame>
     </Frame>
 
@@ -690,21 +986,21 @@
 
         <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
             <Key type="Curve" time="0.0" value="20"/>
-            <Key type="Curve" time="0.1" value="80"/>
-            <Key type="Curve" time="0.25" value="20"/>
-            <Key type="Curve" time="0.4" value="40"/>
+            <Key type="Curve" time="0.2" value="100"/>
+            <Key type="Curve" time="0.35" value="25"/>
+            <Key type="Curve" time="0.45" value="40"/>
         </Controller>
 
         <Controller type="Fade" end="Pause" frame="$this">
             <Key type="Curve" time="0.0" value="0"/>
-            <Key type="Curve" time="0.1" value="255"/>
-            <Key type="Curve" time="0.25" value="200"/>
-            <Key type="Curve" time="0.35" value="100"/>
-            <Key type="Curve" time="0.4" value="0"/>
+            <Key type="Curve" time="0.2" value="255"/>
+            <Key type="Curve" time="0.35" value="200"/>
+            <Key type="Curve" time="0.45" value="100"/>
+            <Key type="Curve" time="0.5" value="0"/>
         </Controller>
 
         <Controller type="Visibility" end="Pause" frame="$this">
-            <Key type="Bool" time="0.4" value="False"/>
+            <Key type="Bool" time="0.5" value="False"/>
         </Controller>
     </Animation>
 
@@ -852,17 +1148,17 @@
 
                 <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
                     <Key type="Curve" time="0.0" value="20"/>
-                    <Key type="Curve" time="0.2" value="80"/>
-                    <Key type="Curve" time="0.5" value="20"/>
-                    <Key type="Curve" time="0.8" value="40"/>
+                    <Key type="Curve" time="0.2" value="100"/>
+                    <Key type="Curve" time="0.35" value="25"/>
+                    <Key type="Curve" time="0.45" value="40"/>
                 </Controller>
         
                 <Controller type="Fade" end="Pause" frame="$this">
                     <Key type="Curve" time="0.0" value="0"/>
                     <Key type="Curve" time="0.2" value="255"/>
-                    <Key type="Curve" time="0.5" value="200"/>
-                    <Key type="Curve" time="0.7" value="100"/>
-                    <Key type="Curve" time="0.8" value="0"/>
+                    <Key type="Curve" time="0.35" value="200"/>
+                    <Key type="Curve" time="0.45" value="100"/>
+                    <Key type="Curve" time="0.5" value="0"/>
                 </Controller>
             </Animation>
         </Frame>
@@ -881,17 +1177,17 @@
 
                 <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
                     <Key type="Curve" time="0.0" value="20"/>
-                    <Key type="Curve" time="0.2" value="80"/>
-                    <Key type="Curve" time="0.5" value="20"/>
-                    <Key type="Curve" time="0.8" value="40"/>
+                    <Key type="Curve" time="0.2" value="100"/>
+                    <Key type="Curve" time="0.35" value="25"/>
+                    <Key type="Curve" time="0.45" value="40"/>
                 </Controller>
         
                 <Controller type="Fade" end="Pause" frame="$this">
                     <Key type="Curve" time="0.0" value="0"/>
                     <Key type="Curve" time="0.2" value="255"/>
-                    <Key type="Curve" time="0.5" value="200"/>
-                    <Key type="Curve" time="0.7" value="100"/>
-                    <Key type="Curve" time="0.8" value="0"/>
+                    <Key type="Curve" time="0.35" value="200"/>
+                    <Key type="Curve" time="0.45" value="100"/>
+                    <Key type="Curve" time="0.5" value="0"/>
                 </Controller>
             </Animation>
         </Frame>
@@ -910,17 +1206,17 @@
 
                 <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="False">
                     <Key type="Curve" time="0.0" value="20"/>
-                    <Key type="Curve" time="0.2" value="80"/>
-                    <Key type="Curve" time="0.5" value="20"/>
-                    <Key type="Curve" time="0.8" value="40"/>
+                    <Key type="Curve" time="0.2" value="100"/>
+                    <Key type="Curve" time="0.35" value="25"/>
+                    <Key type="Curve" time="0.45" value="40"/>
                 </Controller>
         
                 <Controller type="Fade" end="Pause" frame="$this">
                     <Key type="Curve" time="0.0" value="0"/>
                     <Key type="Curve" time="0.2" value="255"/>
-                    <Key type="Curve" time="0.5" value="200"/>
-                    <Key type="Curve" time="0.7" value="100"/>
-                    <Key type="Curve" time="0.8" value="0"/>
+                    <Key type="Curve" time="0.35" value="200"/>
+                    <Key type="Curve" time="0.45" value="100"/>
+                    <Key type="Curve" time="0.5" value="0"/>
                 </Controller>
             </Animation>
         </Frame>
@@ -940,17 +1236,17 @@
     
                 <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="False">
                     <Key type="Curve" time="0.0" value="20"/>
-                    <Key type="Curve" time="0.2" value="80"/>
-                    <Key type="Curve" time="0.5" value="20"/>
-                    <Key type="Curve" time="0.8" value="40"/>
+                    <Key type="Curve" time="0.2" value="100"/>
+                    <Key type="Curve" time="0.35" value="25"/>
+                    <Key type="Curve" time="0.45" value="40"/>
                 </Controller>
         
                 <Controller type="Fade" end="Pause" frame="$this">
                     <Key type="Curve" time="0.0" value="0"/>
                     <Key type="Curve" time="0.2" value="255"/>
-                    <Key type="Curve" time="0.5" value="200"/>
-                    <Key type="Curve" time="0.7" value="100"/>
-                    <Key type="Curve" time="0.8" value="0"/>
+                    <Key type="Curve" time="0.35" value="200"/>
+                    <Key type="Curve" time="0.45" value="100"/>
+                    <Key type="Curve" time="0.5" value="0"/>
                 </Controller>
             </Animation>
         </Frame>
@@ -990,7 +1286,7 @@
 
             <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="False">
                 <Key type="Curve" time="0.0" value="10" out="Fast"/>
-                <Key type="Curve" time="0.3" value="435" in="Slow"/>
+                <Key type="Curve" time="0.3" value="433" in="Slow"/>
             </Controller>
 
             <Controller type="Fade" end="Pause" frame="$this/Background">
@@ -1176,7 +1472,85 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
 
             <Style val="ResearchCategoryCurrentLevel_Zerg"/>
-            <Text val="Select a <n/>Research"/>
+            <Text val="Select a Research"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="ResearchPurchaseButton">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Enabled val="True"/>
+
+        <StateGroup name="ResearchState">
+            <DefaultState val="Zerg"/>
+        
+            <State name="Disabled">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Disabled"/>
+
+                <Action type="SetProperty" frame="$this" Enabled="False"/>
+            </State>
+
+            <State name="Enabled">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Enabled"/>
+    
+                <Action type="SetProperty" frame="$this" Enabled="True"/>
+            </State>
+        
+            <State name="Protoss">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Protoss"/>
+
+                <Action type="SetProperty" frame="$this/NormalImage" Texture="Assets\Textures\ui_button_confirmation_normalpressed_protoss.dds"/>
+                <Action type="SetProperty" frame="$this/HoverImage" Texture="Assets\Textures\ui_button_confirmation_normaloverpressedover_protoss.dds"/>
+            </State>
+        
+            <State name="Zerg">
+                <When type="AnimationState" frame="$this" operator="Equal" ResearchState="Zerg"/>
+
+                <Action type="SetProperty" frame="$this/NormalImage" Texture="Assets\Textures\ui_button_confirmation_normalpressed_zerg.dds"/>
+                <Action type="SetProperty" frame="$this/HoverImage" Texture="Assets\Textures\ui_button_confirmation_normaloverpressedover_zerg.dds"/>
+            </State>
+        </StateGroup>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_button_confirmation_normalpressed_terran.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="Assets\Textures\ui_button_confirmation_normaloverpressedover_terran.dds"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="false"/>
+            <StateCount val="2"/>
+            <DisabledAlpha val="128"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="28"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-28"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+        </Frame>
+
+        <Frame type="Label" name="Label">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Text val="Research"/>
+            <Style val="WolCoopPurchase"/>
         </Frame>
     </Frame>
 </Desc>

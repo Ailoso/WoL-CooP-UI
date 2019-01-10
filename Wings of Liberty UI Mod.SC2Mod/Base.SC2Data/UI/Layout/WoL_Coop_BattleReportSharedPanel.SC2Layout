@@ -147,7 +147,7 @@
             <Alpha val="255"/>
             <RenderPriority val="10"/>
             <ScaleWidthToTexture val="true"/>
-            <AcceptsMouse val="True"/>
+			<AcceptsMouse val="True"/>
         </Frame>
 
         <Frame type="Image" name="BackgroundLoading">
@@ -158,7 +158,7 @@
             <Texture val="Assets\Textures\loading_generic.dds"/>
             <Alpha val="255"/>
             <RenderPriority val="40"/>
-            <ScaleWidthToTexture val="true"/>
+			<ScaleWidthToTexture val="true"/>
         </Frame>
 		
 		<Frame type="Frame" name="MetalBackgroundPanel">
