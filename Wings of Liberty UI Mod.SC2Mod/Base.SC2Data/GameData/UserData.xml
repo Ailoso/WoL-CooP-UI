@@ -6,6 +6,12 @@
         <Fields Id="Title" Type="String" EditorColumn="3"/>
         <Fields Id="Description" Type="String" EditorColumn="4"/>
         <Fields Id="Points" Type="Int" EditorColumn="5"/>
+        <Fields>
+            <Id value="Race"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Race"/>
+            <EditorColumn value="6"/>
+        </Fields>
         <Instances Id="[Default]">
             <Image Image="Assets\Textures\TRaynor01-Objectives.dds">
                 <Field Id="Icon"/>
@@ -24,6 +30,9 @@
             </String>
         </Instances>
         <Instances Id="TRaynor01 - Objectives">
+            <GameLink GameLink="Terr">
+                <Field Id="Race"/>
+            </GameLink>
             <Image Image="Assets\Textures\TRaynor01-Objectives.dds">
                 <Field Id="Icon"/>
             </Image>
@@ -33,14 +42,11 @@
             <String String="TRaynor01-Objectives">
                 <Field Id="ID"/>
             </String>
-            <String String="Liberation Day">
-                <Field Id="Title"/>
-            </String>
-            <String String="Complete all mission objectives in the Liberation Day mission.">
-                <Field Id="Description"/>
-            </String>
         </Instances>
         <Instances Id="TRaynor01 - Normal">
+            <GameLink GameLink="Terr">
+                <Field Id="Race"/>
+            </GameLink>
             <Image Image="Assets\Textures\TRaynor01-Normal.dds">
                 <Field Id="Icon"/>
             </Image>
@@ -58,6 +64,9 @@
             </String>
         </Instances>
         <Instances Id="TRaynor01 - Hard">
+            <GameLink GameLink="Terr">
+                <Field Id="Race"/>
+            </GameLink>
             <Image Image="Assets\Textures\TRaynor01-Hard.dds">
                 <Field Id="Icon"/>
             </Image>

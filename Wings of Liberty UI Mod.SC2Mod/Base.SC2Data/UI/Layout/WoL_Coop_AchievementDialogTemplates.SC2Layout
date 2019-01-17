@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <!--
+    ============================
+    User Profile Achievements Frame Template
+    ============================
+    
+    The mother frame; displays achievements for a profile
+    -->
+    
+    <Frame type="Frame" name="UserProfileAchievementsFrameTemplate">
+
+        <Frame type="Tooltip" name="AchievementInfoTooltip" template="StandardTemplates/AchievementInfoTooltipTemplate"/>
+        
+        <Frame type="Frame" name="BackgroundAnchor">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CategoryTabView" pos="Max" offset="8"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="ListBox" name="AchievementsListBox">
+            <Anchor relative="$parent/BackgroundAnchor"/>
+            <Insets top="79" left="15" bottom="10" right="12"/>
+            <ItemGap val="10"/>
+            <ItemDesc val="UserProfileAchievementsFrame/AchievementsListBoxItemTemplate"/>
+            <SelectionToggleable val="true"/>
+            <Visible val="true"/>
+            <ItemClickSound val="@UI_ActionButtonSelect"/>
+            
+            <Frame type="Image" name="SelectedImage">
+                <Alpha val="0"/>
+            </Frame>
+
+            <Frame type="Frame" name="ListBoxBackground" template="UserProfileTemplates/LargeHeaderBackground">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-282"/>
+                <Visible val="true"/>
+
+                <Frame type="Label" name="NoAchievementsLabel">
+                    <Anchor side="Top" relative="$parent/Backdrop" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Backdrop" pos="Mid" offset="0"/>
+                    <Anchor side="Left" relative="$parent/Backdrop" pos="Mid" offset="0"/>
+                    <Anchor side="Right" relative="$parent/Backdrop" pos="Mid" offset="0"/>
+                    <Style val="@Tournament_Subtitle"/>
+                    <Text val="@UI/UserProfileAchievementsFrame/Empty"/>
+                    <Visible val="false"/>
+
+                    <StateGroup name="EmptyState">
+                        <State name="Empty">
+                            <When type="Property" frame="$parent/$parent" DataCount="0"/>
+                            <Action type="SetProperty" Visible="true"/>
+                        </State>
+                    </StateGroup>
+                </Frame>
+            </Frame>
+
+            <Frame type="Frame" name="ListBoxComparisonBackground" template="UserProfileTemplates/LargeHeaderBackground">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/ListBoxBackground" pos="Max" offset="-2"/>
+                <Width val="261"/>
+                <Visible val="false"/>
+                <CollapseLayout val="True"/>
+                
+                <StateGroup name="LocalUserState">
+                    <State name="LocalUserState">
+                        <When type="Property" frame="$BattleUI" operator="NotEqual" LocalToonPresenceId="{$UserProfileAchievementsFrame/@PresenceId}"/>
+                        <Action type="SetProperty" Visible="true"/>
+                    </State>
+                </StateGroup>
+            </Frame>
+
+            <SelectedImage val="$root/StandardBattlenetTemplates/BattlenetSocialListBoxItemSelectedImage"/>
+            <HoverImage val="$root/StandardBattlenetTemplates/BattlenetSocialListBoxItemHoverImage"/>
+            <ScrollBar val="ScrollBar"/>
+            
+            <Frame type="Image" name="ScrollBarBackground" template="UserProfileTemplates/ScrollBarBackgroundTemplate"/>
+            
+            <Frame type="ScrollBar" name="ScrollBar" template="UserProfileTemplates/ScrollBarTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="77"/>
+                <Anchor side="Left" relative="$parent/ListBoxComparisonBackground" pos="Max" offset="2"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-7"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="UserProfileRecentAchievementsListBox" name="RecentAchievementsListBox" template="UserProfileAchievementsSummaryFrame/RecentAchievementsListBoxTemplate">
+            <Anchor side="Top" relative="$parent/AchievementShowcaseContainer" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/AchievementShowcaseContainer" pos="Max" offset="2"/>
+        </Frame>
+
+        <Frame type="Frame" name="CategoryTabView">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Width val="368"/>
+            <Height val="803"/>
+
+            <Frame type="TabControl" name="TabControlMain">
+                <Anchor relative="$parent"/>
+
+                <TabListItem val="$parent/TabButton0"/>
+                <TabListItem val="$parent/TabButton1"/>
+            </Frame>
+
+            <Frame type="Button" name="TabButton0" template="WoL_Coop_StandardTemplate/StandardTabButton">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+
+                <Frame type="Label" name="Label">
+                    <Text val="Summary"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Button" name="TabButton1" template="WoL_Coop_StandardTemplate/StandardTabButton">
+                <Anchor side="Top" relative="$parent/TabButton0" pos="Max" offset="5"/>
+
+                <Frame type="Label" name="Label">
+                    <Text val="Liberty Co-op Campaign"/>
+                </Frame>
+            </Frame>
+        </Frame>
+        
+        <Frame type="Label" name="FilterLabel">
+            <Anchor side="Top" relative="$parent/FilterPulldown" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/FilterPulldown" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/BackgroundAnchor" pos="Min" offset="29"/>
+            <Text val="@UI/ScreenUserProfile/Achievements/Filter"/>
+            <Style val="Profile_Achievement_SectionHeader"/>
+            <Visible val="{$parent/FilterPulldown/@Visible}"/>
+        </Frame>
+
+        <Frame type="Pulldown" name="FilterPulldown" template="StandardBattlenetTemplates/StandardBattlenetPulldownTemplate">
+            <Anchor side="Top" relative="$parent/BackgroundAnchor" pos="Min" offset="13"/>
+            <Anchor side="Left" relative="$parent/FilterLabel" pos="Max" offset="10"/>
+            <Visible val="true"/>
+        </Frame>
+
+        <Frame type="AchievementCategoryFrame" name="CategoryPointsFrame" template="UserProfileAchievementsFrame/CategoryPointsFrameTemplate">
+            <Anchor side="Top" relative="$parent/BackgroundAnchor" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent/AchievementsListBox/ListBoxBackground" pos="Max" offset="-30"/>
+            <PresenceId val="{$UserProfileAchievementsFrame/@PresenceId}"/>
+            <Visible val="false"/>
+            <PointsRecurseChildren val="false"/>
+
+            <StateGroup name="CategoryStateGroup">
+                <State name="CategoryState">
+                    <When type="Property" frame="$this" operator="NotEqual" CategoryId="0"/>
+                    <Action type="SetProperty" Visible="true"/>
+                </State>
+            </StateGroup>
+        </Frame>
+
+        <Frame type="AchievementCategoryFrame" name="CategoryPointsCompareFrame" template="UserProfileAchievementsFrame/CategoryPointsFrameTemplate">
+            <Anchor side="Top" relative="$parent/CategoryPointsFrame" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/AchievementsListBox/ListBoxComparisonBackground" pos="Min" offset="10"/>
+            <PresenceId val="{$BattleUI/@LocalToonPresenceId}"/>
+            <Visible val="false"/>
+            <PointsRecurseChildren val="false"/>
+
+            <StateGroup name="LocalUserStateGroup">
+                <State name="LocalUserState">
+                    <When type="Property" frame="$this" operator="NotEqual" CategoryId="0"/>
+                    <When type="Property" frame="$BattleUI" operator="NotEqual" LocalToonPresenceId="{$UserProfileAchievementsFrame/@PresenceId}"/>
+                    <Action type="SetProperty" Visible="true"/>
+                </State>
+            </StateGroup>
+        </Frame>
+
+        <Frame type="Frame" name="AchievementShowcaseContainer" template="UserProfileAchievementsSummaryFrame/AchievementShowcaseContainer">
+            <Anchor side="Top" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BackgroundAnchor" pos="Min" offset="0"/>
+            <Width val="820"/>
+            <Height val="286"/>
+            <Visible val="false"/>
+        </Frame>
+        
+        <Frame type="Frame" name="CategoriesContainerFrame" template="UserProfileAchievementsSummaryFrame/CategoriesContainerFrameTemplate">
+            <Anchor side="Top" relative="$parent/AchievementShowcaseContainer" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/RecentAchievementsListBox" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/AchievementShowcaseContainer" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/AchievementShowcaseContainer" pos="Max" offset="0"/>
+            <Visible val="false"/>
+        </Frame>
+
+        <Frame type="AchievementShowcaseSelectionFrame" name="AchievementShowcaseSelectionFrame" template="UserProfileAchievementsSummaryFrame/AchievementShowcaseSelectionFrame">
+            <Anchor relative="$parent"/>
+            <ShowcaseIndex val="0"/>
+            <Visible val="false"/>
+
+            <Animation name="Show">
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame0"/>
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame1"/>
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame2"/>
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame3"/>
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame4"/>
+                <Event event="OnClick" action="DirectionReverse,Play" frame="AcceptButton"/>
+                <Event event="OnClick" action="DirectionReverse,Play" frame="CancelButton"/>
+
+                <Controller type="Fade" end="Pause">
+                    <Key type="Curve" time="0" value="0" out="Slow"/>
+                    <Key type="Curve" time=".175" value="255" in="Auto"/>
+                </Controller>
+
+                <Controller type="Visibility" end="Pause">
+                    <Key type="Bool" time="0" value="false"/>
+                    <Key type="Bool" time=".001" value="true"/>
+                    <Key type="Bool" time=".175" value="true"/>
+                </Controller>
+            </Animation>
+
+            <Animation name="Index0">
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame0"/>
+
+                <Controller type="Property" property="ShowcaseIndex" end="Pause">
+                    <Key type="Property" time="0" value="0"/>
+                </Controller>
+            </Animation>
+
+            <Animation name="Index1">
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame1"/>
+
+                <Controller type="Property" property="ShowcaseIndex" end="Pause">
+                    <Key type="Property" time="0" value="1"/>
+                </Controller>
+            </Animation>
+
+            <Animation name="Index2">
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame2"/>
+
+                <Controller type="Property" property="ShowcaseIndex" end="Pause">
+                    <Key type="Property" time="0" value="2"/>
+                </Controller>
+            </Animation>
+
+            <Animation name="Index3">
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame3"/>
+
+                <Controller type="Property" property="ShowcaseIndex" end="Pause">
+                    <Key type="Property" time="0" value="3"/>
+                </Controller>
+            </Animation>
+
+            <Animation name="Index4">
+                <Event event="OnEdit" action="Reset,Play" frame="$parent/AchievementShowcaseContainer/ShowcaseFrame4"/>
+
+                <Controller type="Property" property="ShowcaseIndex" end="Pause">
+                    <Key type="Property" time="0" value="4"/>
+                </Controller>
+            </Animation>
+
+            <StateGroup name="IndexStateGroup">
+                <State name="Index0State">
+                    <When type="Property" frame="$this" ShowcaseIndex="0"/>
+                    <Action type="SetProperty" AchievementId="{$parent/AchievementShowcaseContainer/ShowcaseFrame0/@AchievementId}"/>
+                </State>
+
+                <State name="Index1State">
+                    <When type="Property" frame="$this" ShowcaseIndex="1"/>
+                    <Action type="SetProperty" AchievementId="{$parent/AchievementShowcaseContainer/ShowcaseFrame1/@AchievementId}"/>
+                </State>
+
+                <State name="Index2State">
+                    <When type="Property" frame="$this" ShowcaseIndex="2"/>
+                    <Action type="SetProperty" AchievementId="{$parent/AchievementShowcaseContainer/ShowcaseFrame2/@AchievementId}"/>
+                </State>
+
+                <State name="Index3State">
+                    <When type="Property" frame="$this" ShowcaseIndex="3"/>
+                    <Action type="SetProperty" AchievementId="{$parent/AchievementShowcaseContainer/ShowcaseFrame3/@AchievementId}"/>
+                </State>
+
+                <State name="Index4State">
+                    <When type="Property" frame="$this" ShowcaseIndex="4"/>
+                    <Action type="SetProperty" AchievementId="{$parent/AchievementShowcaseContainer/ShowcaseFrame4/@AchievementId}"/>
+                </State>
+            </StateGroup>
+        </Frame>
+        
+        <StateGroup name="CategoryState">
+            <DefaultState val="NotSummary"/>
+            
+            <State name="Summary">
+                <When type="Property" frame="$this" CategoryId="0"/>
+                <Action type="SetProperty" frame="CategoriesContainerFrame" Visible="true"/>
+                <Action type="SetProperty" frame="AchievementShowcaseContainer" Visible="true"/>
+                <Action type="SetProperty" frame="RecentAchievementsListBox" Visible="true"/>
+                <Action type="SetProperty" frame="AchievementsListBox" Visible="false"/>
+                <Action type="SetProperty" frame="FilterPulldown" Visible="false"/>
+            </State>
+            
+            <State name="NotSummary">
+                <Action type="SetProperty" frame="CategoriesContainerFrame" Visible="false"/>
+                <Action type="SetProperty" frame="AchievementShowcaseContainer" Visible="false"/>
+                <Action type="SetProperty" frame="RecentAchievementsListBox" Visible="false"/>
+                <Action type="SetProperty" frame="AchievementsListBox" Visible="true"/>
+                <Action type="SetProperty" frame="FilterPulldown" Visible="true"/>
+            </State>
+        </StateGroup>
+    </Frame>
+
+    <!-- template="UserProfileAchievementsFrame/UserProfileAchievementsFrameTemplate" -->
+    <Frame type="Frame" name="AchievementsFrameTemplate" template="WoL_Coop_AchievementDialogTemplates/UserProfileAchievementsFrameTemplate">
+        <Anchor relative="$parent"/>
+
+        <Frame type="Image" name="BackgroundAnchor">
+            <Anchor side="Top" relative="$parent/$parent/PageHeaderBackground" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/$parent/TabAnchorFrame" pos="Max" offset="4"/>
+            <Anchor side="Bottom" relative="$parent/$parent/TabAnchorFrame" pos="Max" offset="-4"/>
+        </Frame>
+
+        <Frame type="Frame" name="CategoryTabView">
+            <Anchor side="Top" relative="$parent/$parent/TabAnchorFrame" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/$parent/TabAnchorFrame" pos="Min" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="AchievementShowcaseContainer">
+            <Frame type="AchievementShowcaseFrame" name="ShowcaseFrame0">
+                <Frame type="Button" name="EditButton">
+                    <Visible val="false"/>
+                </Frame>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Frame" name="GameUI/UIContainer" file="GameUI">
+
+        <Frame type="Frame" name="AchievementFanfaresContainer" template="WoL_Coop_AchievementFanfaresFrame/AchievementFanfaresFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="GameUI/UIContainer/FullscreenUpperContainer/AchievementsDialog" file="GameUI">
+        <Frame type="UserProfileAchievementsFrame" name="AchievementsFrame">
+            <Visible val="False"/>
+
+            <Animation name="Hide">
+                <Event event="OnShown" action="Play" frame="$this"/>
+
+                <Controller type="Visibility" end="Pause" frame="$this">
+                    <Key type="Bool" time="0.0" value="False"/>
+                </Controller>
+            </Animation>
+        </Frame>
+
+        <Frame type="Frame" name="KatAchievementsFrame" template="WoL_Coop_AchievementDialogTemplates/AchievementsFrameTemplate">
+            <RenderPriority val="520"/>
+        </Frame>
+    </Frame>
+</Desc>

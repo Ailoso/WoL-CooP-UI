@@ -7,6 +7,9 @@ Param/Value/lib_AB61AAA6_2374A9E3=0<n/>
 Param/Value/lib_AB61AAA6_5A87E038=Liberation Day
 Param/Value/lib_AB61AAA6_5D29DF17=Testing descriptions and formatting. Nothing else.
 Param/Value/lib_AB61AAA6_71701523=Just a Title
+Param/Value/lib_AB61AAA6_912A73FA=<k val="MenuAchievements" count="0"/>chievements 
+Param/Value/lib_AB61AAA6_9524C754=<c val="FFFFFF">A</c>chievements 
+Param/Value/lib_AB61AAA6_9C4C76CD=A
 Param/Value/lib_AB61AAA6_A2918FB6=55,000
 Param/Value/lib_AB61AAA6_A5ADBC0B=0,000
 Param/Value/lib_AB61AAA6_A94A5E4D=0,000

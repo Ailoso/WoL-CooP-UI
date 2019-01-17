@@ -155,7 +155,7 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="Assets\Textures\loading_generic.dds"/>
+            <Texture val="@UI/SC2_UI_Loadingscreen_Generic"/>
             <Alpha val="255"/>
             <RenderPriority val="40"/>
 			<ScaleWidthToTexture val="true"/>
@@ -172,7 +172,7 @@
 				<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
 				<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
 				<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-				<Texture val="Assets\Textures\ui_battlenet_challenge_frame_metal.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background"/>
 				<TextureType val="HorizontalBorder"/>
 				<Tiled val="true"/>
 				<Height val="955"/>
@@ -202,7 +202,7 @@
 				<AlphaLayer val="True" layer="0"/>
 				<TextureType val="Normal" layer="0"/>
 					 
-				<Texture val="Assets\Textures\ui_battlereport_scanlines_horizontal.dds" layer="1"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Scanlines_Horizontal" layer="1"/>
 				<TextureCoords top="0" left="0" bottom="1" right="0" layer="1"/>
 				<BlendMode val="Add" layer="1"/>
 				<WrapUV val="True" layer="1"/>
@@ -230,7 +230,7 @@
 				<AlphaLayer val="True" layer="0"/>
 				<TextureType val="Normal" layer="0"/>
 					 
-				<Texture val="Assets\Textures\ui_battlereport_scanlines_vertical.dds" layer="1"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Scanlines_Vertical" layer="1"/>
 				<TextureCoords top="0" left="0" bottom="0" right="1" layer="1"/>
 				<BlendMode val="Add" layer="1"/>
 				<WrapUV val="True" layer="1"/>
@@ -248,20 +248,20 @@
 			<Frame type="Image" name="BackgroundMetalWireRight">
 				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
 				<Anchor side="Right" relative="$parent/BackgroundMetalRight" pos="Max" offset="-130"/>
-				<Texture val="Assets\Textures\ui_mercenary_wire_right.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background_Wire_Right"/>
 			</Frame>
 
 			<Frame type="Image" name="BackgroundMetalWireLeft">
 				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
 				<Anchor side="Right" relative="$parent/BackgroundMetalLeft" pos="Max" offset="30"/>
-				<Texture val="Assets\Textures\ui_mercenary_wire_left.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background_Wire_Left"/>
 			</Frame>
 
 			<Frame type="Image" name="BackgroundMetalRight">
 				<Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="-150"/>
 				<Anchor side="Left" relative="$parent" pos="Mid" offset="1250"/>
 				<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-				<Texture val="Assets\Textures\ui_battlereport_metalconnector_r.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background_Connector_Right"/>
 				<Height val="500"/>
 				<Width val="280"/>
 			</Frame>
@@ -270,7 +270,7 @@
 				<Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="-150"/>
 				<Anchor side="Left" relative="$parent" pos="Mid" offset="-1250"/>
 				<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-				<Texture val="Assets\Textures\ui_battlereport_metalconnector_r.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background_Connector_Right"/>
 				<Height val="500"/>
 				<Width val="280"/>
 			</Frame>
@@ -278,20 +278,20 @@
 			<Frame type="Image" name="BackgroundMetalCornerRight">
 				<Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="-45"/>
 				<Anchor side="Right" relative="$parent" pos="Max" offset="-236"/>
-				<Texture val="Assets\Textures\ui_frame_big_corner_topright_terran.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background_Corner_TopRight"/>
 			</Frame>
 
 			<Frame type="Image" name="BackgroundMetalCornerLeft">
 				<Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="-45"/>
 				<Anchor side="Left" relative="$parent" pos="Min" offset="236"/>
-				<Texture val="Assets\Textures\ui_frame_big_corner_topleft_terran.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_Background_Corner_TopLeft"/>
 			</Frame>
 
 			<Frame type="Image" name="MissionTitleFrame">
 				<Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="-135"/>
 				<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
 				<Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-				<Texture val="Assets\Textures\ui_mercenary_titleframe.dds"/>
+				<Texture val="@UI/SC2_UI_Wings_Victory_SharedPanel_BattleReport_TitleBg"/>
 				<Height val="175"/>
 				<Width val="1185"/>
 			</Frame>
@@ -360,6 +360,10 @@
 						<Key type="Curve" time="0" value="0" out="Fast"/>
 						<Key type="Curve" time="1.8" value="0" out="Fast"/>
 						<Key type="Curve" time="2.3" value="255" in="Slow"/>
+					</Controller>
+
+					<Controller type="Sound" end="Pause" frame="$this">
+						<Key type="Sound" time="0.0" sound="@UI_ScoreScreenMissionTime"/>
 					</Controller>
 				</Animation>
 			</Frame>

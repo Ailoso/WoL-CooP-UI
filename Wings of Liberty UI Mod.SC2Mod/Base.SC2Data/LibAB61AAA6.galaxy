@@ -29,6 +29,32 @@ void libAB61AAA6_InitVariables () {
     for (init_i = 0; init_i <= 3; init_i += 1) {
         libAB61AAA6_gv_globalValues[init_i].lv_mapKey = "";
     }
+    libAB61AAA6_gv_kL_CurrentlyInMission = true;
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_ReadyPanel[init_i].lv_dialog = c_invalidDialogId;
+        libAB61AAA6_gv_kL_ReadyPanel[init_i].lv_panel = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 3; init_i1 += 1) {
+            libAB61AAA6_gv_kL_ReadyPanel[init_i].lv_playerPanel[init_i1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_fanfareContainer = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_achievementFrames[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_title[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_description[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_pointsLabel[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
+            libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_icon[init_i1] = c_invalidDialogControlId;
+        }
+    }
     for (init_i = 0; init_i <= 3; init_i += 1) {
         libAB61AAA6_gv_kL_SharedPanel[init_i].lv_dialog = c_invalidDialogId;
         libAB61AAA6_gv_kL_SharedPanel[init_i].lv_sharedPanel = c_invalidDialogControlId;
@@ -176,6 +202,109 @@ void libAB61AAA6_gf_LoadBankDataforPlayer (int lp_player) {
     libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "zerg");
     libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
     libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
+}
+
+void libAB61AAA6_gf_AwardAchievement (string lp_achievement, int lp_player) {
+    // Automatic Variable Declarations
+    int auto3B35BD91_val;
+
+    // Implementation
+    if ((lp_achievement == null)) {
+        return ;
+    }
+
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "Show");
+    libAB61AAA6_gf_KL_DisplayAchievement(lp_achievement, lp_player);
+    auto3B35BD91_val = lp_player;
+    if (auto3B35BD91_val == 1) {
+        TriggerExecute(libAB61AAA6_gt_KL_HideAchievementPanelP1, true, false);
+    }
+    else if (auto3B35BD91_val == 2) {
+        TriggerExecute(libAB61AAA6_gt_KL_HideAchievementPanelP2, true, false);
+    }
+    else if (auto3B35BD91_val == 3) {
+        TriggerExecute(libAB61AAA6_gt_KL_HideAchievementPanelP3, true, false);
+    }
+    else {
+    }
+}
+
+trigger auto_libAB61AAA6_gf_KL_DisplayAchievement_Trigger = null;
+string auto_libAB61AAA6_gf_KL_DisplayAchievement_lp_achievement;
+int auto_libAB61AAA6_gf_KL_DisplayAchievement_lp_player;
+
+void libAB61AAA6_gf_KL_DisplayAchievement (string lp_achievement, int lp_player) {
+    auto_libAB61AAA6_gf_KL_DisplayAchievement_lp_achievement = lp_achievement;
+    auto_libAB61AAA6_gf_KL_DisplayAchievement_lp_player = lp_player;
+
+    if (auto_libAB61AAA6_gf_KL_DisplayAchievement_Trigger == null) {
+        auto_libAB61AAA6_gf_KL_DisplayAchievement_Trigger = TriggerCreate("auto_libAB61AAA6_gf_KL_DisplayAchievement_TriggerFunc");
+    }
+
+    TriggerExecute(auto_libAB61AAA6_gf_KL_DisplayAchievement_Trigger, false, false);
+}
+
+bool auto_libAB61AAA6_gf_KL_DisplayAchievement_TriggerFunc (bool testConds, bool runActions) {
+    string lp_achievement = auto_libAB61AAA6_gf_KL_DisplayAchievement_lp_achievement;
+    int lp_player = auto_libAB61AAA6_gf_KL_DisplayAchievement_lp_player;
+
+    // Variable Declarations
+    int lv_index;
+    const int lv_maxAchievements = 5;
+    int lv_minAchievements;
+    const fixed lv_animationTotal = 3.5;
+    const fixed lv_animationDelay = 0.5;
+
+    // Automatic Variable Declarations
+    bool autoCEA7B9B2_val;
+    const int autoEA7A1AF2_ae = 5;
+    const int autoEA7A1AF2_ai = 1;
+    string autoE201C60E_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoCEA7B9B2_val = libAB61AAA6_gv_kL_CurrentlyInMission;
+    if (autoCEA7B9B2_val == true) {
+        DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "MenuPresence", "InGame");
+    }
+    else if (autoCEA7B9B2_val == false) {
+        DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "MenuPresence", "InMenu");
+    }
+    else {
+    }
+    lv_index = 0;
+    for ( ; ( (autoEA7A1AF2_ai >= 0 && lv_index <= autoEA7A1AF2_ae) || (autoEA7A1AF2_ai < 0 && lv_index >= autoEA7A1AF2_ae) ) ; lv_index += autoEA7A1AF2_ai ) {
+        if ((lv_index != 5)) {
+            if ((libAB61AAA6_gv_kL_ActiveAchievement[lp_player][lv_index] == false)) {
+                libAB61AAA6_gv_kL_ActiveAchievement[lp_player][lv_index] = true;
+                libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_icon[lv_index], UserDataGetImagePath("Achievements", lp_achievement, "Icon", 1), PlayerGroupAll());
+                libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_title[lv_index], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupSingle(lp_player));
+                libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_description[lv_index], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupSingle(lp_player));
+                libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lv_index], StringToText(UserDataGetString("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
+                autoE201C60E_val = UserDataGetGameLink("Achievements", lp_achievement, "Race", 1);
+                if (autoE201C60E_val == "Terr") {
+                    DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "StyleStateGroup", "TerranState");
+                }
+                else if (autoE201C60E_val == "Zerg") {
+                    DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "StyleStateGroup", "ZergState");
+                }
+                else if (autoE201C60E_val == "Prot") {
+                    DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "StyleStateGroup", "ProtossState");
+                }
+                else {
+                }
+                DialogControlSetVisible(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], PlayerGroupSingle(lp_player), true);
+                Wait((lv_animationTotal + (lv_animationDelay * lv_animationDelay)), c_timeReal);
+                libAB61AAA6_gv_kL_ActiveAchievement[lp_player][lv_index] = false;
+                DialogControlSetVisible(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], PlayerGroupSingle(lp_player), false);
+                return true;
+            }
+
+        }
+
+    }
+    return true;
 }
 
 void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player) {
@@ -555,6 +684,34 @@ void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player) {
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsBattlecruiserPanel = DialogControlLastCreated();
 }
 
+void libAB61AAA6_gf_KL_HookupAchievementPanels (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    const int auto14A39627_ae = 4;
+    const int auto14A39627_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/AchievementFanfaresContainer");
+    libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer = DialogControlLastCreated();
+    lv_index = 0;
+    for ( ; ( (auto14A39627_ai >= 0 && lv_index <= auto14A39627_ae) || (auto14A39627_ai < 0 && lv_index >= auto14A39627_ae) ) ; lv_index += auto14A39627_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("CenteredFrame/AchievementFrame" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Title"));
+        libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_title[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("Description"));
+        libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_description[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("PointsLabel"));
+        libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("Icon"));
+        libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_icon[lv_index] = DialogControlLastCreated();
+    }
+}
+
 void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_player) {
     // Automatic Variable Declarations
     // Implementation
@@ -572,9 +729,129 @@ void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_playe
     libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Normal", 1, 2);
     libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Hard", 1, 3);
     Wait(1.5, c_timeGame);
+    libAB61AAA6_gv_kL_CurrentlyInMission = false;
 }
 
 // Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: KL_HideAchievementPanel)P1
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_KL_HideAchievementPanelP1_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    const int lv_player = 1;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while (!((libAB61AAA6_gv_kL_ActiveAchievement[lv_player][0] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][1] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][2] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][3] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][4] == false))) {
+        Wait(0.5, c_timeGame);
+    }
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_AchievementFanfarePanel[lv_player].lv_fanfareContainer, PlayerGroupSingle(lv_player), "Hide");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_KL_HideAchievementPanelP1_Init () {
+    libAB61AAA6_gt_KL_HideAchievementPanelP1 = TriggerCreate("libAB61AAA6_gt_KL_HideAchievementPanelP1_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: KL_HideAchievementPanel)P2
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_KL_HideAchievementPanelP2_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    const int lv_player = 2;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while (!((libAB61AAA6_gv_kL_ActiveAchievement[lv_player][0] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][1] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][2] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][3] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][4] == false))) {
+        Wait(0.5, c_timeGame);
+    }
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_AchievementFanfarePanel[lv_player].lv_fanfareContainer, PlayerGroupSingle(lv_player), "Hide");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_KL_HideAchievementPanelP2_Init () {
+    libAB61AAA6_gt_KL_HideAchievementPanelP2 = TriggerCreate("libAB61AAA6_gt_KL_HideAchievementPanelP2_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: KL_HideAchievementPanel)P3
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_KL_HideAchievementPanelP3_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    const int lv_player = 3;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while (!((libAB61AAA6_gv_kL_ActiveAchievement[lv_player][0] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][1] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][2] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][3] == false) && (libAB61AAA6_gv_kL_ActiveAchievement[lv_player][4] == false))) {
+        Wait(0.5, c_timeGame);
+    }
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_AchievementFanfarePanel[lv_player].lv_fanfareContainer, PlayerGroupSingle(lv_player), "Hide");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_KL_HideAchievementPanelP3_Init () {
+    libAB61AAA6_gt_KL_HideAchievementPanelP3 = TriggerCreate("libAB61AAA6_gt_KL_HideAchievementPanelP3_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: KL_ReadyPanelCreate
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_KL_ReadyPanelCreate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gf_KL_HookupAchievementPanels(1);
+    libAB61AAA6_gf_KL_HookupAchievementPanels(2);
+    libAB61AAA6_gf_KL_HookupAchievementPanels(3);
+    DialogCreate(500, 400, c_anchorCenter, 0, 0, true);
+    DialogSetFullscreen(DialogLastCreated(), true);
+    DialogSetImageVisible(DialogLastCreated(), false);
+    libAB61AAA6_gv_kL_ReadyPanel[1].lv_dialog = DialogLastCreated();
+    DialogControlCreateFromTemplate(libAB61AAA6_gv_kL_ReadyPanel[1].lv_dialog, c_triggerControlTypePanel, "WoL_Coop_StandardTemplate/TeammatesReadyPanel");
+    libAB61AAA6_gv_kL_ReadyPanel[1].lv_panel = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ReadyPanel[1].lv_panel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("Player1Frame"));
+    libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[1] = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ReadyPanel[1].lv_panel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("Player2Frame"));
+    libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[2] = DialogControlLastCreated();
+    DialogControlHookup(libAB61AAA6_gv_kL_ReadyPanel[1].lv_panel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("Player3Frame"));
+    libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[3] = DialogControlLastCreated();
+    DialogSetVisible(libAB61AAA6_gv_kL_ReadyPanel[1].lv_dialog, PlayerGroupAll(), true);
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[1], PlayerGroupAll(), "Player", "1");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[2], PlayerGroupAll(), "Player", "2");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[3], PlayerGroupAll(), "Player", "3");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_KL_ReadyPanelCreate_Init () {
+    libAB61AAA6_gt_KL_ReadyPanelCreate = TriggerCreate("libAB61AAA6_gt_KL_ReadyPanelCreate_Func");
+    TriggerAddEventMapInit(libAB61AAA6_gt_KL_ReadyPanelCreate);
+}
+
 //--------------------------------------------------------------------------------------------------
 // Trigger: KL_UpgradePressed
 //--------------------------------------------------------------------------------------------------
@@ -630,6 +907,45 @@ bool libAB61AAA6_gt_DebugTechFanfare_Func (bool testConds, bool runActions) {
 void libAB61AAA6_gt_DebugTechFanfare_Init () {
     libAB61AAA6_gt_DebugTechFanfare = TriggerCreate("libAB61AAA6_gt_DebugTechFanfare_Func");
     TriggerAddEventChatMessage(libAB61AAA6_gt_DebugTechFanfare, c_playerAny, "fanfare", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Replace Achievements Menu
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugReplaceAchievementsMenu_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogAchievementsButton, false);
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogRestartButton, true);
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogGenericButton1, true);
+    UISetGameMenuItemText(PlayerGroupAll(), c_gameMenuDialogGenericButton1, StringExternal("Param/Value/lib_AB61AAA6_912A73FA"));
+    UISetGameMenuItemShortcut(PlayerGroupAll(), c_gameMenuDialogMessageLogButton, StringExternal("Param/Value/lib_AB61AAA6_9C4C76CD"));
+    UISetGameMenuItemText(PlayerGroupAll(), c_gameMenuDialogMessageLogButton, StringExternal("Param/Value/lib_AB61AAA6_9524C754"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugReplaceAchievementsMenu_Init () {
+    libAB61AAA6_gt_DebugReplaceAchievementsMenu = TriggerCreate("libAB61AAA6_gt_DebugReplaceAchievementsMenu_Func");
+    TriggerAddEventMapInit(libAB61AAA6_gt_DebugReplaceAchievementsMenu);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Show Achievements Menu
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugShowAchievementsMenu_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugShowAchievementsMenu_Init () {
+    libAB61AAA6_gt_DebugShowAchievementsMenu = TriggerCreate("libAB61AAA6_gt_DebugShowAchievementsMenu_Func");
+    TriggerAddEventGameMenuItemSelected(libAB61AAA6_gt_DebugShowAchievementsMenu, c_playerAny, c_gameMenuDialogGenericButton1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -725,13 +1041,62 @@ void libAB61AAA6_gt_DebugToggleResearchButton_Init () {
     TriggerAddEventChatMessage(libAB61AAA6_gt_DebugToggleResearchButton, c_playerAny, "Toggle", true);
 }
 
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Display Player Panel
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugDisplayPlayerPanel_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gv_dEBUGindex += 1;
+    DialogControlSetVisible(libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[libAB61AAA6_gv_dEBUGindex], PlayerGroupAll(), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugDisplayPlayerPanel_Init () {
+    libAB61AAA6_gt_DebugDisplayPlayerPanel = TriggerCreate("libAB61AAA6_gt_DebugDisplayPlayerPanel_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugDisplayPlayerPanel, c_playerAny, "Ready", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - DisplayAchievement
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugDisplayAchievement_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gf_AwardAchievement("TRaynor01 - Normal", EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugDisplayAchievement_Init () {
+    libAB61AAA6_gt_DebugDisplayAchievement = TriggerCreate("libAB61AAA6_gt_DebugDisplayAchievement_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugDisplayAchievement, c_playerAny, "achievement", true);
+}
+
 void libAB61AAA6_InitTriggers () {
+    libAB61AAA6_gt_KL_HideAchievementPanelP1_Init();
+    libAB61AAA6_gt_KL_HideAchievementPanelP2_Init();
+    libAB61AAA6_gt_KL_HideAchievementPanelP3_Init();
+    libAB61AAA6_gt_KL_ReadyPanelCreate_Init();
     libAB61AAA6_gt_KL_UpgradePressed_Init();
     libAB61AAA6_gt_DebugTechFanfare_Init();
+    libAB61AAA6_gt_DebugReplaceAchievementsMenu_Init();
+    libAB61AAA6_gt_DebugShowAchievementsMenu_Init();
     libAB61AAA6_gt_DebugResearchFanfare_Init();
     libAB61AAA6_gt_DebugProtossResearch_Init();
     libAB61AAA6_gt_DebugZergResearch_Init();
     libAB61AAA6_gt_DebugToggleResearchButton_Init();
+    libAB61AAA6_gt_DebugDisplayPlayerPanel_Init();
+    libAB61AAA6_gt_DebugDisplayAchievement_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -10,12 +10,25 @@ Development files for Wings of Liberty Coop UI by LordDz
     - Starts victory sequence and displays victory UI
 - Fanfare
     - Attaches the fanfare panel to the Combat Shield Button
+- Research
+    - Displays Research fanfare on middle option, zerg research
+- Achievement
+    - Queues up an achievement display
+    - Using it multiple times stacks many achievements.
 
 ## Working Features
+- Achievements
+    - Full working Fanfares
+    - No bank data is stored
+
+- Achievement Panel
+    - Early WIP
+
 - Summary Panel 
     - Intro animations
-        - No sound
-        - Some assets are missing
+        - Soun Added to proper Animations
+        - Loading Screen Assets are not defined
+        - Top Banner Assets not created
     - Stats can be added
     - Custom background for stat panel and mission banner
     - UI Update functions for custom data
@@ -40,6 +53,9 @@ Development files for Wings of Liberty Coop UI by LordDz
     - Working Research Steps
     - Research Available Animation
         - No Sound
+    - Research Purchase Animation
+        - No Sound
 
-## Changelog
-- Initial Commit
+- Mercenary Panel
+    - Title labels added per Merc
+    - Working portraits

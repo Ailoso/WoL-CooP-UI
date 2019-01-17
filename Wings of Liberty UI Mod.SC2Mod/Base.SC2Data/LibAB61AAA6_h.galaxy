@@ -24,6 +24,21 @@ struct libAB61AAA6_gs_GlobalValues {
     bool lv_missionPlayedPreviously;
 };
 
+struct libAB61AAA6_gs_KL_ReadyPanel {
+    int lv_dialog;
+    int lv_panel;
+    int[4] lv_playerPanel;
+};
+
+struct libAB61AAA6_gs_KL_AchievementFanfarePanel {
+    int lv_fanfareContainer;
+    int[5] lv_achievementFrames;
+    int[5] lv_title;
+    int[5] lv_description;
+    int[5] lv_pointsLabel;
+    int[5] lv_icon;
+};
+
 struct libAB61AAA6_gs_KL_SharedPanel {
     int lv_dialog;
     int lv_sharedPanel;
@@ -118,6 +133,9 @@ struct libAB61AAA6_gs_KL_LaboratoryPanel {
 
 // Variable Declarations
 libAB61AAA6_gs_GlobalValues[4] libAB61AAA6_gv_globalValues;
+bool libAB61AAA6_gv_kL_CurrentlyInMission;
+bool[4][5] libAB61AAA6_gv_kL_ActiveAchievement;
+libAB61AAA6_gs_KL_ReadyPanel[4] libAB61AAA6_gv_kL_ReadyPanel;
 int libAB61AAA6_gv_kL_StatPanelsInUse;
 bool[11] libAB61AAA6_gv_kL_StatPanelActive;
 bool libAB61AAA6_gv_kL_ArmoryUpdated;
@@ -126,15 +144,19 @@ int libAB61AAA6_gv_kL_AllowedInfantryUnits;
 int libAB61AAA6_gv_kL_AllowedVehicleUnits;
 int libAB61AAA6_gv_kL_AllowedStarshipUnits;
 bool[4] libAB61AAA6_gv_uIIntizialized;
+libAB61AAA6_gs_KL_AchievementFanfarePanel[4] libAB61AAA6_gv_kL_AchievementFanfarePanel;
 libAB61AAA6_gs_KL_SharedPanel[4] libAB61AAA6_gv_kL_SharedPanel;
 libAB61AAA6_gs_KL_SummaryPanel[4] libAB61AAA6_gv_kL_SummaryPanel;
 libAB61AAA6_gs_KL_ArmoryPanel[4] libAB61AAA6_gv_kL_ArmoryPanel;
 libAB61AAA6_gs_KL_ArmoryTechButtons[4] libAB61AAA6_gv_kL_ArmoryTechButtons;
 libAB61AAA6_gs_KL_LaboratoryPanel[4] libAB61AAA6_gv_kL_LaboratoryPanel;
+int libAB61AAA6_gv_dEBUGindex;
 bool libAB61AAA6_gv_dEBUGButtonState;
 
 // Function Declarations
 void libAB61AAA6_gf_LoadBankDataforPlayer (int lp_player);
+void libAB61AAA6_gf_AwardAchievement (string lp_achievement, int lp_player);
+void libAB61AAA6_gf_KL_DisplayAchievement (string lp_achievement, int lp_player);
 void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player);
 void libAB61AAA6_gf_UpdateAchievementData (string lp_achievement, int lp_player, int lp_slot);
 void libAB61AAA6_gf_AddStatPanel (int lp_player, string lp_title, string lp_value);
@@ -146,15 +168,24 @@ void libAB61AAA6_gf_KL_DisplayAllowedUnits (int lp_player);
 void libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare (int lp_anchorDialog, int lp_player);
 void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player);
 void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player);
+void libAB61AAA6_gf_KL_HookupAchievementPanels (int lp_player);
 void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_player);
 
 // Trigger Declarations
+trigger libAB61AAA6_gt_KL_HideAchievementPanelP1;
+trigger libAB61AAA6_gt_KL_HideAchievementPanelP2;
+trigger libAB61AAA6_gt_KL_HideAchievementPanelP3;
+trigger libAB61AAA6_gt_KL_ReadyPanelCreate;
 trigger libAB61AAA6_gt_KL_UpgradePressed;
 trigger libAB61AAA6_gt_DebugTechFanfare;
+trigger libAB61AAA6_gt_DebugReplaceAchievementsMenu;
+trigger libAB61AAA6_gt_DebugShowAchievementsMenu;
 trigger libAB61AAA6_gt_DebugResearchFanfare;
 trigger libAB61AAA6_gt_DebugProtossResearch;
 trigger libAB61AAA6_gt_DebugZergResearch;
 trigger libAB61AAA6_gt_DebugToggleResearchButton;
+trigger libAB61AAA6_gt_DebugDisplayPlayerPanel;
+trigger libAB61AAA6_gt_DebugDisplayAchievement;
 
 // Library Initialization
 void libAB61AAA6_InitVariables ();

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
     <Include path="UI/Layout/WoL_Coop_StandardTemplate.SC2Layout"/>
+    <Include path="UI/Layout/WoL_Coop_AchievementFanfaresFrame.SC2Layout"/>
+    <Include path="UI/Layout/WoL_Coop_AchievementDialogTemplates.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_ScoreScreenPanel.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_ArmoryPanel.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_LaboratoryPanel.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_MercenaryPanel.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_BattleReportSharedPanel.SC2Layout"/>
+    <Include path="UI/Layout/UIOverrides.SC2Layout"/>
 </Desc>

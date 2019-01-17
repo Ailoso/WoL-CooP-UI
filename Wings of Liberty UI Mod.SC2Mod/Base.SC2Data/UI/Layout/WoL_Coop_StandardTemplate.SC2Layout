@@ -1,5 +1,184 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <!-- TeammateReady Test -->
+
+    <Constant name="Player1Color" val="0,66,255"/>
+    <Constant name="Player2Color" val="254,138,14"/>
+    <Constant name="Player3Color" val="22,128,0"/>
+
+    <Frame type="Frame" name="TeammatePanelTemplate">
+
+        <Width val="120"/>
+        <Height val="120"/>
+        <Visible val="False"/>
+        <CollapseLayout val="True"/>
+
+        <Animation name="Shown">
+            <Event event="OnShown" action="Play" frame="$this"/>
+
+            <Controller type="Anchor" end="Pause" frame="$this" side="Right" relative="False">
+                <Key type="Curve" time="0.0" value="110" inout="Fast"/>
+                <Key type="Curve" time="0.5" value="0" inout="Slow"/>
+            </Controller>
+
+            <Controller type="Fade" end="Pause" frame="$this">
+                <Key type="Curve" time="0.0" value="0"/>
+                <Key type="Curve" time="0.2" value="255"/>
+            </Controller>
+
+            <Controller type="Visibility" end="Pause" frame="$this/CheckMark">
+                <Key type="Bool" time="0.0" value="False"/>
+                <Key type="Bool" time="0.6" value="True"/>
+            </Controller>
+        </Animation>
+
+        <StateGroup name="Player">
+            <DefaultState val="1"/>
+            
+            <State name="1">
+                <When type="AnimationState" frame="$this" operator="Equal" Player="1"/>
+
+                <Action type="SetProperty" frame="$this/BorderShimmer" AdjustmentColor="#Player1Color"/>
+            </State>
+            
+            <State name="2">
+                <When type="AnimationState" frame="$this" operator="Equal" Player="2"/>
+
+                <Action type="SetProperty" frame="$this/BorderShimmer" AdjustmentColor="#Player2Color"/>
+            </State>
+            
+            <State name="3">
+                <When type="AnimationState" frame="$this" operator="Equal" Player="3"/>
+
+                <Action type="SetProperty" frame="$this/BorderShimmer" AdjustmentColor="#Player3Color"/>
+            </State>
+        </StateGroup>
+
+        <Frame type="Image" name="Border">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Texture val="Assets\Textures\ui_glues_profileavatar_unranked_medium.dds"/>
+        </Frame>
+
+        <Frame type="Image" name="PlayerIcon">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Texture val="Assets\Textures\ui_glues_profileavatar_ai.dds"/>
+            <Width val="78"/>
+            <Height val="78"/>
+        </Frame>
+
+        <Frame type="Image" name="IconMask">
+            <Anchor side="Top" relative="$parent/PlayerIcon" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/PlayerIcon" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/PlayerIcon" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/PlayerIcon" pos="Max" offset="0"/>
+
+            <Alpha val="0"/>
+            <Color val="000000"/>
+        </Frame>
+
+        <Frame type="Image" name="CheckMark">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Texture val="Assets\Textures\ui_void_spearofadun_icon_check.dds"/>
+            <Visible val="False"/>
+            <Width val="90"/>
+            <Height val="90"/>
+
+            <Animation name="Display">
+                <Event event="OnShown" action="Play" frame="$this"/>
+
+                <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="True">
+                    <Key type="Curve" time="0.0" value="10"/>
+                    <Key type="Curve" time="0.4" value="0"/>
+                </Controller>
+
+                <Controller type="Dimension" end="Pause" frame="$this" dimension="Width" relative="True">
+                    <Key type="Curve" time="0.0" value="10"/>
+                    <Key type="Curve" time="0.4" value="0"/>
+                </Controller>
+
+                <Controller type="Fade" end="Pause" frame="$this">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="255"/>
+                </Controller>
+
+                <Controller type="Fade" end="Pause" frame="$parent/IconMask">
+                    <Key type="Curve" time="0.0" value="0"/>
+                    <Key type="Curve" time="0.2" value="150"/>
+                </Controller>
+            </Animation>
+        </Frame>
+
+        <Frame type="Image" name="Window">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Texture val="Assets\Textures\ui_glues_profileavatar_unranked_glass_medium.dds"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderShimmer">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <LayerCount val="2"/>
+            <ColorAdjustMode val="Fill"/>
+            <AdjustmentColor val="0,66,255"/>
+
+            <Texture val="Assets\Textures\ui_glues_profileavatar_unranked_mask_medium.dds" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+
+            <Texture val="Assets\Textures\sc2_ui_newplayerxp_hexagon_shimmermask.dds" layer="1"/>
+            <BlendMode val="Add" layer="1"/>
+
+            <Animation name="ColoredShimmer">
+                <Event event="OnShown" action="Play" frame="$this"/>
+
+                <Controller type="Property" property="TextureCoordRotation" curve="True" index="1"  end="Loop" frame="$this">
+                    <Key type="Property" time="0.0" value="0" inOut="Linear"/>
+                    <Key type="Property" time="3.5" value="360" inOut="Linear"/>
+                </Controller>
+            </Animation>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="TeammatesReadyPanel">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="70"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+
+        <Width val="300"/>
+        <Height val="600"/>
+
+        <Frame type="Frame" name="Player1Frame" template="WoL_Coop_StandardTemplate/TeammatePanelTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="Player2Frame" template="WoL_Coop_StandardTemplate/TeammatePanelTemplate">
+            <Anchor side="Top" relative="$parent/Player1Frame" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="Player3Frame" template="WoL_Coop_StandardTemplate/TeammatePanelTemplate">
+            <Anchor side="Top" relative="$parent/Player2Frame" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
     <Frame type="Button" name="NavigationButtonTemplate">
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
@@ -944,7 +1123,11 @@
 				<Key type="Curve" time=".4" value="0" inout="Slow"/>
 				<Key type="Curve" time=".7" value="255" inout="Slow"/>
 				<Key type="Curve" time=".8" value="200" inout="Slow"/>
-			</Controller>
+            </Controller>
+            
+            <Controller type="Sound" end="Pause" frame="$this">
+                <Key type="Sound" time="0.4" sound="@UI_ScoreScreenMissionSummary"/>
+            </Controller>
 			
 			<Controller type="Fade" end="Pause" frame="$this/StatValue">
 				<Key type="Curve" time="0" value="0" inout="Slow"/>
@@ -1551,6 +1734,65 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Text val="Research"/>
             <Style val="WolCoopPurchase"/>
+        </Frame>
+    </Frame>
+
+    <!-- Baattlenet Templates -->
+    <Frame type="Button" name="StandardTabButton">
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+        <StateGroup name="Submenu">
+            <DefaultState val="True"/>
+            <State name="True">
+                <Action type="SetProperty" frame="$this" Visible="True"/>
+            </State>
+        </StateGroup>
+
+        <Height val="70"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <Toggleable val="True"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor relative="$parent"/>
+
+            <Texture val="Assets\Textures\ui_battlenet_glue_bluetabbutton_normalpressed.dds"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="3"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor relative="$parent"/>
+
+            <Texture val="Assets\Textures\ui_battlenet_glue_bluetabbutton_normaloverpressedover.dds"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="3"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="7"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-7"/>
+        </Frame>
+
+        <Frame type="Label" name="Label">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
+
+            <Style val="StandardBattlenetVerticalTabButton"/>
+        </Frame>
+
+        <Frame type="Image" name="ArrowImaage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
+
+            <Texture val="Assets\Textures\ui_glues_icons_smallpagearrow_left_hover.dds"/>
+            <Rotation val="180"/>
+            <Visible val="False"/>
         </Frame>
     </Frame>
 </Desc>
