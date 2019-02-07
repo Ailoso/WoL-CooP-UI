@@ -5,7 +5,7 @@
         <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
         <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
         <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-		
+
 		<!-- This Animation will only play once -->
 			
 		<Animation name="StartBirthAnimation">
@@ -23,91 +23,11 @@
 			
 			<Controller type="Property" property="Enabled" end="Pause" frame="$this/NavFrameRight/NavButton">
 				<Key type="Property" time="0" value="False"/>
-				<Key type="Property" time="3" value="True"/>
+				<Key type="Property" time="4" value="True"/>
 			</Controller>
 			
 			<Controller type="Event" end="Stop" frame="$this/NavigationPanel">
-				<Key type="Event" time="3" event="Birth"/>
-			</Controller>
-		</Animation>
-		
-		<!-- 
-		These show and hide the time or shared titles
-		-->
-		
-		<Animation name="SummaryActive">
-			<Event event="OnMouseDown" action="Reset,Play" frame="$this/NavigationPanel/NavigationButton1"/>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeTitle">
-				<Key type="Bool" time="0" value="True"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeValue">
-				<Key type="Bool" time="0" value="True"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-		</Animation>
-		
-		<Animation name="DisplayArmory">
-			<Event event="OnMouseDown" action="Reset,Play" frame="$this/NavigationPanel/NavigationButton2"/>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeTitle">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeValue">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Bool" time="0" value="True"/>
-			</Controller>
-			
-			<Controller type="Text" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Text" time="0" text="Armory"/>
-			</Controller>
-		</Animation>
-		
-		<Animation name="DisplayLaboratory">
-			<Event event="OnMouseDown" action="Reset,Play" frame="$this/NavigationPanel/NavigationButton3"/>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeTitle">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeValue">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Bool" time="0" value="True"/>
-			</Controller>
-			
-			<Controller type="Text" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Text" time="0" text="Laboratory"/>
-			</Controller>
-		</Animation>
-		
-		<Animation name="DisplayMercs">
-			<Event event="OnMouseDown" action="Reset,Play" frame="$this/NavigationPanel/NavigationButton4"/>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeTitle">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/MissionTimeValue">
-				<Key type="Bool" time="0" value="False"/>
-			</Controller>
-			
-			<Controller type="Visibility" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Bool" time="0" value="True"/>
-			</Controller>
-			
-			<Controller type="Text" end="Pause" frame="$this/MetalBackgroundPanel/SharedTitle">
-				<Key type="Text" time="0" text="Mercenaries"/>
+				<Key type="Event" time="4" event="Birth"/>
 			</Controller>
 		</Animation>
 		
@@ -135,6 +55,45 @@
 			<PanelListItem val="$parent/MetalBackgroundPanel/LaboratoryPanel"/>
 			<PanelListItem val="$parent/MetalBackgroundPanel/MercPanel"/>
 		</Frame>
+
+		<!-- Additional Changes -->
+		<StateGroup name="ActivePanel">
+
+			<State name="Summary">
+				<When type="Property" frame="$this/NavigationPanel/NavigationButton1" operator="Equal" Toggled="True"/>
+
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeTitle" Visible="True"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeValue" Visible="True"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Visible="False"/>
+			</State>
+
+			<State name="Armory">
+				<When type="Property" frame="$this/NavigationPanel/NavigationButton2" operator="Equal" Toggled="True"/>
+	
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeTitle" Visible="False"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeValue" Visible="False"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Visible="True"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Text="Armory"/>
+			</State>
+
+			<State name="Laboratory">
+				<When type="Property" frame="$this/NavigationPanel/NavigationButton3" operator="Equal" Toggled="True"/>
+	
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeTitle" Visible="False"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeValue" Visible="False"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Visible="True"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Text="Laboratory"/>
+			</State>
+
+			<State name="Mercenaries">
+				<When type="Property" frame="$this/NavigationPanel/NavigationButton4" operator="Equal" Toggled="True"/>
+	
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeTitle" Visible="False"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/MissionTimeValue" Visible="False"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Visible="True"/>
+				<Action type="SetProperty" frame="$this/MetalBackgroundPanel/SharedTitle" Text="Mercenaries"/>
+			</State>
+		</StateGroup>
 		
 		<!-- Panel Stuff -->
 

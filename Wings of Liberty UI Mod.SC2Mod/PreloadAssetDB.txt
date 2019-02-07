@@ -1,7 +1,7 @@
 [User]
 id=Achievements
 path=Assets\Textures\.dds
-asset=TRaynor01-Hard,TRaynor01-Normal,TRaynor01-Objectives
+asset=TRaynor01-Hard,TRaynor01-Normal,TRaynor01-Objectives,ui_battlenet_glue_tournament_notification_icon_green
 Actor=CommandUIHarnessAttackProtoss,CommandUIHarnessAttackTerran,CommandUIHarnessAttackZerg,CommandUIHarnessConfirmProtoss,CommandUIHarnessConfirmTerran,CommandUIHarnessConfirmZerg,CommandUIHarnessMoveProtoss,CommandUIHarnessMoveTerran,CommandUIHarnessMoveZerg,CommandUIHarnessRallyProtoss,CommandUIHarnessRallyTerran,CommandUIHarnessRallyZerg,TerrainMgr
 id=MissionData
 asset=Assets\Textures\loading-marsara.dds

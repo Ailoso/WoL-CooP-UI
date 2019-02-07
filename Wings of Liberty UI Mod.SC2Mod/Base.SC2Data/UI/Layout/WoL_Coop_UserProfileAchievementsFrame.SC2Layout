@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <!--
+    ============================
+    Achievement Hover Image Container Template
+    ============================
+    
+    The hover image for achievements
+    -->
+    
+    <Frame type="Frame" name="AchievementHoverImageContainerTemplate">
+        <Anchor side="Top" relative="$parent/BackgroundImageContainer" pos="Min" offset="-5"/>
+        <Anchor side="Bottom" relative="$parent/BackgroundImageContainer" pos="Max" offset="3"/>
+        <Anchor side="Left" relative="$parent/BackgroundImageContainer" pos="Min" offset="-1"/>
+        <Anchor side="Right" relative="$parent/BackgroundImageContainer" pos="Max" offset="2"/>
+        <Visible val="false"/>
+        
+        <Frame type="Image" name="HoverImageTopLeft">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_TopLeft"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageTopRight">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_TopRight"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageBottomLeft">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_BottomLeft"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageBottomRight">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_BottomRight"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageTop">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Left" relative="$parent/HoverImageTopLeft" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HoverImageTopRight" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_Top"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageBottom">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="1"/>
+            <Anchor side="Left" relative="$parent/HoverImageBottomLeft" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HoverImageBottomRight" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_Bottom"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageLeft">
+            <Anchor side="Top" relative="$parent/HoverImageTopLeft" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/HoverImageBottomLeft" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-1"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_Side"/>
+        </Frame>
+        
+        <Frame type="Image" name="HoverImageRight">
+            <Anchor side="Top" relative="$parent/HoverImageTopRight" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/HoverImageBottomRight" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="1"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Highlight_Side"/>
+            <TextureCoords top="0" bottom="1" left="1" right="0"/>
+        </Frame>
+            
+        <StateGroup name="VisibleState">
+            <DefaultState val="NotVisible"/>
+            
+            <State name="Visible">
+                <When type="Property" frame="$parent/$parent" hovering="True"/>
+                <Action type="SetProperty" visible="True"/>
+            </State>
+            
+            <State name="NotVisible">
+                <Action type="SetProperty" visible="False"/>
+            </State>
+        </StateGroup>
+            
+        <StateGroup name="AlphaState">
+            <DefaultState val="Unearned"/>
+            
+            <State name="EarnedSeriesFinished">
+                <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                <When type="StateGroup" frame="$AchievementListItem" SeriesState="SeriesFinished"/>
+                <Action type="SetProperty" alpha="255"/>
+            </State>
+            
+            <State name="EarnedNoSeries">
+                <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                <When type="StateGroup" frame="$AchievementListItem" SeriesState="NoSeries"/>
+                <Action type="SetProperty" alpha="255"/>
+            </State>
+            
+            <State name="Unearned">
+                <Action type="SetProperty" alpha="128"/>
+            </State>
+        </StateGroup>
+    </Frame>
+
+    <!--
+    ============================
+    Achievement Background Image Container Template
+    ============================
+    
+    The expandable background for achievements
+    -->
+    
+    <Frame type="Frame" name="AchievementBackgroundImageContainerTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/BottomBufferFrame" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+        <Anchor side="Right" relative="BackgroundImageTop" pos="Max" offset="0"/>
+        
+        <Frame type="Image" name="BackgroundImageTop">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_Background_Unearned"/>
+        </Frame>
+        
+        <Frame type="Image" name="BackgroundImageMiddle">
+            <Anchor side="Top" relative="$parent/BackgroundImageTop" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundImageBottom" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Middle_Unearned"/>
+        </Frame>
+        
+        <Frame type="Image" name="BackgroundImageBottom">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Bottom_Unearned"/>
+        </Frame>
+            
+        
+        <StateGroup name="BackgroundImageState">
+            <DefaultState val="UnearnedNotExpanded"/>
+            
+            <State name="EarnedExpandedUnfinishedSeries">
+                <When type="StateGroup" frame="$AchievementListItem" ExpansionState="Expanded"/>
+                <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                <When type="StateGroup" frame="$parent/$parent" SeriesState="Series"/>
+                <Action type="SetProperty" frame="BackgroundImageTop" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Top_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Middle_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Bottom_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" visible="True"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" visible="True"/>
+            </State>
+            
+            <State name="EarnedExpanded">
+                <When type="StateGroup" frame="$AchievementListItem" ExpansionState="Expanded"/>
+                <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                <Action type="SetProperty" frame="BackgroundImageTop" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Top_Earned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Middle_Earned"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Bottom_Earned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" visible="True"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" visible="True"/>
+            </State>
+            
+            <State name="UnearnedExpanded">
+                <When type="StateGroup" frame="$AchievementListItem" ExpansionState="Expanded"/>
+                <Action type="SetProperty" frame="BackgroundImageTop" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Top_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Middle_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" texture="@UI/SC2_UI_UserProfile_Achievements_BackgroundExpanded_Bottom_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" visible="True"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" visible="True"/>
+            </State>
+            
+            <State name="EarnedNotExpandedUnfinishedSeries">
+                <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                <When type="StateGroup" frame="$AchievementListItem" SeriesState="Series"/>
+                <Action type="SetProperty" frame="BackgroundImageTop" texture="@UI/SC2_UI_UserProfile_Achievements_Background_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" visible="False"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" visible="False"/>
+            </State>
+            
+            <State name="EarnedNotExpanded">
+                <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                <Action type="SetProperty" frame="BackgroundImageTop" texture="@UI/SC2_UI_UserProfile_Achievements_Background_Earned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" visible="False"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" visible="False"/>
+            </State>
+            
+            <State name="UnearnedNotExpanded">
+                <Action type="SetProperty" frame="BackgroundImageTop" texture="@UI/SC2_UI_UserProfile_Achievements_Background_Unearned"/>
+                <Action type="SetProperty" frame="BackgroundImageMiddle" visible="False"/>
+                <Action type="SetProperty" frame="BackgroundImageBottom" visible="False"/>
+            </State>
+        </StateGroup>
+        
+    </Frame>
+
+    <!--
+    ============================
+    Achievement Info Frame Template
+    ============================
+    
+    The main expandable achievement frame displayed in the profile
+    -->
+
+    <Frame type="Button" name="AchievementInfoFrameTemplate">
+        <Anchor side="Bottom" relative="$this/BottomBufferFrame" pos="Max" offset="0"/>
+
+        <Toggleable val="True"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        
+        <Frame type="Frame" name="BackgroundImageContainer" template="WoL_Coop_UserProfileAchievementsFrame/AchievementBackgroundImageContainerTemplate"/>
+
+        <Frame type="Image" name="Icon">
+            <Anchor side="Top" relative="$parent/BackgroundImageContainer" pos="Min" offset="26"/>
+            <Anchor side="Left" relative="$parent/BackgroundImageContainer" pos="Min" offset="26"/>
+            <Width val="82"/>
+            <Height val="82"/>
+            <Visible val="False"/>
+        </Frame>
+
+        <Frame type="Image" name="MaskedIcon">
+            <Anchor relative="$parent/Icon"/>
+            <LayerCount val="2"/>
+            <Color val="{$parent/Icon/@Color}"/>
+            
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_IconMask" layer="0"/>
+            <TextureType val="NineSlice" layer="0"/>
+            <AlphaLayer val="True" layer="0"/>
+            
+            <Texture val="{$parent/Icon/@Texture}" layer="1"/>
+        </Frame>
+
+        <Frame type="Image" name="IconBorder">
+            <Anchor side="Top" relative="$parent/Icon" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/Icon" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/Icon" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/Icon" pos="Mid" offset="0"/>
+            <Width val="94"/>
+            <Height val="94"/>
+            <TextureType val="NineSlice"/>
+            <Texture val="@UI/SC2_UI_Collection_AchievementIconFrame_Normal"/>
+            
+            <StateGroup name="EarnedState">
+                <DefaultState val="Unearned"/>
+                
+                <State name="EarnedSeriesFinished">
+                    <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                    <When type="StateGroup" frame="$AchievementListItem" SeriesState="SeriesFinished"/>
+                    <Action type="SetProperty" color="255,255,255"/>
+                </State>
+                
+                <State name="EarnedNoSeries">
+                    <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                    <When type="StateGroup" frame="$AchievementListItem" SeriesState="NoSeries"/>
+                    <Action type="SetProperty" color="255,255,255"/>
+                </State>
+                
+                <State name="Unearned">
+                    <Action type="SetProperty" color="100,100,100"/>
+                </State>
+            </StateGroup>
+        </Frame>
+
+        <Frame type="Label" name="Title">
+            <Anchor side="Top" relative="$parent/IconBorder" pos="Min" offset="9"/>
+            <Anchor side="Left" relative="$parent/IconBorder" pos="Max" offset="13"/>
+            <Anchor side="Right" relative="$parent/BackgroundImageContainer" pos="Max" offset="-150"/>
+            <Style val="Profile_Achievement_Title"/>
+        </Frame>
+
+        <Frame type="Label" name="Description">
+            <Anchor side="Top" relative="$parent/Title" pos="Max" offset="-2"/>
+            <Anchor side="Left" relative="$parent/Title" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BackgroundImageContainer" pos="Max" offset="-180"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Style val="Profile_Achievement_Description_Unearned"/>
+            <Text val="{$parent/@DescriptionText}"/>
+            <Options val="Ellipsis | TooltipIfTruncated"/>
+            
+            <StateGroup name="VisibleState">
+                <State name="Visible">
+                    <When type="Property" frame="$parent/ExpandIcon" Visible="true"/>
+                    <Action type="SetAnchor" frame="$this" side="Bottom" relative="$parent/ExpandIcon" pos="Mid" offset="0"/>
+                </State>
+            
+                <State name="NotVisible">
+                    <When type="Property" frame="$parent/ExpandIcon" Visible="false"/>
+                    <Action type="SetAnchor" frame="$this" side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                </State>
+            </StateGroup>
+        </Frame>
+        
+        <Frame type="Image" name="ExpandIcon">
+            <Anchor side="Bottom" relative="$parent/IconBorder" pos="Max" offset="-1"/>
+            <Anchor side="Left" relative="$parent/IconBorder" pos="Max" offset="9"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_ExpandButton_Unearned"/>
+            <Visible val="False"/>
+            
+            <StateGroup name="VisibleState">
+                <DefaultState val="NotVisible"/>
+                
+                <State name="Visible">
+                    <When type="StateGroup" frame="$parent" DisplayContentState="HasContent"/>
+                    <When type="StateGroup" frame="$parent" ExpansionState="NotExpanded"/>
+                    <Action type="SetProperty" visible="True"/>
+                </State>
+                
+                <State name="NotVisible">
+                    <Action type="SetProperty" visible="False"/>
+                </State>
+            </StateGroup>
+            
+            <StateGroup name="EarnedState">
+                <DefaultState val="Unearned"/>
+                
+                <State name="EarnedSeriesFinished">
+                    <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                    <When type="StateGroup" frame="$AchievementListItem" SeriesState="SeriesFinished"/>
+                    <Action type="SetProperty" texture="@UI/SC2_UI_UserProfile_Achievements_ExpandButton_Earned"/>
+                </State>
+                
+                <State name="EarnedNoSeries">
+                    <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                    <When type="StateGroup" frame="$AchievementListItem" SeriesState="NoSeries"/>
+                    <Action type="SetProperty" texture="@UI/SC2_UI_UserProfile_Achievements_ExpandButton_Earned"/>
+                </State>
+                
+                <State name="Unearned">
+                    <Action type="SetProperty" texture="@UI/SC2_UI_UserProfile_Achievements_ExpandButton_Unearned"/>
+                </State>
+            </StateGroup>
+        </Frame>
+        
+        <Frame type="Image" name="FeatIcon">
+            <Anchor side="Top" relative="$parent/IconBorder" pos="Min" offset="8"/>
+            <Anchor side="Right" relative="$parent/BackgroundImageContainer" pos="Max" offset="-31"/>
+            <Texture val="@UI/SC2_UI_UserProfile_Achievements_FeatIcon"/>
+            
+            <StateGroup name="VisibilityState">
+                <DefaultState val="NotVisible"/>
+                
+                <State name="Visible">
+                    <When type="AnimationState" frame="$AchievementListItem" VisibilityState="Visible"/>
+                    <Action type="SetProperty" visible="True"/>
+                </State>
+                
+                <State name="NotVisible">
+                    <Action type="SetProperty" visible="False"/>
+                </State>
+            </StateGroup>
+        </Frame>
+
+        <Frame type="Label" name="PointsLabel">
+            <Anchor side="Top" relative="$parent/IconBorder" pos="Mid" offset="-3"/>
+            <Anchor side="Bottom" relative="$parent/IconBorder" pos="Mid" offset="-3"/>
+            <Anchor side="Left" relative="$parent/BackgroundImageContainer" pos="Mid" offset="335"/>
+            <Anchor side="Right" relative="$parent/BackgroundImageContainer" pos="Mid" offset="335"/>
+            <Style val="Profile_Achievement_Points_Unearned"/>
+
+            <StateGroup name="VisibilityState">
+                <DefaultState val="NotVisible"/>
+                
+                <State name="Visible">
+                    <When type="AnimationState" frame="$parent" VisibilityState="Visible"/>
+                    <Action type="SetProperty" visible="False"/>
+                </State>
+                
+                <State name="NotVisible">
+                    <Action type="SetProperty" visible="True"/>
+                </State>
+            </StateGroup>
+        </Frame>
+
+        <Frame type="Label" name="CompletionLabel">
+            <Anchor side="Top" relative="$parent/PointsLabel" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent/FeatIcon" pos="Min" offset="-5"/>
+            <Anchor side="Right" relative="$parent/FeatIcon" pos="Max" offset="5"/>
+            <Style val="Profile_Achievement_CompletionDate"/>
+            <Options val="NoWrapping|ScaleToPreventTruncation"/>
+        </Frame>
+
+        <Frame type="Frame" name="ExpandFrame">
+            <Anchor side="Top" relative="$parent/BackgroundImageContainer/BackgroundImageTop" pos="Max" offset="-17"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="ContractIcon" pos="Max" offset="18"/>
+            <CollapseLayout val="true"/>
+            
+            <Frame type="Frame" name="SeriesContainerFrame" template="UserProfileAchievementsFrame/AchievementSeriesContainerFrameTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$this/AchievementSeriesFrame0" pos="Max" offset="0"/>
+            </Frame>
+
+            <Frame type="Frame" name="CriteriaContainerFrame" template="UserProfileAchievementsFrame/AchievementCriteriaContainerFrameTemplate">
+                <Anchor side="Top" relative="$parent/SeriesContainerFrame" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$this/CriteriaRow14" pos="Max" offset="25"/>
+            </Frame>
+
+            <Frame type="AchievementInfoFrame" name="ProgressContainerFrame" template="UserProfileAchievementsFrame/AchievementProgressContainerFrameTemplate">
+                <Anchor side="Top" relative="$parent/CriteriaContainerFrame" pos="Max" offset="10"/>
+                <PresenceId val="{$parent/$parent/@PresenceId}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame0" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <Anchor side="Top" relative="$parent/ProgressContainerFrame" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="104"/>
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[0]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame1" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[1]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame2" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[2]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame3" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[3]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame4" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[4]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame5" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <Anchor side="Top" relative="$parent/RewardFrame0" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/RewardFrame0" pos="Min" offset="0"/>
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[5]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame6" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[6]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame7" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[7]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame8" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[8]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame9" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[9]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame10" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <Anchor side="Top" relative="$parent/RewardFrame5" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/RewardFrame5" pos="Min" offset="0"/>
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[10]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame11" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[11]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame12" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[12]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame13" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[13]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame14" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[14]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame15" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <Anchor side="Top" relative="$parent/RewardFrame10" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/RewardFrame10" pos="Min" offset="0"/>
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[15]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame16" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[16]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame17" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[17]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame18" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[18]}"/>
+            </Frame>
+
+            <Frame type="RewardCacheFrame" name="RewardFrame19" template="UserProfileAchievementsFrame/RewardCacheFrameTemplate">
+                <UnlockableHandle val="{$parent/$parent/@UnlockableHandle[19]}"/>
+            </Frame>
+        
+            <Frame type="Image" name="ContractIcon">
+                <Anchor side="Top" relative="$parent/RewardFrame15" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="11"/>
+                <Texture val="@UI/SC2_UI_UserProfile_Achievements_ContractButton_Unearned"/>
+                
+                <StateGroup name="EarnedState">
+                    <DefaultState val="Unearned"/>
+                    
+                    <State name="EarnedSeriesFinished">
+                        <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                        <When type="StateGroup" frame="$AchievementListItem" SeriesState="SeriesFinished"/>
+                            <Action type="SetProperty" texture="@UI/SC2_UI_UserProfile_Achievements_ContractButton_Earned"/>
+                    </State>
+                    
+                    <State name="EarnedNoSeries">
+                        <When type="StateGroup" frame="$AchievementListItem" EarnedState="Earned"/>
+                        <When type="StateGroup" frame="$AchievementListItem" SeriesState="NoSeries"/>
+                            <Action type="SetProperty" texture="@UI/SC2_UI_UserProfile_Achievements_ContractButton_Earned"/>
+                    </State>
+                    
+                    <State name="Unearned">
+                            <Action type="SetProperty" texture="@UI/SC2_UI_UserProfile_Achievements_ContractButton_Unearned"/>
+                    </State>
+                </StateGroup>
+            </Frame>
+            
+            <Frame type="Frame" name="ExpandedRewardCountFrame" template="UserProfileAchievementsFrame/AchievementExpandedRewardCountFrameTemplate">
+                <Anchor side="Top" relative="$parent/RewardFrame15" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-37"/>
+            </Frame>
+        </Frame>
+        
+        <Frame type="Frame" name="BottomBufferFrame">
+            <Anchor side="Top" relative="$parent/ExpandFrame" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ExpandFrame" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ExpandFrame" pos="Max" offset="0"/>
+            <Height val="17"/>
+        </Frame>
+        
+        <!--Frame type="Frame" name="RewardCountFrame" template="UserProfileAchievementsFrame/AchievementRewardCountFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-25"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-132"/>
+        </Frame-->
+        
+        <Frame type="Frame" name="HoverImageContainer" template="WoL_Coop_UserProfileAchievementsFrame/AchievementHoverImageContainerTemplate">
+        </Frame>
+        
+        <StateGroup name="DisplayContentState">
+            <DefaultState val="NoContent"/>
+            
+            <State name="NoContent">
+            </State>
+            
+            <State name="HasContent"/>
+        </StateGroup>
+        
+        <StateGroup name="ExpansionState">
+            <DefaultState val="NotExpanded"/>
+            
+            <State name="Expanded">
+                <When type="Property" frame="$parent" Toggled="True"/>
+                <When type="StateGroup" DisplayContentState="HasContent"/>
+                <Action type="SetProperty" frame="ExpandFrame" Visible="True"/>
+            </State>
+            
+            <State name="NotExpanded">
+                <Action type="SetProperty" frame="ExpandFrame" Visible="False"/>
+            </State>
+        </StateGroup>
+        
+        <StateGroup name="EarnedState">
+            <DefaultState val="NotEarned"/>
+
+            <State name="Earned">
+                <When type="AnimationState" frame="$AchievementListItem" EarnedState="Earned"/>
+                <Action type="SetProperty" frame="Icon" color="255,255,255"/>
+                <Action type="SetProperty" frame="Title" style="Profile_Achievement_Title"/>
+                <Action type="SetProperty" frame="Description" style="Profile_Achievement_Description"/>
+                <Action type="SetProperty" frame="PointsLabel" style="Profile_Achievement_Points"/>
+                <Action type="SetProperty" frame="FeatIcon" alpha="255"/>
+            </State>
+            
+            <State name="NotEarned">
+                <Action type="SetProperty" frame="Icon" color="100,100,100"/>
+                <Action type="SetProperty" frame="Title" style="Profile_Achievement_Title_Unearned"/>
+                <Action type="SetProperty" frame="Description" style="Profile_Achievement_Description_Unearned"/>
+                <Action type="SetProperty" frame="PointsLabel" style="Profile_Achievement_Points_Unearned"/>
+                <Action type="SetProperty" frame="FeatIcon" alpha="128"/>
+            </State>
+        </StateGroup>
+        
+        <!--StateGroup name="SeriesState">
+            <DefaultState val="NoSeries"/>
+            
+            <State name="SeriesFinished">
+                <When type="Property" HideSeries="False"/>
+                <When type="Property" operator="NotEqual" SeriesTailAchievementId="0"/>
+                <When type="Property" operator="NotEqual" SupersedesAchievementId="0"/>
+                <When type="Property" frame="$parent" NextAchievementId="0"/>
+            </State>
+            
+            <State name="Series">
+                <When type="Property" HideSeries="False"/>
+                <When type="Property" operator="NotEqual" SeriesTailAchievementId="0"/>
+            </State>
+            
+            <State name="NoSeries"/>
+        </StateGroup-->
+    </Frame>
+    
+    
+    <!--
+    ============================
+    Achievements List Box Item Template
+    ============================
+    
+    The containing list item for an achievement
+    -->
+
+    <Frame type="Button" name="AchievementsListBoxItemTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+
+        <Width val="810"/>
+        <Height val="135"/>
+        <Handle val="AchievementListItem"/>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor relative="$parent/AchievementFrame"/>
+        </Frame>
+
+        <Frame type="Frame" name="AchievementFrame" template="WoL_Coop_UserProfileAchievementsFrame/AchievementInfoFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Width val="810"/>
+        </Frame>
+
+        <Frame type="Frame" name="AnchorFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AchievementFrame" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+</Desc>

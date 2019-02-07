@@ -17,6 +17,7 @@ bool libAB61AAA6_InitVariables_completed = false;
 
 void libAB61AAA6_InitVariables () {
     int init_i;
+    int init_j;
     int init_i1;
     int init_j1;
 
@@ -26,10 +27,10 @@ void libAB61AAA6_InitVariables () {
 
     libAB61AAA6_InitVariables_completed = true;
 
+    libAB61AAA6_gv_kL_CurrentlyInMission = true;
     for (init_i = 0; init_i <= 3; init_i += 1) {
         libAB61AAA6_gv_globalValues[init_i].lv_mapKey = "";
     }
-    libAB61AAA6_gv_kL_CurrentlyInMission = true;
     for (init_i = 0; init_i <= 3; init_i += 1) {
         libAB61AAA6_gv_kL_ReadyPanel[init_i].lv_dialog = c_invalidDialogId;
         libAB61AAA6_gv_kL_ReadyPanel[init_i].lv_panel = c_invalidDialogControlId;
@@ -53,6 +54,28 @@ void libAB61AAA6_InitVariables () {
         }
         for (init_i1 = 0; init_i1 <= 4; init_i1 += 1) {
             libAB61AAA6_gv_kL_AchievementFanfarePanel[init_i].lv_icon[init_i1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        for (init_j = 0; init_j <= 10; init_j += 1) {
+            for (init_i1 = 0; init_i1 <= 10; init_i1 += 1) {
+                libAB61AAA6_gv_kL_AchievementMenu[init_i][init_j].lv_achievementItems[init_i1] = c_invalidDialogControlId;
+            }
+            for (init_i1 = 0; init_i1 <= 10; init_i1 += 1) {
+                libAB61AAA6_gv_kL_AchievementMenu[init_i][init_j].lv_title[init_i1] = c_invalidDialogControlId;
+            }
+            for (init_i1 = 0; init_i1 <= 10; init_i1 += 1) {
+                libAB61AAA6_gv_kL_AchievementMenu[init_i][init_j].lv_description[init_i1] = c_invalidDialogControlId;
+            }
+            for (init_i1 = 0; init_i1 <= 10; init_i1 += 1) {
+                libAB61AAA6_gv_kL_AchievementMenu[init_i][init_j].lv_icon[init_i1] = c_invalidDialogControlId;
+            }
+            for (init_i1 = 0; init_i1 <= 10; init_i1 += 1) {
+                libAB61AAA6_gv_kL_AchievementMenu[init_i][init_j].lv_pointsLabel[init_i1] = c_invalidDialogControlId;
+            }
+            for (init_i1 = 0; init_i1 <= 10; init_i1 += 1) {
+                libAB61AAA6_gv_kL_AchievementMenu[init_i][init_j].lv_completionLabel[init_i1] = c_invalidDialogControlId;
+            }
         }
     }
     for (init_i = 0; init_i <= 3; init_i += 1) {
@@ -163,6 +186,12 @@ void libAB61AAA6_InitVariables () {
                 libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchButtons_Toss[init_i1][init_j1] = c_invalidDialogControlId;
             }
         }
+        for (init_i1 = 0; init_i1 <= 5; init_i1 += 1) {
+            libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchAvailablePanel_Toss[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= 25; init_i1 += 1) {
+            libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchHexFillers[init_i1] = c_invalidDialogControlId;
+        }
         libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchProgress_Zerg = c_invalidDialogControlId;
         libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchLevel_Zerg = c_invalidDialogControlId;
         for (init_i1 = 0; init_i1 <= 5; init_i1 += 1) {
@@ -173,46 +202,28 @@ void libAB61AAA6_InitVariables () {
         for (init_i1 = 0; init_i1 <= 5; init_i1 += 1) {
             libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchAvailablePanel_Zerg[init_i1] = c_invalidDialogControlId;
         }
+        for (init_i1 = 0; init_i1 <= 25; init_i1 += 1) {
+            libAB61AAA6_gv_kL_LaboratoryPanel[init_i].lv_researchDNAFillers[init_i1] = c_invalidDialogControlId;
+        }
     }
     libAB61AAA6_gv_dEBUGButtonState = true;
 }
 
 // Presets
 // Functions
-void libAB61AAA6_gf_LoadBankDataforPlayer (int lp_player) {
-    // Automatic Variable Declarations
-    int auto562B9C66_val;
-
-    // Implementation
-    auto562B9C66_val = lp_player;
-    if (auto562B9C66_val == 1) {
-        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP1;
-    }
-    else if (auto562B9C66_val == 2) {
-        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP2;
-    }
-    else if (auto562B9C66_val == 3) {
-        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP3;
-    }
-    else {
-    }
-    libAB61AAA6_gv_globalValues[lp_player].lv_mapKey = lib956128B8_gf_GetMissionBankKey(lib956128B8_gf_GetCoopMissionNr(lib956128B8_gv_coop_CurrentMap));
-    libAB61AAA6_gv_globalValues[lp_player].lv_cash = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "cash");
-    libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "protoss");
-    libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "zerg");
-    libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
-    libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
-}
-
 void libAB61AAA6_gf_AwardAchievement (string lp_achievement, int lp_player) {
     // Automatic Variable Declarations
     int auto3B35BD91_val;
 
     // Implementation
-    if ((lp_achievement == null)) {
+    if ((BankVerify(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player)) == true) && ((libAB61AAA6_gf_KL_ReturnAchievementState(lp_player, lp_achievement) == true) || (lp_achievement == null))) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/lib_AB61AAA6_C1651AC6"));
         return ;
     }
-
+    else {
+        libAB61AAA6_gf_KL_StoreAchievementKey(lp_player, lp_achievement);
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/lib_AB61AAA6_F95B440E"));
+    }
     DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "Show");
     libAB61AAA6_gf_KL_DisplayAchievement(lp_achievement, lp_player);
     auto3B35BD91_val = lp_player;
@@ -281,7 +292,13 @@ bool auto_libAB61AAA6_gf_KL_DisplayAchievement_TriggerFunc (bool testConds, bool
                 libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_icon[lv_index], UserDataGetImagePath("Achievements", lp_achievement, "Icon", 1), PlayerGroupAll());
                 libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_title[lv_index], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupSingle(lp_player));
                 libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_description[lv_index], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupSingle(lp_player));
-                libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lv_index], StringToText(UserDataGetString("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
+                if ((UserDataGetInt("Achievements", lp_achievement, "Points", 1) <= 0)) {
+                    DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lp_player], PlayerGroupSingle(lp_player), "PointsGroup", "NoPoints");
+                }
+                else {
+                    DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lp_player], PlayerGroupSingle(lp_player), "PointsGroup", "HasPoints");
+                    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_pointsLabel[lv_index], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
+                }
                 autoE201C60E_val = UserDataGetGameLink("Achievements", lp_achievement, "Race", 1);
                 if (autoE201C60E_val == "Terr") {
                     DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_fanfareContainer, PlayerGroupSingle(lp_player), "StyleStateGroup", "TerranState");
@@ -295,9 +312,9 @@ bool auto_libAB61AAA6_gf_KL_DisplayAchievement_TriggerFunc (bool testConds, bool
                 else {
                 }
                 DialogControlSetVisible(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], PlayerGroupSingle(lp_player), true);
-                Wait((lv_animationTotal + (lv_animationDelay * lv_animationDelay)), c_timeReal);
-                libAB61AAA6_gv_kL_ActiveAchievement[lp_player][lv_index] = false;
+                Wait((lv_animationTotal + (lv_animationDelay * lv_index)), c_timeReal);
                 DialogControlSetVisible(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], PlayerGroupSingle(lp_player), false);
+                libAB61AAA6_gv_kL_ActiveAchievement[lp_player][lv_index] = false;
                 return true;
             }
 
@@ -305,6 +322,232 @@ bool auto_libAB61AAA6_gf_KL_DisplayAchievement_TriggerFunc (bool testConds, bool
 
     }
     return true;
+}
+
+void libAB61AAA6_gf_KL_SetAchievementPanelData (int lp_player, string lp_achievement, int lp_category) {
+    // Variable Declarations
+    string lv_dateValue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_dateValue = "";
+
+    // Implementation
+    if ((lp_achievement == null)) {
+        return ;
+    }
+
+    libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category] += 1;
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_title[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_description[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupSingle(lp_player));
+    if ((libAB61AAA6_gf_KL_ReturnAchievementState(lp_player, lp_achievement) == true)) {
+        DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_achievementItems[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], PlayerGroupSingle(lp_player), "EarnedState", "Earned");
+    }
+
+    if ((UserDataGetInt("Achievements", lp_achievement, "Points", 1) != 0)) {
+        libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_pointsLabel[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
+    }
+    else {
+        DialogControlSetAnimationState(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_achievementItems[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], PlayerGroupSingle(lp_player), "VisibilityState", "Visible");
+    }
+    libNtve_gf_SetDialogItemImage(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_icon[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], UserDataGetImagePath("Achievements", lp_achievement, "Icon", 1), PlayerGroupSingle(lp_player));
+    lv_dateValue = BankValueGetAsString(libAB61AAA6_gv_KL_SharedBankP1, libAB61AAA6_gv_kL_LordDzWolCoopConstant, (UserDataGetString("Achievements", lp_achievement, "ID", 1) + "Date"));
+    libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_AchievementMenu[lp_player][lp_category].lv_completionLabel[libAB61AAA6_gv_kL_SlotIndex[lp_player][lp_category]], StringToText(lv_dateValue), PlayerGroupSingle(lp_player));
+}
+
+trigger auto_libAB61AAA6_gf_KL_SetAchievementMenuData_Trigger = null;
+int auto_libAB61AAA6_gf_KL_SetAchievementMenuData_lp_player;
+
+void libAB61AAA6_gf_KL_SetAchievementMenuData (int lp_player) {
+    auto_libAB61AAA6_gf_KL_SetAchievementMenuData_lp_player = lp_player;
+
+    if (auto_libAB61AAA6_gf_KL_SetAchievementMenuData_Trigger == null) {
+        auto_libAB61AAA6_gf_KL_SetAchievementMenuData_Trigger = TriggerCreate("auto_libAB61AAA6_gf_KL_SetAchievementMenuData_TriggerFunc");
+    }
+
+    TriggerExecute(auto_libAB61AAA6_gf_KL_SetAchievementMenuData_Trigger, false, false);
+}
+
+bool auto_libAB61AAA6_gf_KL_SetAchievementMenuData_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_libAB61AAA6_gf_KL_SetAchievementMenuData_lp_player;
+
+    // Automatic Variable Declarations
+    // Implementation
+    libAB61AAA6_gf_KL_SetAchievementPanelData(lp_player, "TRaynor01 - Objectives", 1);
+    libAB61AAA6_gf_KL_SetAchievementPanelData(lp_player, "TRaynor01 - Normal", 1);
+    libAB61AAA6_gf_KL_SetAchievementPanelData(lp_player, "TRaynor01 - Hard", 1);
+    libAB61AAA6_gf_KL_SetAchievementPanelData(lp_player, "TRaynor00 - Feat", 1);
+    return true;
+}
+
+void libAB61AAA6_gf_KL_BankPreload (int lp_player) {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    int auto3F866B04_val;
+
+    // Variable Initialization
+
+    // Implementation
+    auto3F866B04_val = lp_player;
+    if (auto3F866B04_val == 1) {
+    }
+    else if (auto3F866B04_val == 2) {
+    }
+    else if (auto3F866B04_val == 3) {
+    }
+    else {
+    }
+}
+
+void libAB61AAA6_gf_KL_BankLoad (int lp_player) {
+    // Variable Declarations
+    string lv_untitledVariable001;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_untitledVariable001 = "";
+
+    // Implementation
+    libAB61AAA6_gf_KL_BankPreload(lp_player);
+    if ((lp_player == 1)) {
+        BankLoad("KLBanksWoLCoopAchievements", 1);
+        libAB61AAA6_gv_KL_SharedBankP1 = BankLastCreated();
+    }
+
+    if ((lp_player == 2)) {
+        BankLoad("KLBanksWoLCoopAchievements", 2);
+        libAB61AAA6_gv_KL_SharedBankP2 = BankLastCreated();
+    }
+
+    if ((lp_player == 3)) {
+        BankLoad("KLBanksWoLCoopAchievements", 3);
+        libAB61AAA6_gv_KL_SharedBankP3 = BankLastCreated();
+    }
+
+    UIDisplayMessage(PlayerGroupSingle(lp_player), c_messageAreaSubtitle, IntToText(BankKeyCount(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player), "WoLCoopAchievements")));
+    UIDisplayMessage(PlayerGroupSingle(lp_player), c_messageAreaSubtitle, StringToText(BankValueGetAsString(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player), "Section", "Test")));
+    lv_untitledVariable001 = BankValueGetAsString(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player), "Section", "Test");
+    UIDisplayMessage(PlayerGroupSingle(lp_player), c_messageAreaSubtitle, StringToText(lv_untitledVariable001));
+}
+
+void libAB61AAA6_gf_KL_BankSave (int lp_player) {
+    // Variable Declarations
+    bank lv_localBank;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_localBank = libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player);
+    BankValueSetFromString(lv_localBank, "Section", "Test", "TestingDone");
+    BankSave(lv_localBank);
+}
+
+trigger auto_libAB61AAA6_gf_KL_StoreAchievementKey_Trigger = null;
+int auto_libAB61AAA6_gf_KL_StoreAchievementKey_lp_player;
+string auto_libAB61AAA6_gf_KL_StoreAchievementKey_lp_achievement;
+
+void libAB61AAA6_gf_KL_StoreAchievementKey (int lp_player, string lp_achievement) {
+    auto_libAB61AAA6_gf_KL_StoreAchievementKey_lp_player = lp_player;
+    auto_libAB61AAA6_gf_KL_StoreAchievementKey_lp_achievement = lp_achievement;
+
+    if (auto_libAB61AAA6_gf_KL_StoreAchievementKey_Trigger == null) {
+        auto_libAB61AAA6_gf_KL_StoreAchievementKey_Trigger = TriggerCreate("auto_libAB61AAA6_gf_KL_StoreAchievementKey_TriggerFunc");
+    }
+
+    TriggerExecute(auto_libAB61AAA6_gf_KL_StoreAchievementKey_Trigger, false, false);
+}
+
+bool auto_libAB61AAA6_gf_KL_StoreAchievementKey_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_libAB61AAA6_gf_KL_StoreAchievementKey_lp_player;
+    string lp_achievement = auto_libAB61AAA6_gf_KL_StoreAchievementKey_lp_achievement;
+
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_achievement == null)) {
+        return true;
+    }
+
+    BankValueSetFromFlag(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player), libAB61AAA6_gv_kL_LordDzWolCoopConstant, (UserDataGetString("Achievements", lp_achievement, "ID", 1) + "State"), true);
+    BankValueSetFromString(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player), libAB61AAA6_gv_kL_LordDzWolCoopConstant, (UserDataGetString("Achievements", lp_achievement, "ID", 1) + "Date"), (IntToString(GetDateTimeDay(CurrentDateTimeGet())) + "/" + IntToString(GetDateTimeMonth(CurrentDateTimeGet())) + "/" + IntToString(GetDateTimeYear(CurrentDateTimeGet()))));
+    libAB61AAA6_gf_KL_BankSave(lp_player);
+    return true;
+}
+
+bool libAB61AAA6_gf_KL_ReturnAchievementState (int lp_player, string lp_achievement) {
+    // Variable Declarations
+    bool lv_achievementState;
+
+    // Automatic Variable Declarations
+    bool auto7BC8E679_val;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_achievementState = BankValueGetAsFlag(libAB61AAA6_gf_KL_ReturnPlayerBank(lp_player), "WoLCoopAchievements", (UserDataGetString("Achievements", lp_achievement, "ID", 1) + "State"));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, libNtve_gf_ConvertBooleanToText(lv_achievementState));
+    auto7BC8E679_val = lv_achievementState;
+    if (auto7BC8E679_val == true) {
+        return true;
+    }
+    else if (auto7BC8E679_val == false) {
+        return false;
+    }
+    else {
+        return false;
+    }
+}
+
+bank libAB61AAA6_gf_KL_ReturnPlayerBank (int lp_player) {
+    // Variable Declarations
+    bool lv_achievementState;
+
+    // Automatic Variable Declarations
+    int auto5C02B291_val;
+
+    // Variable Initialization
+
+    // Implementation
+    auto5C02B291_val = lp_player;
+    if (auto5C02B291_val == 1) {
+        return libAB61AAA6_gv_KL_SharedBankP1;
+    }
+    else if (auto5C02B291_val == 2) {
+        return libAB61AAA6_gv_KL_SharedBankP2;
+    }
+    else if (auto5C02B291_val == 3) {
+        return libAB61AAA6_gv_KL_SharedBankP3;
+    }
+    else {
+        return null;
+    }
+}
+
+void libAB61AAA6_gf_LoadBankDataforPlayer (int lp_player) {
+    // Automatic Variable Declarations
+    int auto562B9C66_val;
+
+    // Implementation
+    auto562B9C66_val = lp_player;
+    if (auto562B9C66_val == 1) {
+        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP1;
+    }
+    else if (auto562B9C66_val == 2) {
+        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP2;
+    }
+    else if (auto562B9C66_val == 3) {
+        libAB61AAA6_gv_globalValues[lp_player].lv_playerBank = lib956128B8_gv_bankP3;
+    }
+    else {
+    }
+    libAB61AAA6_gv_globalValues[lp_player].lv_mapKey = lib956128B8_gf_GetMissionBankKey(lib956128B8_gf_GetCoopMissionNr(lib956128B8_gv_coop_CurrentMap));
+    libAB61AAA6_gv_globalValues[lp_player].lv_cash = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "cash");
+    libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "protoss");
+    libAB61AAA6_gv_globalValues[lp_player].lv_protossResearch = BankValueGetAsInt(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, "playerstats", "zerg");
+    libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
+    libAB61AAA6_gv_globalValues[lp_player].lv_missionPlayedPreviously = BankValueGetAsFlag(libAB61AAA6_gv_globalValues[lp_player].lv_playerBank, libAB61AAA6_gv_globalValues[lp_player].lv_mapKey, "played");
 }
 
 void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player) {
@@ -328,6 +571,10 @@ void libAB61AAA6_gf_UpdateMissionData (string lp_mission, int lp_player) {
 void libAB61AAA6_gf_UpdateAchievementData (string lp_achievement, int lp_player, int lp_slot) {
     // Automatic Variable Declarations
     // Implementation
+    if ((libAB61AAA6_gf_KL_ReturnAchievementState(lp_player, lp_achievement) == true)) {
+        DialogControlSetAnimationState(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardPanels[lp_slot], PlayerGroupSingle(lp_player), "Received", "Earned");
+    }
+
     libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardTitles[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Title", 1)), PlayerGroupSingle(lp_player));
     libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardDescriptions[lp_slot], StringToText(UserDataGetString("Achievements", lp_achievement, "Description", 1)), PlayerGroupSingle(lp_player));
     libNtve_gf_SetDialogItemText(libAB61AAA6_gv_kL_SummaryPanel[lp_player].lv_rewardScore[lp_slot], IntToText(UserDataGetInt("Achievements", lp_achievement, "Points", 1)), PlayerGroupSingle(lp_player));
@@ -507,10 +754,18 @@ void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
     const int autoCFCFF85A_ai = 1;
     const int auto43FAB84B_ae = 3;
     const int auto43FAB84B_ai = 1;
+    const int autoD8048AF9_ae = 25;
+    const int autoD8048AF9_ai = 1;
+    const int autoD08B9288_ae = 5;
+    const int autoD08B9288_ai = 1;
     const int auto746F523B_ae = 5;
     const int auto746F523B_ai = 1;
     const int auto12BBE074_ae = 3;
     const int auto12BBE074_ai = 1;
+    const int auto2B0A9207_ae = 25;
+    const int auto2B0A9207_ai = 1;
+    const int auto3F908CB7_ae = 5;
+    const int auto3F908CB7_ai = 1;
 
     // Variable Initialization
 
@@ -600,6 +855,16 @@ void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
             libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchButtons_Toss[lv_index][lv_index2] = DialogControlLastCreated();
         }
     }
+    lv_index = 1;
+    for ( ; ( (autoD8048AF9_ai >= 0 && lv_index <= autoD8048AF9_ae) || (autoD8048AF9_ai < 0 && lv_index >= autoD8048AF9_ae) ) ; lv_index += autoD8048AF9_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName(("ProtossGroupPanel/ContentContainer/CounterPanel/Fill" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchHexFillers[lv_index] = DialogControlLastCreated();
+    }
+    lv_index = 1;
+    for ( ; ( (autoD08B9288_ai >= 0 && lv_index <= autoD08B9288_ae) || (autoD08B9288_ai < 0 && lv_index >= autoD08B9288_ae) ) ; lv_index += autoD08B9288_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("ProtossGroupPanel/ContentContainer/AvailablePanel" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchAvailablePanel_Toss[lv_index] = DialogControlLastCreated();
+    }
     DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("ZergGroupPanel/TitleBox/Subtitle"));
     libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchProgress_Zerg = DialogControlLastCreated();
     DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("ZergGroupPanel/ResearchBox/Title"));
@@ -612,8 +877,16 @@ void libAB61AAA6_gf_KL_HookupPanelsForPlayer (int lp_player) {
             libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchButtons_Zerg[lv_index][lv_index2] = DialogControlLastCreated();
         }
     }
-    DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName("ZergGroupPanel/ContentContainer/AvailablePanel1"));
-    libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchAvailablePanel_Zerg[1] = DialogControlLastCreated();
+    lv_index = 1;
+    for ( ; ( (auto2B0A9207_ai >= 0 && lv_index <= auto2B0A9207_ae) || (auto2B0A9207_ai < 0 && lv_index >= auto2B0A9207_ae) ) ; lv_index += auto2B0A9207_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName(("ZergGroupPanel/ContentContainer/CounterPanel/Fill" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchDNAFillers[lv_index] = DialogControlLastCreated();
+    }
+    lv_index = 1;
+    for ( ; ( (auto3F908CB7_ai >= 0 && lv_index <= auto3F908CB7_ae) || (auto3F908CB7_ai < 0 && lv_index >= auto3F908CB7_ae) ) ; lv_index += auto3F908CB7_ai ) {
+        DialogControlHookup(libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_laboratoryPanel, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("ZergGroupPanel/ContentContainer/AvailablePanel" + IntToString(lv_index))));
+        libAB61AAA6_gv_kL_LaboratoryPanel[lp_player].lv_researchAvailablePanel_Zerg[lv_index] = DialogControlLastCreated();
+    }
 }
 
 void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player) {
@@ -684,7 +957,22 @@ void libAB61AAA6_gf_KL_HookupArmoryPanels (int lp_player) {
     libAB61AAA6_gv_kL_ArmoryPanel[lp_player].lv_starshipsBattlecruiserPanel = DialogControlLastCreated();
 }
 
+trigger auto_libAB61AAA6_gf_KL_HookupAchievementPanels_Trigger = null;
+int auto_libAB61AAA6_gf_KL_HookupAchievementPanels_lp_player;
+
 void libAB61AAA6_gf_KL_HookupAchievementPanels (int lp_player) {
+    auto_libAB61AAA6_gf_KL_HookupAchievementPanels_lp_player = lp_player;
+
+    if (auto_libAB61AAA6_gf_KL_HookupAchievementPanels_Trigger == null) {
+        auto_libAB61AAA6_gf_KL_HookupAchievementPanels_Trigger = TriggerCreate("auto_libAB61AAA6_gf_KL_HookupAchievementPanels_TriggerFunc");
+    }
+
+    TriggerExecute(auto_libAB61AAA6_gf_KL_HookupAchievementPanels_Trigger, false, false);
+}
+
+bool auto_libAB61AAA6_gf_KL_HookupAchievementPanels_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_libAB61AAA6_gf_KL_HookupAchievementPanels_lp_player;
+
     // Variable Declarations
     int lv_index;
 
@@ -710,6 +998,54 @@ void libAB61AAA6_gf_KL_HookupAchievementPanels (int lp_player) {
         DialogControlHookup(libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_achievementFrames[lv_index], c_triggerControlTypeImage, libNtve_gf_ConvertStringToUILayoutFrameName("Icon"));
         libAB61AAA6_gv_kL_AchievementFanfarePanel[lp_player].lv_icon[lv_index] = DialogControlLastCreated();
     }
+    return true;
+}
+
+void libAB61AAA6_gf_KL_HookupAchievementMenu (int lp_player) {
+    // Variable Declarations
+    int lv_index1;
+    int lv_index2;
+    string lv_woLList;
+    string lv_marSaraList;
+
+    // Automatic Variable Declarations
+    const int auto291867B9_ae = 1;
+    const int auto291867B9_ai = 1;
+    const int auto7B7A017B_ae = 4;
+    const int auto7B7A017B_ai = 1;
+    int auto68CD39AF_val;
+
+    // Variable Initialization
+    lv_woLList = "AchievementsListBox";
+    lv_marSaraList = "AchievementsListBox";
+
+    // Implementation
+    lv_index1 = 1;
+    for ( ; ( (auto291867B9_ai >= 0 && lv_index1 <= auto291867B9_ae) || (auto291867B9_ai < 0 && lv_index1 >= auto291867B9_ae) ) ; lv_index1 += auto291867B9_ai ) {
+        lv_index2 = 1;
+        for ( ; ( (auto7B7A017B_ai >= 0 && lv_index2 <= auto7B7A017B_ae) || (auto7B7A017B_ai < 0 && lv_index2 >= auto7B7A017B_ae) ) ; lv_index2 += auto7B7A017B_ai ) {
+            auto68CD39AF_val = lv_index2;
+            if (auto68CD39AF_val == 1) {
+                DialogControlHookupStandard(c_triggerControlTypeButton, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_woLList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2)));
+            }
+            else if (auto68CD39AF_val == 2) {
+                DialogControlHookupStandard(c_triggerControlTypeButton, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_marSaraList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2)));
+            }
+            else {
+            }
+            libAB61AAA6_gv_kL_AchievementMenu[lp_player][lv_index1].lv_achievementItems[lv_index2] = DialogControlLastCreated();
+            DialogControlHookupStandard(c_triggerControlTypeLabel, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_woLList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2) + "/AchievementFrame/Title"));
+            libAB61AAA6_gv_kL_AchievementMenu[lp_player][lv_index1].lv_title[lv_index2] = DialogControlLastCreated();
+            DialogControlHookupStandard(c_triggerControlTypeLabel, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_woLList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2) + "/AchievementFrame/Description"));
+            libAB61AAA6_gv_kL_AchievementMenu[lp_player][lv_index1].lv_description[lv_index2] = DialogControlLastCreated();
+            DialogControlHookupStandard(c_triggerControlTypeImage, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_woLList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2) + "/AchievementFrame/Icon"));
+            libAB61AAA6_gv_kL_AchievementMenu[lp_player][lv_index1].lv_icon[lv_index2] = DialogControlLastCreated();
+            DialogControlHookupStandard(c_triggerControlTypeLabel, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_woLList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2) + "/AchievementFrame/PointsLabel"));
+            libAB61AAA6_gv_kL_AchievementMenu[lp_player][lv_index1].lv_pointsLabel[lv_index2] = DialogControlLastCreated();
+            DialogControlHookupStandard(c_triggerControlTypeLabel, ("/$parent/$parent/AchievementsDialog/KatAchievementsFrame/" + lv_woLList + "/ScrollableFrame/ContainerFrame/AchievementSlot" + IntToString(lv_index2) + "/AchievementFrame/CompletionLabel"));
+            libAB61AAA6_gv_kL_AchievementMenu[lp_player][lv_index1].lv_completionLabel[lv_index2] = DialogControlLastCreated();
+        }
+    }
 }
 
 void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_player) {
@@ -722,14 +1058,14 @@ void libAB61AAA6_gf_DisplaySharedPanelForPlayer (string lp_mission, int lp_playe
     }
 
     libNtve_gf_SetAllSoundChannelVolumes(libNtve_ge_VolumeChannelMode_Victory, PlayerGroupAll(), 0.0);
+    libAB61AAA6_gv_kL_CurrentlyInMission = false;
     DialogSetVisible(libAB61AAA6_gv_kL_SharedPanel[lp_player].lv_dialog, PlayerGroupAll(), true);
     libAB61AAA6_gf_UpdateMissionData(lp_mission, lp_player);
     libAB61AAA6_gf_KL_UpdateArmory(lp_player);
     libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Objectives", 1, 1);
     libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Normal", 1, 2);
     libAB61AAA6_gf_UpdateAchievementData("TRaynor01 - Hard", 1, 3);
-    Wait(1.5, c_timeGame);
-    libAB61AAA6_gv_kL_CurrentlyInMission = false;
+    Wait(0.5, c_timeGame);
 }
 
 // Triggers
@@ -815,9 +1151,37 @@ void libAB61AAA6_gt_KL_HideAchievementPanelP3_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: KL_ReadyPanelCreate
+// Trigger: KL_InitializeAchievementBanks
 //--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_KL_ReadyPanelCreate_Func (bool testConds, bool runActions) {
+bool libAB61AAA6_gt_KL_InitializeAchievementBanks_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto386F3579_val;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gf_KL_BankLoad(1);
+    libAB61AAA6_gf_KL_SetAchievementMenuData(1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_KL_InitializeAchievementBanks_Init () {
+    libAB61AAA6_gt_KL_InitializeAchievementBanks = TriggerCreate("libAB61AAA6_gt_KL_InitializeAchievementBanks_Func");
+    TriggerAddEventMapInit(libAB61AAA6_gt_KL_InitializeAchievementBanks);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Initialization
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_Initialization_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Actions
     if (!runActions) {
@@ -827,6 +1191,26 @@ bool libAB61AAA6_gt_KL_ReadyPanelCreate_Func (bool testConds, bool runActions) {
     libAB61AAA6_gf_KL_HookupAchievementPanels(1);
     libAB61AAA6_gf_KL_HookupAchievementPanels(2);
     libAB61AAA6_gf_KL_HookupAchievementPanels(3);
+    libAB61AAA6_gf_KL_HookupAchievementMenu(1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_Initialization_Init () {
+    libAB61AAA6_gt_Initialization = TriggerCreate("libAB61AAA6_gt_Initialization_Func");
+    TriggerAddEventMapInit(libAB61AAA6_gt_Initialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: KL_ReadyPanelCreate
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_KL_ReadyPanelCreate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
     DialogCreate(500, 400, c_anchorCenter, 0, 0, true);
     DialogSetFullscreen(DialogLastCreated(), true);
     DialogSetImageVisible(DialogLastCreated(), false);
@@ -890,26 +1274,6 @@ void libAB61AAA6_gt_KL_UpgradePressed_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Tech Fanfare
-//--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugTechFanfare_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, EventPlayer());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugTechFanfare_Init () {
-    libAB61AAA6_gt_DebugTechFanfare = TriggerCreate("libAB61AAA6_gt_DebugTechFanfare_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugTechFanfare, c_playerAny, "fanfare", true);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Debug - Replace Achievements Menu
 //--------------------------------------------------------------------------------------------------
 bool libAB61AAA6_gt_DebugReplaceAchievementsMenu_Func (bool testConds, bool runActions) {
@@ -919,12 +1283,11 @@ bool libAB61AAA6_gt_DebugReplaceAchievementsMenu_Func (bool testConds, bool runA
         return true;
     }
 
-    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogAchievementsButton, false);
     UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogRestartButton, true);
-    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogGenericButton1, true);
-    UISetGameMenuItemText(PlayerGroupAll(), c_gameMenuDialogGenericButton1, StringExternal("Param/Value/lib_AB61AAA6_912A73FA"));
-    UISetGameMenuItemShortcut(PlayerGroupAll(), c_gameMenuDialogMessageLogButton, StringExternal("Param/Value/lib_AB61AAA6_9C4C76CD"));
-    UISetGameMenuItemText(PlayerGroupAll(), c_gameMenuDialogMessageLogButton, StringExternal("Param/Value/lib_AB61AAA6_9524C754"));
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogAbortButton, true);
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogQuitButton, true);
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogExitButton, true);
+    UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogLoadButton, true);
     return true;
 }
 
@@ -935,23 +1298,101 @@ void libAB61AAA6_gt_DebugReplaceAchievementsMenu_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Show Achievements Menu
+// Trigger: Debug - Tech Fanfare
 //--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugShowAchievementsMenu_Func (bool testConds, bool runActions) {
+bool libAB61AAA6_gt_DebugTechFanfare_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, PlayerGroupSingle(EventPlayer()), "PurchaseStart");
+    Wait(1.0, c_timeGame);
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, PlayerGroupSingle(EventPlayer()), "PurchaseState", "Hired");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_stimpack, PlayerGroupSingle(EventPlayer()), "PurchaseState", "NoCredit");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_ArmoryPanel[EventPlayer()].lv_infantryMarinePanel, PlayerGroupSingle(EventPlayer()), "PurchaseState", "NoCredit");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugTechFanfare_Init () {
+    libAB61AAA6_gt_DebugTechFanfare = TriggerCreate("libAB61AAA6_gt_DebugTechFanfare_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugTechFanfare, c_playerAny, "fanfare", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - DisplayAchievement
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugDisplayAchievement_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAB61AAA6_gf_AwardAchievement("TRaynor01 - Normal", EventPlayer());
+    libAB61AAA6_gf_AwardAchievement("TRaynor01 - Objectives", EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugDisplayAchievement_Init () {
+    libAB61AAA6_gt_DebugDisplayAchievement = TriggerCreate("libAB61AAA6_gt_DebugDisplayAchievement_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugDisplayAchievement, c_playerAny, "achievement", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Display Player Panel
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugDisplayPlayerPanel_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugShowAchievementsMenu_Init () {
-    libAB61AAA6_gt_DebugShowAchievementsMenu = TriggerCreate("libAB61AAA6_gt_DebugShowAchievementsMenu_Func");
-    TriggerAddEventGameMenuItemSelected(libAB61AAA6_gt_DebugShowAchievementsMenu, c_playerAny, c_gameMenuDialogGenericButton1);
+void libAB61AAA6_gt_DebugDisplayPlayerPanel_Init () {
+    libAB61AAA6_gt_DebugDisplayPlayerPanel = TriggerCreate("libAB61AAA6_gt_DebugDisplayPlayerPanel_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugDisplayPlayerPanel, c_playerAny, "Ready", true);
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Research Fanfare
+// Trigger: Debug - Zerg Available Research
 //--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugResearchFanfare_Func (bool testConds, bool runActions) {
+bool libAB61AAA6_gt_DebugZergAvailableResearch_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    const int autoA5E8766E_ae = 5;
+    const int autoA5E8766E_ai = 1;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_index = 1;
+    for ( ; ( (autoA5E8766E_ai >= 0 && lv_index <= autoA5E8766E_ae) || (autoA5E8766E_ai < 0 && lv_index >= autoA5E8766E_ae) ) ; lv_index += autoA5E8766E_ai ) {
+        DialogControlSetVisible(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchDNAFillers[lv_index], PlayerGroupSingle(EventPlayer()), true);
+        Wait(0.15, c_timeGame);
+    }
+    DialogControlSetVisible(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchAvailablePanel_Zerg[1], PlayerGroupSingle(EventPlayer()), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugZergAvailableResearch_Init () {
+    libAB61AAA6_gt_DebugZergAvailableResearch = TriggerCreate("libAB61AAA6_gt_DebugZergAvailableResearch_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugZergAvailableResearch, c_playerAny, "ZAvailable", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Zerg Research
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugZergResearch_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Actions
     if (!runActions) {
@@ -966,9 +1407,42 @@ bool libAB61AAA6_gt_DebugResearchFanfare_Func (bool testConds, bool runActions) 
 }
 
 //--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugResearchFanfare_Init () {
-    libAB61AAA6_gt_DebugResearchFanfare = TriggerCreate("libAB61AAA6_gt_DebugResearchFanfare_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugResearchFanfare, c_playerAny, "research", true);
+void libAB61AAA6_gt_DebugZergResearch_Init () {
+    libAB61AAA6_gt_DebugZergResearch = TriggerCreate("libAB61AAA6_gt_DebugZergResearch_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugZergResearch, c_playerAny, "ZResearch", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Debug - Protoss Available Research
+//--------------------------------------------------------------------------------------------------
+bool libAB61AAA6_gt_DebugProtossAvailableResearch_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    const int autoFF5A2177_ae = 5;
+    const int autoFF5A2177_ai = 1;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_index = 1;
+    for ( ; ( (autoFF5A2177_ai >= 0 && lv_index <= autoFF5A2177_ae) || (autoFF5A2177_ai < 0 && lv_index >= autoFF5A2177_ae) ) ; lv_index += autoFF5A2177_ai ) {
+        DialogControlSetVisible(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchHexFillers[lv_index], PlayerGroupSingle(EventPlayer()), true);
+        Wait(0.15, c_timeGame);
+    }
+    DialogControlSetVisible(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchAvailablePanel_Toss[1], PlayerGroupSingle(EventPlayer()), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libAB61AAA6_gt_DebugProtossAvailableResearch_Init () {
+    libAB61AAA6_gt_DebugProtossAvailableResearch = TriggerCreate("libAB61AAA6_gt_DebugProtossAvailableResearch_Func");
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugProtossAvailableResearch, c_playerAny, "PAvailable", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -981,34 +1455,17 @@ bool libAB61AAA6_gt_DebugProtossResearch_Func (bool testConds, bool runActions) 
         return true;
     }
 
-    libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, EventPlayer());
+    DialogControlSendAnimationEvent(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchButtons_Toss[1][1], PlayerGroupSingle(EventPlayer()), "ResearchStart");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchButtons_Toss[1][2], PlayerGroupSingle(EventPlayer()), "ResearchState", "Unresearchable");
+    DialogControlSetAnimationState(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchButtons_Toss[1][3], PlayerGroupSingle(EventPlayer()), "ResearchState", "Unresearchable");
+    DialogControlSetVisible(libAB61AAA6_gv_kL_LaboratoryPanel[EventPlayer()].lv_researchAvailablePanel_Toss[1], PlayerGroupSingle(EventPlayer()), false);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void libAB61AAA6_gt_DebugProtossResearch_Init () {
     libAB61AAA6_gt_DebugProtossResearch = TriggerCreate("libAB61AAA6_gt_DebugProtossResearch_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugProtossResearch, c_playerAny, "Protoss", true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Zerg Research
-//--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugZergResearch_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libAB61AAA6_gf_ArmoryDisplayPurchaseFanfare(libAB61AAA6_gv_kL_ArmoryTechButtons[EventPlayer()].lv_combatShield, EventPlayer());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugZergResearch_Init () {
-    libAB61AAA6_gt_DebugZergResearch = TriggerCreate("libAB61AAA6_gt_DebugZergResearch_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugZergResearch, c_playerAny, "Zerg", true);
+    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugProtossResearch, c_playerAny, "PResearch", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1041,62 +1498,23 @@ void libAB61AAA6_gt_DebugToggleResearchButton_Init () {
     TriggerAddEventChatMessage(libAB61AAA6_gt_DebugToggleResearchButton, c_playerAny, "Toggle", true);
 }
 
-//--------------------------------------------------------------------------------------------------
-// Trigger: Debug - Display Player Panel
-//--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugDisplayPlayerPanel_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libAB61AAA6_gv_dEBUGindex += 1;
-    DialogControlSetVisible(libAB61AAA6_gv_kL_ReadyPanel[1].lv_playerPanel[libAB61AAA6_gv_dEBUGindex], PlayerGroupAll(), true);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugDisplayPlayerPanel_Init () {
-    libAB61AAA6_gt_DebugDisplayPlayerPanel = TriggerCreate("libAB61AAA6_gt_DebugDisplayPlayerPanel_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugDisplayPlayerPanel, c_playerAny, "Ready", true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Debug - DisplayAchievement
-//--------------------------------------------------------------------------------------------------
-bool libAB61AAA6_gt_DebugDisplayAchievement_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libAB61AAA6_gf_AwardAchievement("TRaynor01 - Normal", EventPlayer());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libAB61AAA6_gt_DebugDisplayAchievement_Init () {
-    libAB61AAA6_gt_DebugDisplayAchievement = TriggerCreate("libAB61AAA6_gt_DebugDisplayAchievement_Func");
-    TriggerAddEventChatMessage(libAB61AAA6_gt_DebugDisplayAchievement, c_playerAny, "achievement", true);
-}
-
 void libAB61AAA6_InitTriggers () {
     libAB61AAA6_gt_KL_HideAchievementPanelP1_Init();
     libAB61AAA6_gt_KL_HideAchievementPanelP2_Init();
     libAB61AAA6_gt_KL_HideAchievementPanelP3_Init();
+    libAB61AAA6_gt_KL_InitializeAchievementBanks_Init();
+    libAB61AAA6_gt_Initialization_Init();
     libAB61AAA6_gt_KL_ReadyPanelCreate_Init();
     libAB61AAA6_gt_KL_UpgradePressed_Init();
-    libAB61AAA6_gt_DebugTechFanfare_Init();
     libAB61AAA6_gt_DebugReplaceAchievementsMenu_Init();
-    libAB61AAA6_gt_DebugShowAchievementsMenu_Init();
-    libAB61AAA6_gt_DebugResearchFanfare_Init();
-    libAB61AAA6_gt_DebugProtossResearch_Init();
-    libAB61AAA6_gt_DebugZergResearch_Init();
-    libAB61AAA6_gt_DebugToggleResearchButton_Init();
-    libAB61AAA6_gt_DebugDisplayPlayerPanel_Init();
+    libAB61AAA6_gt_DebugTechFanfare_Init();
     libAB61AAA6_gt_DebugDisplayAchievement_Init();
+    libAB61AAA6_gt_DebugDisplayPlayerPanel_Init();
+    libAB61AAA6_gt_DebugZergAvailableResearch_Init();
+    libAB61AAA6_gt_DebugZergResearch_Init();
+    libAB61AAA6_gt_DebugProtossAvailableResearch_Init();
+    libAB61AAA6_gt_DebugProtossResearch_Init();
+    libAB61AAA6_gt_DebugToggleResearchButton_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

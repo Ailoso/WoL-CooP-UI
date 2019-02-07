@@ -83,6 +83,442 @@
                     <Width val="110"/>
                 </Frame>
 
+                <Frame type="Image" name="HoneyComb2">
+                    <Anchor side="Bottom" relative="$parent/HoneyComb1" pos="Min" offset="-3"/>
+                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
+                    <Height val="106"/>
+                    <Width val="110"/>
+                </Frame>
+
+                <Frame type="Image" name="HoneyComb3">
+                    <Anchor side="Bottom" relative="$parent/HoneyComb2" pos="Min" offset="-3"/>
+                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
+                    <Height val="106"/>
+                    <Width val="110"/>
+                </Frame>
+
+                <Frame type="Image" name="HoneyComb4">
+                    <Anchor side="Bottom" relative="$parent/HoneyComb3" pos="Min" offset="-3"/>
+                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
+                    <Height val="106"/>
+                    <Width val="110"/>
+                </Frame>
+
+                <Frame type="Image" name="HoneyComb5">
+                    <Anchor side="Bottom" relative="$parent/HoneyComb4" pos="Min" offset="-3"/>
+                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
+                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
+                    <Height val="106"/>
+                    <Width val="110"/>
+                </Frame>
+
+                <Frame type="Frame" name="CounterPanel">
+                    <Anchor side="Top" relative="$parent/Honeycomb5" pos="Min" offset="-30"/>
+                    <Anchor side="Bottom" relative="$parent/HoneyComb1" pos="Max" offset="30"/>
+                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="-30"/>
+                    <Anchor side="Right" relative="$parent/HoneyComb1" pos="Max" offset="30"/>
+
+                    <Frame type="Image" name="Fill1" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-21"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="33"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill2" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill1" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill3" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill2" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill4" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill3" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill5" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill4" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="35"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill6" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill5" pos="Min" offset="16"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="33"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill7" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill6" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill8" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill7" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill9" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill8" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill10" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill9" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="35"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill11" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill10" pos="Min" offset="16"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="33"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill12" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill11" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill13" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill12" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill14" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill13" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill15" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill14" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="35"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill16" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill15" pos="Min" offset="16"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="33"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill17" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill16" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill18" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill17" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill19" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill18" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill20" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill19" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="35"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill21" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill20" pos="Min" offset="15"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="33"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill22" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill21" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill23" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill22" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill24" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill23" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="19"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Image" name="Fill25" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
+                        <Anchor side="Bottom" relative="$parent/Fill24" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                        <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
+                        <StateCount val="2"/>
+                        <Height val="35"/>
+                        <Width val="165"/>
+                        <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost1">
+                        <Anchor side="Top" relative="$parent/$parent/Divider1" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider1" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/HoneyComb1" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/HoneyComb1" pos="Max" offset="0"/>
+                        <Text val="5"/>
+                        <Style val="ResearchTierRequiredLevel_Protoss"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost2">
+                        <Anchor side="Top" relative="$parent/$parent/Divider2" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider2" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/HoneyComb2" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/HoneyComb2" pos="Max" offset="0"/>
+                        <Text val="10"/>
+                        <Style val="ResearchTierRequiredLevel_Protoss"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost3">
+                        <Anchor side="Top" relative="$parent/$parent/Divider3" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider3" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/HoneyComb3" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/HoneyComb3" pos="Max" offset="0"/>
+                        <Text val="15"/>
+                        <Style val="ResearchTierRequiredLevel_Protoss"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost4">
+                        <Anchor side="Top" relative="$parent/$parent/Divider4" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider4" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/HoneyComb4" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/HoneyComb4" pos="Max" offset="0"/>
+                        <Text val="20"/>
+                        <Style val="ResearchTierRequiredLevel_Protoss"/>
+                    </Frame>
+
+                    <Frame type="Label" name="Cost5">
+                        <Anchor side="Top" relative="$parent/$parent/Divider5" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent/$parent/Divider5" pos="Mid" offset="0"/>
+                        <Anchor side="Left" relative="$parent/$parent/HoneyComb5" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/$parent/HoneyComb5" pos="Max" offset="0"/>
+                        <Text val="25"/>
+                        <Style val="ResearchTierRequiredLevel_Protoss"/>
+                    </Frame>
+                </Frame>
+
+                <Frame type="TabControl" name="AbilityTabControl">
+                    <Anchor relative="$parent"/>
+
+                    <TabListItem val="$parent/Row1Btn1"/>
+                    <TabListItem val="$parent/Row1Btn2"/>
+                    <TabListItem val="$parent/Row1Btn3"/>
+                    <TabListItem val="$parent/Row2Btn1"/>
+                    <TabListItem val="$parent/Row2Btn2"/>
+                    <TabListItem val="$parent/Row2Btn3"/>
+                    <TabListItem val="$parent/Row3Btn1"/>
+                    <TabListItem val="$parent/Row3Btn2"/>
+                    <TabListItem val="$parent/Row3Btn3"/>
+                    <TabListItem val="$parent/Row4Btn1"/>
+                    <TabListItem val="$parent/Row4Btn2"/>
+                    <TabListItem val="$parent/Row4Btn3"/>
+                    <TabListItem val="$parent/Row5Btn1"/>
+                    <TabListItem val="$parent/Row5Btn2"/>
+                    <TabListItem val="$parent/Row5Btn3"/>
+
+                    <SelectedIndex val="16"/>
+                </Frame>
+
+                <Frame type="Frame" name="AvailablePanel1" template="WoL_Coop_StandardTemplate/AvailableTossTemplate">
+                    <Anchor side="Top" relative="$parent/Divider1" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider1" pos="Mid" offset="0"/>
+                </Frame>
+
                 <Frame type="Image" name="Divider1" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb1" pos="Min" offset="-38"/>
                     <Anchor side="Right" relative="$parent/HoneyComb1" pos="Max" offset="40"/>
@@ -92,60 +528,33 @@
                     <Anchor side="Top" relative="$parent/Divider1" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider1" pos="Mid" offset="0"/>
                     <Anchor side="Left" relative="$parent/Divider1" pos="Max" offset="-7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-vanadiumplating.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row1Btn2" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row1Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row1Btn1" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row1Btn3" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row1Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row1Btn2" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="HoneyComb2">
-                    <Anchor side="Bottom" relative="$parent/HoneyComb1" pos="Min" offset="-3"/>
-                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
-                    <Height val="106"/>
-                    <Width val="110"/>
+                <Frame type="Frame" name="AvailablePanel2" template="WoL_Coop_StandardTemplate/AvailableTossTemplate">
+                    <Anchor side="Top" relative="$parent/Divider2" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider2" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider2" template="WoL_Coop_StandardTemplate/ProtossDivider">
@@ -157,60 +566,33 @@
                     <Anchor side="Top" relative="$parent/Divider2" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider2" pos="Mid" offset="0"/>
                     <Anchor side="Left" relative="$parent/Divider2" pos="Max" offset="-7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-vanadiumplating.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row2Btn2" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row2Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row2Btn1" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row2Btn3" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row2Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row2Btn2" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="HoneyComb3">
-                    <Anchor side="Bottom" relative="$parent/HoneyComb2" pos="Min" offset="-3"/>
-                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
-                    <Height val="106"/>
-                    <Width val="110"/>
+                <Frame type="Frame" name="AvailablePanel3" template="WoL_Coop_StandardTemplate/AvailableTossTemplate">
+                    <Anchor side="Top" relative="$parent/Divider3" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider3" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider3" template="WoL_Coop_StandardTemplate/ProtossDivider">
@@ -222,60 +604,33 @@
                     <Anchor side="Top" relative="$parent/Divider3" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider3" pos="Mid" offset="0"/>
                     <Anchor side="Left" relative="$parent/Divider3" pos="Max" offset="-7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-vanadiumplating.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row3Btn2" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row3Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row3Btn1" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row3Btn3" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row3Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row3Btn2" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="HoneyComb4">
-                    <Anchor side="Bottom" relative="$parent/HoneyComb3" pos="Min" offset="-3"/>
-                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
-                    <Height val="106"/>
-                    <Width val="110"/>
+                <Frame type="Frame" name="AvailablePanel4" template="WoL_Coop_StandardTemplate/AvailableTossTemplate">
+                    <Anchor side="Top" relative="$parent/Divider4" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider4" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider4" template="WoL_Coop_StandardTemplate/ProtossDivider">
@@ -287,62 +642,34 @@
                     <Anchor side="Top" relative="$parent/Divider4" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider4" pos="Mid" offset="0"/>
                     <Anchor side="Left" relative="$parent/Divider4" pos="Max" offset="-7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-vanadiumplating.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row4Btn2" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row4Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row4Btn1" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row4Btn3" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row4Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row4Btn2" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
-                <Frame type="Image" name="HoneyComb5">
-                    <Anchor side="Bottom" relative="$parent/HoneyComb4" pos="Min" offset="-3"/>
-                    <Anchor side="Left" relative="$parent/HoneyComb1" pos="Min" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb.dds"/>
-                    <Height val="106"/>
-                    <Width val="110"/>
+                <Frame type="Frame" name="AvailablePanel5" template="WoL_Coop_StandardTemplate/AvailableTossTemplate">
+                    <Anchor side="Top" relative="$parent/Divider5" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider5" pos="Mid" offset="0"/>
                 </Frame>
-
 
                 <Frame type="Image" name="Divider5" template="WoL_Coop_StandardTemplate/ProtossDivider">
                     <Anchor side="Top" relative="$parent/HoneyComb5" pos="Min" offset="-38"/>
@@ -353,379 +680,28 @@
                     <Anchor side="Top" relative="$parent/Divider5" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider5" pos="Mid" offset="0"/>
                     <Anchor side="Left" relative="$parent/Divider5" pos="Max" offset="-7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-vanadiumplating.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn2" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row5Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row5Btn1" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn3" template="WoL_Coop_StandardTemplate/ResearchProtossBtn">
                     <Anchor side="Top" relative="$parent/Row5Btn1" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent/Row5Btn2" pos="Max" offset="-10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-terran-ultracapacitors.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
-                </Frame>
-            </Frame>
-
-            <Frame type="Frame" name="CounterPanel">
-                <Anchor side="Top" relative="$parent/ContentContainer/Honeycomb5" pos="Min" offset="-30"/>
-                <Anchor side="Bottom" relative="$parent/ContentContainer/HoneyComb1" pos="Max" offset="30"/>
-                <Anchor side="Left" relative="$parent/ContentContainer/HoneyComb1" pos="Min" offset="-30"/>
-                <Anchor side="Right" relative="$parent/ContentContainer/HoneyComb1" pos="Max" offset="30"/>
-
-                <Frame type="Image" name="Fill1" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-21"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="33"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill2" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill1" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill3" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill2" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill4" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill3" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill5" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill4" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="35"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill6" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill5" pos="Min" offset="16"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="33"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill7" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill6" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill8" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill7" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill9" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill8" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill10" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill9" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="35"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill11" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill10" pos="Min" offset="16"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="33"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill12" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill11" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill13" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill12" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill14" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill13" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill15" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill14" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="35"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill16" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill15" pos="Min" offset="16"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="33"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill17" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill16" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill18" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill17" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill19" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill18" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill20" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill19" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="35"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill21" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill20" pos="Min" offset="15"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted1.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="33"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill22" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill21" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted2.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill23" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill22" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted3.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill24" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill23" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted4.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="19"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Image" name="Fill25" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
-                    <Anchor side="Bottom" relative="$parent/Fill24" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-                    <Texture val="Assets\Textures\ui_research_frame_honeycomb_fillers_highlighted5.dds"/>
-                    <StateCount val="2"/>
-                    <Height val="35"/>
-                    <Width val="165"/>
-                    <Visible val="False"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost1">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider1" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider1" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/HoneyComb1" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/HoneyComb1" pos="Max" offset="0"/>
-                    <Text val="5"/>
-                    <Style val="ResearchTierRequiredLevel_Protoss"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost2">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider2" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider2" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/HoneyComb2" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/HoneyComb2" pos="Max" offset="0"/>
-                    <Text val="10"/>
-                    <Style val="ResearchTierRequiredLevel_Protoss"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost3">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider3" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider3" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/HoneyComb3" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/HoneyComb3" pos="Max" offset="0"/>
-                    <Text val="15"/>
-                    <Style val="ResearchTierRequiredLevel_Protoss"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost4">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider4" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider4" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/HoneyComb4" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/HoneyComb4" pos="Max" offset="0"/>
-                    <Text val="20"/>
-                    <Style val="ResearchTierRequiredLevel_Protoss"/>
-                </Frame>
-
-                <Frame type="Label" name="Cost5">
-                    <Anchor side="Top" relative="$parent/$parent/ContentContainer/Divider5" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/$parent/ContentContainer/Divider5" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/$parent/ContentContainer/HoneyComb5" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/$parent/ContentContainer/HoneyComb5" pos="Max" offset="0"/>
-                    <Text val="25"/>
-                    <Style val="ResearchTierRequiredLevel_Protoss"/>
                 </Frame>
             </Frame>
         </Frame>
@@ -950,6 +926,8 @@
                         <Height val="26"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill2" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -961,6 +939,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill3" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -972,6 +952,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill4" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -983,6 +965,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill5" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -994,6 +978,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill6" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1005,6 +991,8 @@
                         <Height val="26"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill7" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1016,6 +1004,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill8" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1027,6 +1017,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill9" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1038,6 +1030,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill10" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1049,6 +1043,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill11" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1060,6 +1056,8 @@
                         <Height val="26"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill12" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1071,6 +1069,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill13" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1082,6 +1082,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill14" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1093,6 +1095,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill15" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1104,6 +1108,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill16" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1115,6 +1121,8 @@
                         <Height val="26"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill17" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1126,6 +1134,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill18" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1137,6 +1147,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill19" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1148,6 +1160,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill20" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1159,6 +1173,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill21" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1170,6 +1186,8 @@
                         <Height val="26"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill22" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1181,6 +1199,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill23" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1192,6 +1212,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill24" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1203,6 +1225,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Image" name="Fill25" template="WoL_Coop_StandardTemplate/FillerAnimationTemplate">
@@ -1214,6 +1238,8 @@
                         <Height val="23"/>
                         <Width val="170"/>
                         <Visible val="False"/>
+
+                        <Animation name="ResearchStep" template="WoL_Coop_StandardTemplate/ResearchStep"></Animation>
                     </Frame>
 
                     <Frame type="Label" name="Cost1">
@@ -1292,14 +1318,19 @@
                 <Frame type="Image" name="Divider1" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA1" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA1" pos="Min" offset="-28"/>
+
+                    <Animation name="AvailableShimmer">
+                        <Event event="OnShown" action="DirectionForward,Play" frame="$parent/AvailablePanel1"/>
+                        <Event event="ResearchStart" action="Reset,Stop" frame="$parent/Row1Btn1"/>
+                        <Event event="ResearchStart" action="Reset,Stop" frame="$parent/Row1Btn2"/>
+                        <Event event="ResearchStart" action="Reset,Stop" frame="$parent/Row1Btn3"/>
+                    </Animation>
                 </Frame>
 
                 <Frame type="Button" name="Row1Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Divider1" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider1" pos="Mid" offset="0"/>
                     <Anchor side="Right" relative="$parent/Divider1" pos="Min" offset="7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
@@ -1309,8 +1340,6 @@
                 <Frame type="Button" name="Row1Btn2" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row1Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row1Btn1" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
@@ -1320,18 +1349,15 @@
                 <Frame type="Button" name="Row1Btn3" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row1Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row1Btn2" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="AvailablePanel2" template="WoL_Coop_StandardTemplate/AvailableZergTemplate">
+                    <Anchor side="Top" relative="$parent/Divider2" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider2" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider2" template="WoL_Coop_StandardTemplate/ZergDivider">
@@ -1343,52 +1369,33 @@
                     <Anchor side="Top" relative="$parent/Divider2" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider2" pos="Mid" offset="0"/>
                     <Anchor side="Right" relative="$parent/Divider2" pos="Min" offset="7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row2Btn2" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row2Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row2Btn1" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row2Btn3" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row2Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row2Btn2" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="AvailablePanel3" template="WoL_Coop_StandardTemplate/AvailableZergTemplate">
+                    <Anchor side="Top" relative="$parent/Divider3" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider3" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider3" template="WoL_Coop_StandardTemplate/ZergDivider">
@@ -1400,52 +1407,33 @@
                     <Anchor side="Top" relative="$parent/Divider3" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider3" pos="Mid" offset="0"/>
                     <Anchor side="Right" relative="$parent/Divider3" pos="Min" offset="7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row3Btn2" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row3Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row3Btn1" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row3Btn3" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row3Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row3Btn2" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="AvailablePanel4" template="WoL_Coop_StandardTemplate/AvailableZergTemplate">
+                    <Anchor side="Top" relative="$parent/Divider4" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider4" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider4" template="WoL_Coop_StandardTemplate/ZergDivider">
@@ -1457,108 +1445,71 @@
                     <Anchor side="Top" relative="$parent/Divider4" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider4" pos="Mid" offset="0"/>
                     <Anchor side="Right" relative="$parent/Divider4" pos="Min" offset="7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row4Btn2" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row4Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row4Btn1" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row4Btn3" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row4Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row4Btn2" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="AvailablePanel5" template="WoL_Coop_StandardTemplate/AvailableZergTemplate">
+                    <Anchor side="Top" relative="$parent/Divider5" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/Divider5" pos="Mid" offset="0"/>
                 </Frame>
 
                 <Frame type="Image" name="Divider5" template="WoL_Coop_StandardTemplate/ZergDivider">
                     <Anchor side="Top" relative="$parent/DNA5" pos="Min" offset="-32"/>
                     <Anchor side="Left" relative="$parent/DNA5" pos="Min" offset="-28"/>
+
+                    <Animation name="ShimmerAnim">
+                        <Event event="ResearchStart" action="Reset,Stop" frame="$parent/Row5Btn1"/>
+                        <Event event="ResearchStart" action="Reset,Stop" frame="$parent/Row5Btn2"/>
+                        <Event event="ResearchStart" action="Reset,Stop" frame="$parent/Row5Btn3"/>
+                    </Animation>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn1" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Divider5" pos="Mid" offset="0"/>
                     <Anchor side="Bottom" relative="$parent/Divider5" pos="Mid" offset="0"/>
                     <Anchor side="Right" relative="$parent/Divider5" pos="Min" offset="7"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn2" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row5Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row5Btn1" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
 
                 <Frame type="Button" name="Row5Btn3" template="WoL_Coop_StandardTemplate/ResearchZergBtn">
                     <Anchor side="Top" relative="$parent/Row5Btn1" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent/Row5Btn2" pos="Min" offset="10"/>
-                    <Width val="90"/>
-                    <Height val="90"/>
 
                     <Frame type="Image" name="Icon">
-                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                         <Texture val="Assets\Textures\btn-research-zerg-predator.dds"/>
-                        <Width val="70"/>
-                        <Height val="70"/>
                     </Frame>
                 </Frame>
             </Frame>

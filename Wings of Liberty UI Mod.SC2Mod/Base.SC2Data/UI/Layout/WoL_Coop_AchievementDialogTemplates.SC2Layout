@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <!--
+    ============================
+    User Profile Achievements Listbox Template
+    ============================
+    
+    -->
+
+    <Frame type="Frame" name="AchievementsListBoxTemplate">
+        <Anchor relative="$parent/BackgroundAnchor"/>
+
+        <Constant name="AchievementItemGap" val="10"/>
+
+        <!--ItemDesc val="WoL_Coop_AchievementDialogTemplates/BattleReportListBoxItem"/>
+        <Insets top="79" left="15" bottom="10" right="12"/>
+        <ItemGap val="10"/>
+        <SelectionToggleable val="true"/>
+        <Visible val="False"/>
+        <ItemClickSound val="@UI_ActionButtonSelect"/-->
+
+        <Frame type="Frame" name="ListBoxBackground" template="UserProfileTemplates/LargeHeaderBackground">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-282"/>
+            <Visible val="true"/>
+        </Frame>
+
+        <Frame type="ScrollableFrame" name="ScrollableFrame">
+            <Anchor side="Top" relative="$parent/ListBoxBackground" pos="Min" offset="79"/>
+            <Anchor side="Bottom" relative="$parent/ListBoxBackground" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ListBoxBackground" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ListBoxBackground" pos="Max" offset="25"/>
+
+            <Frame type="Frame" name="ContainerFrame">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-37"/>
+            </Frame>
+
+            <Frame type="Image" name="ScrollBarBackground" template="UserProfileTemplates/ScrollBarBackgroundTemplate"/>
+            
+            <Frame type="ScrollBar" name="ScrollBar" template="UserProfileTemplates/ScrollBarTemplate">
+                <Anchor side="Top" relative="$parent/$parent" pos="Min" offset="77"/>
+                <Anchor side="Left" relative="$parent/$parent/ListBoxBackground" pos="Max" offset="2"/>
+                <Anchor side="Bottom" relative="$parent/$parent" pos="Max" offset="-7"/>
+            </Frame>
+        </Frame>
+    </Frame>
 
     <!--
     ============================
@@ -20,70 +69,25 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         </Frame>
 
-        <Frame type="ListBox" name="AchievementsListBox">
-            <Anchor relative="$parent/BackgroundAnchor"/>
-            <Insets top="79" left="15" bottom="10" right="12"/>
-            <ItemGap val="10"/>
-            <ItemDesc val="UserProfileAchievementsFrame/AchievementsListBoxItemTemplate"/>
-            <SelectionToggleable val="true"/>
-            <Visible val="true"/>
-            <ItemClickSound val="@UI_ActionButtonSelect"/>
-            
-            <Frame type="Image" name="SelectedImage">
-                <Alpha val="0"/>
-            </Frame>
+        <Frame type="Button" name="AchievementsListBox" template="WoL_Coop_AchievementDialogTemplates/AchievementsListBoxTemplate">
+            <Frame type="ScrollableFrame" name="ScrollableFrame">
 
-            <Frame type="Frame" name="ListBoxBackground" template="UserProfileTemplates/LargeHeaderBackground">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-282"/>
-                <Visible val="true"/>
+                <Frame type="Frame" name="ContainerFrame">
 
-                <Frame type="Label" name="NoAchievementsLabel">
-                    <Anchor side="Top" relative="$parent/Backdrop" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent/Backdrop" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent/Backdrop" pos="Mid" offset="0"/>
-                    <Anchor side="Right" relative="$parent/Backdrop" pos="Mid" offset="0"/>
-                    <Style val="@Tournament_Subtitle"/>
-                    <Text val="@UI/UserProfileAchievementsFrame/Empty"/>
-                    <Visible val="false"/>
+                    <Frame type="Button" name="AchievementSlot1" template="WoL_Coop_UserProfileAchievementsFrame/AchievementsListBoxItemTemplate"/>
 
-                    <StateGroup name="EmptyState">
-                        <State name="Empty">
-                            <When type="Property" frame="$parent/$parent" DataCount="0"/>
-                            <Action type="SetProperty" Visible="true"/>
-                        </State>
-                    </StateGroup>
+                    <Frame type="Button" name="AchievementSlot2" template="WoL_Coop_UserProfileAchievementsFrame/AchievementsListBoxItemTemplate">
+                        <Anchor side="Top" relative="$parent/AchievementSlot1" pos="Max" offset="10"/>
+                    </Frame>
+
+                    <Frame type="Button" name="AchievementSlot3" template="WoL_Coop_UserProfileAchievementsFrame/AchievementsListBoxItemTemplate">
+                        <Anchor side="Top" relative="$parent/AchievementSlot2" pos="Max" offset="10"/>
+                    </Frame>
+
+                    <Frame type="Button" name="AchievementSlot4" template="WoL_Coop_UserProfileAchievementsFrame/AchievementsListBoxItemTemplate">
+                        <Anchor side="Top" relative="$parent/AchievementSlot3" pos="Max" offset="10"/>
+                    </Frame>
                 </Frame>
-            </Frame>
-
-            <Frame type="Frame" name="ListBoxComparisonBackground" template="UserProfileTemplates/LargeHeaderBackground">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/ListBoxBackground" pos="Max" offset="-2"/>
-                <Width val="261"/>
-                <Visible val="false"/>
-                <CollapseLayout val="True"/>
-                
-                <StateGroup name="LocalUserState">
-                    <State name="LocalUserState">
-                        <When type="Property" frame="$BattleUI" operator="NotEqual" LocalToonPresenceId="{$UserProfileAchievementsFrame/@PresenceId}"/>
-                        <Action type="SetProperty" Visible="true"/>
-                    </State>
-                </StateGroup>
-            </Frame>
-
-            <SelectedImage val="$root/StandardBattlenetTemplates/BattlenetSocialListBoxItemSelectedImage"/>
-            <HoverImage val="$root/StandardBattlenetTemplates/BattlenetSocialListBoxItemHoverImage"/>
-            <ScrollBar val="ScrollBar"/>
-            
-            <Frame type="Image" name="ScrollBarBackground" template="UserProfileTemplates/ScrollBarBackgroundTemplate"/>
-            
-            <Frame type="ScrollBar" name="ScrollBar" template="UserProfileTemplates/ScrollBarTemplate">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="77"/>
-                <Anchor side="Left" relative="$parent/ListBoxComparisonBackground" pos="Max" offset="2"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-7"/>
             </Frame>
         </Frame>
 
@@ -98,26 +102,196 @@
             <Width val="368"/>
             <Height val="803"/>
 
-            <Frame type="TabControl" name="TabControlMain">
-                <Anchor relative="$parent"/>
-
-                <TabListItem val="$parent/TabButton0"/>
-                <TabListItem val="$parent/TabButton1"/>
-            </Frame>
-
-            <Frame type="Button" name="TabButton0" template="WoL_Coop_StandardTemplate/StandardTabButton">
+            <Frame type="ScrollableFrame" name="ScrollableFrame">
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
 
-                <Frame type="Label" name="Label">
-                    <Text val="Summary"/>
+                <!-- ScrollBar Stuff -->
+
+                <Frame type="Image" name="ScrollBarBackground" template="WoL_Coop_UserProfileTemplates/ScrollBarBackgroundTemplate"></Frame>
+
+                <Frame type="ScrollBar" name="ScrollBar" template="WoL_Coop_UserProfileTemplates/ScrollBarTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="7"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-7"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-7"/>
                 </Frame>
-            </Frame>
 
-            <Frame type="Button" name="TabButton1" template="WoL_Coop_StandardTemplate/StandardTabButton">
-                <Anchor side="Top" relative="$parent/TabButton0" pos="Max" offset="5"/>
+                <Frame type="Frame" name="ContainerFrame">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$this/TabButton2" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
 
-                <Frame type="Label" name="Label">
-                    <Text val="Liberty Co-op Campaign"/>
+                    <Frame type="Button" name="TabButton0" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        
+                        <Frame type="Label" name="Label">
+                            <Text val="Summary"/>
+                        </Frame>
+                    </Frame>
+
+                    <Frame type="Button" name="TabButton1" template="WoL_Coop_UserProfileTemplates/VerticalTabArrowButtonTemplate">
+                        <Anchor side="Top" relative="$parent/TabButton0" pos="Max" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        
+                        <Frame type="Label" name="Label">
+                            <Text val="Liberty Co-op Campaign"/>
+                        </Frame>
+                    </Frame>
+
+                    <StateGroup name="WingsStuff">
+                    
+                        <State name="Inactive">
+                            <When type="Property" frame="$this/TabButton1" Toggled="False"/>
+                            <When type="Property" frame="$this/WingsSubTabs/SubTabButton0" Toggled="False"/>
+    
+                            <Action type="SetProperty" frame="$this/WingsSubTabs" Visible="False"/>
+                        </State>
+                    
+                        <State name="Active">
+                            <When type="Property" frame="$this/TabButton1" Toggled="True"/>
+                            <When type="Property" frame="$this/WingsSubTabs/SubTabButton0" Toggled="True"/>
+
+                            <Action type="SetProperty" frame="$this/WingsSubTabs" Visible="True"/>
+                        </State>
+                    </StateGroup>
+
+                    <StateGroup name="TabState">
+                        <DefaultState val="Disabled"/>
+                    
+                        <State name="Enabled">
+                            <When type="Property" frame="$this/TabButton1" operator="Equal" Toggled="True"/>
+
+                            <Action type="SetProperty" frame="$this/WingsSubTabs" Visible="True"/>
+                        </State>
+
+                        <State name="Disabled">
+                                <When type="Property" frame="$this/TabButton1" operator="Equal" Toggled="False"/>
+    
+                                <Action type="SetProperty" frame="$this/WingsSubTabs" Visible="False"/>
+                            </State>
+                    </StateGroup>
+
+                    <Frame type="Frame" name="WingsSubTabs">
+                        <Anchor side="Top" relative="$parent/TabButton1" pos="Max" offset="0"/>
+                        <Anchor side="Bottom" relative="$this/SubTabButton8" pos="Max" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+                        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+                        <CollapseLayout val="True"/>
+                        <Constant name="SubTabWidth" val="321"/>
+
+                        <Frame type="Button" name="SubTabButton0" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Mar Sara Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton1" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton0" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Colonist Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton2" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton1" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Colonist Missions"/>
+                            </Frame>
+                        </Frame>
+                    
+                        <Frame type="Button" name="SubTabButton3" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton2" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Covert Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton4" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton3" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Rebellion Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton5" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton4" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Artifact Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton6" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton5" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Prophecy Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton7" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton6" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Final Missions"/>
+                            </Frame>
+                        </Frame>
+    
+                        <Frame type="Button" name="SubTabButton8" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                            <Anchor side="Top" relative="$parent/SubTabButton7" pos="Max" offset="0"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    
+                            <Width val="#SubTabWidth"/>
+            
+                            <Frame type="Label" name="Label">
+                                <Text val="Story Missions"/>
+                            </Frame>
+                        </Frame>    
+                    </Frame>
+
+                    <Frame type="Button" name="TabButton2" template="WoL_Coop_UserProfileTemplates/VerticalTabButtonTemplate">
+                        <Anchor side="Top" relative="$parent/WingsSubTabs" pos="Max" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        
+                        <Frame type="Label" name="Label">
+                            <Text val="Feats of Strenght"/>
+                        </Frame>
+                    </Frame>
                 </Frame>
             </Frame>
         </Frame>
@@ -279,10 +453,8 @@
         </Frame>
         
         <StateGroup name="CategoryState">
-            <DefaultState val="NotSummary"/>
-            
             <State name="Summary">
-                <When type="Property" frame="$this" CategoryId="0"/>
+                <When type="Property" frame="$this/CategoryTabView/ScrollableFrame/ContainerFrame/TabButton0" Toggled="True"/>
                 <Action type="SetProperty" frame="CategoriesContainerFrame" Visible="true"/>
                 <Action type="SetProperty" frame="AchievementShowcaseContainer" Visible="true"/>
                 <Action type="SetProperty" frame="RecentAchievementsListBox" Visible="true"/>
@@ -291,6 +463,7 @@
             </State>
             
             <State name="NotSummary">
+                <When type="Property" frame="$this/CategoryTabView/ScrollableFrame/ContainerFrame/TabButton0" Toggled="False"/>
                 <Action type="SetProperty" frame="CategoriesContainerFrame" Visible="false"/>
                 <Action type="SetProperty" frame="AchievementShowcaseContainer" Visible="false"/>
                 <Action type="SetProperty" frame="RecentAchievementsListBox" Visible="false"/>

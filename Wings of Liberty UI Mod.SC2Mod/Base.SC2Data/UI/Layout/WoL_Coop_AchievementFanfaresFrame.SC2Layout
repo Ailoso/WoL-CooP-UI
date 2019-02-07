@@ -574,7 +574,7 @@
             <DefaultState val="TerranState"/>
 
             <State name="TerranState">
-                <When type="Property" frame="$parent/$parent" AchievementStyle="Terran"/>
+                <When type="AnimationState" frame="$parent" operator="Equal" StyleStateGroup="TerranState"/>
                 <Action type="SetProperty" frame="BackgroundImageEcho" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Terr"/>
                 <Action type="SetProperty" frame="BackgroundImage" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Terr"/>
                 <Action type="SetProperty" frame="BackgroundImageHighlight" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Terr"/>
@@ -593,7 +593,7 @@
             </State>
 
             <State name="ZergState">
-                <When type="Property" frame="$parent/$parent" AchievementStyle="Zerg"/>
+                <When type="AnimationState" frame="$parent" operator="Equal" StyleStateGroup="ZergState"/>
                 <Action type="SetProperty" frame="BackgroundImageEcho" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Zerg"/>
                 <Action type="SetProperty" frame="BackgroundImage" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Zerg"/>
                 <Action type="SetProperty" frame="BackgroundImageHighlight" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Zerg"/>
@@ -612,7 +612,7 @@
             </State>
             
             <State name="ProtossState">
-                <When type="Property" frame="$parent/$parent" AchievementStyle="Protoss"/>
+                <When type="AnimationState" frame="$parent" operator="Equal" StyleStateGroup="ProtossState"/>
                 <Action type="SetProperty" frame="BackgroundImageEcho" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Prot"/>
                 <Action type="SetProperty" frame="BackgroundImage" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Prot"/>
                 <Action type="SetProperty" frame="BackgroundImageHighlight" Texture="@UI/SC2_UI_Battlenet_Achievement_Fanfare_BG_Prot"/>
@@ -648,7 +648,6 @@
             <Anchor side="Left" relative="$parent/PointsBorder" pos="Mid" offset="1"/>
             <Anchor side="Right" relative="$parent/PointsBorder" pos="Mid" offset="1"/>
             <Style val="@AchievementFanfarePoints_Terr"/>
-            <Text val="10"/>
             <Alpha val="0"/>
 
             <StateGroup name="StyleStateGroup">
@@ -669,15 +668,14 @@
             </StateGroup>
 
             <StateGroup name="PointsGroup">
-                <DefaultState val="HasPoints"/>
-
                 <State name="NoPoints">
-                    <When type="Property" frame="$parent" PointsText="0"/>
+                    <When type="AnimationState" frame="$this" operator="Equal" PointsGroup="NoPoints"/>
                     <Action type="SetProperty" frame="$this" Visible="false"/>
                     <Action type="SetProperty" frame="$parent/FeatOfStrengthIcon" Visible="true"/>
                 </State>
 
                 <State name="HasPoints">
+                        <When type="AnimationState" frame="$this" operator="Equal" PointsGroup="HasPoints"/>
                     <Action type="SetProperty" frame="$this" Visible="true"/>
                     <Action type="SetProperty" frame="$parent/FeatOfStrengthIcon" Visible="false"/>
                 </State>

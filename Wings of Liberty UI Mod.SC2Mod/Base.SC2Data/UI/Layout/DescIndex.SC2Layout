@@ -2,6 +2,8 @@
 <Desc>
     <Include path="UI/Layout/WoL_Coop_StandardTemplate.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_AchievementFanfaresFrame.SC2Layout"/>
+    <Include path="UI/Layout/WoL_Coop_UserProfileTemplates.SC2Layout"/>
+    <Include path="UI/Layout/WoL_Coop_UserProfileAchievementsFrame.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_AchievementDialogTemplates.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_ScoreScreenPanel.SC2Layout"/>
     <Include path="UI/Layout/WoL_Coop_ArmoryPanel.SC2Layout"/>

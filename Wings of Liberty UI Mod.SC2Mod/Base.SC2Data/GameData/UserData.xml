@@ -12,6 +12,9 @@
             <GameLinkType value="Race"/>
             <EditorColumn value="6"/>
         </Fields>
+        <Fields Id="EarnState" Type="String" EditorColumn="7">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
         <Instances Id="[Default]">
             <Image Image="Assets\Textures\TRaynor01-Objectives.dds">
                 <Field Id="Icon"/>
@@ -81,6 +84,26 @@
             </String>
             <String String="Down with Mengsk">
                 <Field Id="Title"/>
+            </String>
+        </Instances>
+        <Instances Id="TRaynor00 - Feat">
+            <GameLink GameLink="Zerg">
+                <Field Id="Race"/>
+            </GameLink>
+            <Image Image="Assets\Textures\ui_battlenet_glue_tournament_notification_icon_green.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Int>
+                <Field Id="Points"/>
+            </Int>
+            <String String="Feat of Strength">
+                <Field Id="Title"/>
+            </String>
+            <String String="TRaynor00-Feat">
+                <Field Id="ID"/>
+            </String>
+            <String String="Just testing Feat of strength inclusion, more data required.">
+                <Field Id="Description"/>
             </String>
         </Instances>
     </CUser>
